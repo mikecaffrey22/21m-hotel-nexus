@@ -830,9 +830,13 @@ const FLOOR_TIERS = [
 
 function FindFloorScreen({ onBack }) {
   const [v, setV] = useState(false);
+  const [mode, setMode] = useState("sats"); // "sats" or "wallet"
   const [input, setInput] = useState("");
+  const [address, setAddress] = useState("");
+  const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
   const [showResult, setShowResult] = useState(false);
+  const [err, setErr] = useState("");
   const resultRef = useRef(null);
 
   useEffect(() => { setTimeout(() => setV(true), 50); }, []);
@@ -848,19 +852,48 @@ function FindFloorScreen({ onBack }) {
     if (isNaN(sats) || sats < 0) return;
     const tier = FLOOR_TIERS.find(t => sats <= t.max);
     if (tier) {
-      setResult({ sats, tier });
+      setResult({ sats, tier, address: null });
       setShowResult(true);
+      setErr("");
     }
   };
 
+  const handleWalletLookup = async () => {
+    const addr = address.trim();
+    if (!addr) return;
+    setErr("");
+    setResult(null);
+    setShowResult(false);
+    setLoading(true);
+    try {
+      const res = await fetch(`https://mempool.space/api/address/${addr}`);
+      if (!res.ok) throw new Error("Not found");
+      const data = await res.json();
+      const funded = (data.chain_stats?.funded_txo_sum || 0);
+      const spent = (data.chain_stats?.spent_txo_sum || 0);
+      const sats = funded - spent;
+      const tier = FLOOR_TIERS.find(t => sats <= t.max);
+      if (tier) {
+        setResult({ sats, tier, address: addr });
+        setShowResult(true);
+      }
+    } catch (e) {
+      setErr("Could not find that address. Make sure it's a valid public Bitcoin address.");
+    }
+    setLoading(false);
+  };
+
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") handleCheckIn();
+    if (e.key === "Enter") {
+      if (mode === "sats") handleCheckIn();
+      else handleWalletLookup();
+    }
   };
 
   const fmt = (n) => n.toLocaleString();
 
   const btcEquiv = (sats) => {
-    if (sats >= 100000000) return (sats / 100000000).toFixed(2) + " BTC";
+    if (sats >= 100000000) return (sats / 100000000).toFixed(4) + " BTC";
     if (sats >= 1000000) return (sats / 1000000).toFixed(1) + "M sats";
     if (sats >= 1000) return (sats / 1000).toFixed(1) + "K sats";
     return sats + " sats";
@@ -870,7 +903,16 @@ function FindFloorScreen({ onBack }) {
     setResult(null);
     setShowResult(false);
     setInput("");
+    setAddress("");
+    setErr("");
   };
+
+  const tabStyle = (active) => ({
+    flex: 1, padding: "10px 12px", background: active ? "rgba(247,147,26,0.12)" : "rgba(255,255,255,0.02)",
+    border: "1px solid", borderColor: active ? "rgba(247,147,26,0.3)" : "rgba(255,255,255,0.06)",
+    borderRadius: 6, color: active ? ORANGE : "rgba(255,255,255,.35)", fontSize: 11, fontWeight: 600,
+    fontFamily: "monospace", letterSpacing: ".08em", cursor: "pointer", textAlign: "center",
+  });
 
   return (
     <div style={{ minHeight: "100vh", background: DARK, position: "relative", overflow: "hidden" }}>
@@ -885,49 +927,98 @@ function FindFloorScreen({ onBack }) {
         <div style={{ textAlign: "center", padding: "40px 24px 32px" }}>
           <div style={{ fontSize: 48, marginBottom: 16 }}>🗝</div>
           <h2 style={{ fontSize: "clamp(28px,5vw,42px)", fontWeight: 800, color: "#fff", fontFamily: "'Georgia',serif", margin: "0 0 8px" }}>Find Your Floor</h2>
-          <p style={{ fontSize: 13, color: "rgba(255,255,255,.4)", fontFamily: "'Georgia',serif", fontStyle: "italic", maxWidth: 400, margin: "0 auto" }}>How many sats do you hold? The Hotel will show you where you live.</p>
+          <p style={{ fontSize: 13, color: "rgba(255,255,255,.4)", fontFamily: "'Georgia',serif", fontStyle: "italic", maxWidth: 400, margin: "0 auto" }}>The Hotel knows where you belong. Check in below.</p>
         </div>
 
         <div style={{
-          maxWidth: 400, margin: "0 auto", padding: "0 24px",
+          maxWidth: 420, margin: "0 auto", padding: "0 24px",
           opacity: v ? 1 : 0, transform: v ? "translateY(0)" : "translateY(20px)",
           transition: "all .6s cubic-bezier(.22,1,.36,1) .1s",
         }}>
-          <div style={{ marginBottom: 16 }}>
-            <input
-              type="text"
-              inputMode="numeric"
-              placeholder="Enter your sats..."
-              value={input}
-              onChange={(e) => setInput(e.target.value.replace(/[^0-9,]/g, ""))}
-              onKeyDown={handleKeyDown}
-              style={{
-                width: "100%", padding: "16px 20px", background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(247,147,26,0.2)", borderRadius: 8, color: "#fff",
-                fontSize: 20, fontFamily: "'Georgia',serif", fontWeight: 700, outline: "none",
-                boxSizing: "border-box", textAlign: "center", letterSpacing: "0.02em",
-              }}
-            />
+          {/* Mode Toggle */}
+          <div style={{ display: "flex", gap: 8, marginBottom: 20 }}>
+            <div onClick={() => { setMode("sats"); reset(); }} style={tabStyle(mode === "sats")}>I KNOW MY SATS</div>
+            <div onClick={() => { setMode("wallet"); reset(); }} style={tabStyle(mode === "wallet")}>CHECK THE LEDGER</div>
           </div>
-          <button
-            onClick={handleCheckIn}
-            style={{
-              width: "100%", padding: "14px 24px", background: ORANGE, border: "none",
-              borderRadius: 8, color: DARK, fontSize: 14, fontWeight: 700, fontFamily: "monospace",
-              letterSpacing: ".08em", cursor: "pointer",
-            }}
-          >
-            CHECK IN
-          </button>
-          <p style={{ fontSize: 11, color: "rgba(255,255,255,.2)", fontFamily: "monospace", textAlign: "center", marginTop: 12 }}>1 BTC = 100,000,000 sats</p>
+
+          {mode === "sats" && (
+            <>
+              <div style={{ marginBottom: 16 }}>
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  placeholder="Enter your sats..."
+                  value={input}
+                  onChange={(e) => setInput(e.target.value.replace(/[^0-9,]/g, ""))}
+                  onKeyDown={handleKeyDown}
+                  style={{
+                    width: "100%", padding: "16px 20px", background: "rgba(255,255,255,0.04)",
+                    border: "1px solid rgba(247,147,26,0.2)", borderRadius: 8, color: "#fff",
+                    fontSize: 20, fontFamily: "'Georgia',serif", fontWeight: 700, outline: "none",
+                    boxSizing: "border-box", textAlign: "center", letterSpacing: "0.02em",
+                  }}
+                />
+              </div>
+              <button onClick={handleCheckIn} style={{
+                width: "100%", padding: "14px 24px", background: ORANGE, border: "none",
+                borderRadius: 8, color: DARK, fontSize: 14, fontWeight: 700, fontFamily: "monospace",
+                letterSpacing: ".08em", cursor: "pointer",
+              }}>CHECK IN</button>
+              <p style={{ fontSize: 11, color: "rgba(255,255,255,.2)", fontFamily: "monospace", textAlign: "center", marginTop: 12 }}>1 BTC = 100,000,000 sats</p>
+            </>
+          )}
+
+          {mode === "wallet" && (
+            <>
+              <div style={{ marginBottom: 16 }}>
+                <input
+                  type="text"
+                  placeholder="Paste your public address..."
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  style={{
+                    width: "100%", padding: "14px 16px", background: "rgba(255,255,255,0.04)",
+                    border: "1px solid rgba(247,147,26,0.2)", borderRadius: 8, color: "#fff",
+                    fontSize: 13, fontFamily: "monospace", outline: "none",
+                    boxSizing: "border-box", wordBreak: "break-all",
+                  }}
+                />
+              </div>
+              <button onClick={handleWalletLookup} disabled={loading} style={{
+                width: "100%", padding: "14px 24px", background: loading ? "rgba(247,147,26,0.5)" : ORANGE,
+                border: "none", borderRadius: 8, color: DARK, fontSize: 14, fontWeight: 700,
+                fontFamily: "monospace", letterSpacing: ".08em", cursor: loading ? "wait" : "pointer",
+              }}>{loading ? "CHECKING THE LEDGER..." : "CHECK THE LEDGER"}</button>
+              <p style={{ fontSize: 10, color: "rgba(255,255,255,.2)", fontFamily: "monospace", textAlign: "center", marginTop: 12, lineHeight: 1.6 }}>Your public address only. Your keys stay yours. The Ledger never asks for permission — it only tells the truth.</p>
+            </>
+          )}
+
+          {err && (
+            <div style={{ marginTop: 16, padding: "14px 18px", background: "rgba(255,80,80,0.08)", border: "1px solid rgba(255,80,80,0.2)", borderRadius: 8, textAlign: "center" }}>
+              <p style={{ fontSize: 12, color: "rgba(255,150,150,.7)", fontFamily: "monospace", margin: 0 }}>{err}</p>
+            </div>
+          )}
         </div>
 
         {showResult && result && (
           <div ref={resultRef} style={{
-            maxWidth: 400, margin: "32px auto 0", padding: "0 24px 60px",
+            maxWidth: 420, margin: "32px auto 0", padding: "0 24px 60px",
             animation: "floorFadeIn 0.6s ease",
           }}>
             <style>{`@keyframes floorFadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}`}</style>
+
+            {/* Ledger confirmation for wallet mode */}
+            {result.address && (
+              <div style={{
+                background: "rgba(247,147,26,0.06)", border: "1px solid rgba(247,147,26,0.15)",
+                borderRadius: 10, padding: "24px 24px", textAlign: "center", marginBottom: 14,
+              }}>
+                <div style={{ fontSize: 9, color: "rgba(255,255,255,.25)", fontFamily: "monospace", letterSpacing: ".12em", marginBottom: 10 }}>THE LEDGER SAYS</div>
+                <div style={{ fontSize: "clamp(28px,6vw,42px)", fontWeight: 800, color: ORANGE, fontFamily: "'Georgia',serif" }}>{fmt(result.sats)}</div>
+                <div style={{ fontSize: 13, color: "rgba(255,255,255,.35)", fontFamily: "monospace", marginTop: 4 }}>{btcEquiv(result.sats)}</div>
+              </div>
+            )}
 
             {/* Your Position */}
             <div style={{
@@ -937,20 +1028,22 @@ function FindFloorScreen({ onBack }) {
             }}>
               <div style={{ fontSize: 11, color: "rgba(255,255,255,.3)", fontFamily: "monospace", letterSpacing: ".12em", marginBottom: 12 }}>YOUR POSITION IN THE HOTEL</div>
               <div style={{ fontSize: "clamp(28px,6vw,42px)", fontWeight: 800, color: result.tier.color, fontFamily: "'Georgia',serif", marginBottom: 4 }}>{result.tier.floor}</div>
-              <div style={{ fontSize: 14, color: "rgba(255,255,255,.5)", fontFamily: "'Georgia',serif", fontStyle: "italic" }}>{result.tier.zone}</div>
+              <div style={{ fontSize: 14, color: "rgba(255,255,255,.5)", fontFamily: "'Georgia',serif", fontStyle: "italic" }}>{result.tier.zone} · {result.tier.temp}</div>
             </div>
 
-            {/* Stats Row */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 16 }}>
-              <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 8, padding: "16px 12px", textAlign: "center" }}>
-                <div style={{ fontSize: 18, fontWeight: 700, color: ORANGE, fontFamily: "'Georgia',serif" }}>{fmt(result.sats)}</div>
-                <div style={{ fontSize: 9, color: "rgba(255,255,255,.25)", fontFamily: "monospace", letterSpacing: ".1em", marginTop: 4 }}>YOUR SATS</div>
+            {/* Stats Row (manual mode only) */}
+            {!result.address && (
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 16 }}>
+                <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 8, padding: "16px 12px", textAlign: "center" }}>
+                  <div style={{ fontSize: 18, fontWeight: 700, color: ORANGE, fontFamily: "'Georgia',serif" }}>{fmt(result.sats)}</div>
+                  <div style={{ fontSize: 9, color: "rgba(255,255,255,.25)", fontFamily: "monospace", letterSpacing: ".1em", marginTop: 4 }}>YOUR SATS</div>
+                </div>
+                <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 8, padding: "16px 12px", textAlign: "center" }}>
+                  <div style={{ fontSize: 18, fontWeight: 700, color: result.tier.color, fontFamily: "'Georgia',serif" }}>{result.tier.temp}</div>
+                  <div style={{ fontSize: 9, color: "rgba(255,255,255,.25)", fontFamily: "monospace", letterSpacing: ".1em", marginTop: 4 }}>YOUR TEMPERATURE</div>
+                </div>
               </div>
-              <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 8, padding: "16px 12px", textAlign: "center" }}>
-                <div style={{ fontSize: 18, fontWeight: 700, color: result.tier.color, fontFamily: "'Georgia',serif" }}>{result.tier.temp}</div>
-                <div style={{ fontSize: 9, color: "rgba(255,255,255,.25)", fontFamily: "monospace", letterSpacing: ".1em", marginTop: 4 }}>YOUR TEMPERATURE</div>
-              </div>
-            </div>
+            )}
 
             {/* Description */}
             <div style={{
@@ -964,12 +1057,9 @@ function FindFloorScreen({ onBack }) {
             <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 10, padding: "20px 24px", marginBottom: 16 }}>
               <div style={{ fontSize: 9, color: "rgba(255,255,255,.25)", fontFamily: "monospace", letterSpacing: ".1em", marginBottom: 12, textAlign: "center" }}>YOUR POSITION</div>
               <div style={{ position: "relative", height: 200, background: "rgba(255,255,255,0.02)", borderRadius: 6, overflow: "hidden" }}>
-                {/* Gradient from cold (bottom) to warm (top) */}
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, #1a2a4a, #2a3a5a, #4a5a3a, #6a5a2a, #8a4a1a, #aa3a0a, #F7931A)", opacity: 0.15 }} />
-                {/* Floor labels */}
                 <div style={{ position: "absolute", top: 4, left: 0, right: 0, textAlign: "center", fontSize: 8, color: "rgba(255,255,255,.15)", fontFamily: "monospace" }}>SUMMIT</div>
                 <div style={{ position: "absolute", bottom: 4, left: 0, right: 0, textAlign: "center", fontSize: 8, color: "rgba(255,255,255,.15)", fontFamily: "monospace" }}>FLOOR 1</div>
-                {/* Your position marker */}
                 {(() => {
                   const logSats = result.sats > 0 ? Math.log10(result.sats) : 0;
                   const maxLog = Math.log10(2100000000000000);
@@ -992,6 +1082,14 @@ function FindFloorScreen({ onBack }) {
                 })()}
               </div>
             </div>
+
+            {/* Verified Address (wallet mode only) */}
+            {result.address && (
+              <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 8, padding: "14px 16px", textAlign: "center", marginBottom: 14 }}>
+                <div style={{ fontSize: 9, color: "rgba(255,255,255,.2)", fontFamily: "monospace", letterSpacing: ".1em", marginBottom: 6 }}>VERIFIED ADDRESS</div>
+                <div style={{ fontSize: 10, color: "rgba(255,255,255,.3)", fontFamily: "monospace", wordBreak: "break-all", lineHeight: 1.6 }}>{result.address}</div>
+              </div>
+            )}
 
             {/* Try Again */}
             <button onClick={reset} style={{
