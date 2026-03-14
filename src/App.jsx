@@ -263,6 +263,7 @@ function Hub({ onSelect }) {
           { id: "glossary", icon: "📜", label: "GLOSSARY", desc: "Hotel Lexicon", count: "11 TERMS" },
           { id: "fire", icon: "🔥", label: "THE FIRE", desc: "Live from the Chain", count: "LIVE" },
           { id: "findfloor", icon: "🗝", label: "FIND YOUR FLOOR", desc: "Where Do You Live?", count: "CHECK IN" },
+          { id: "hoteltoday", icon: "🌐", label: "THE HOTEL TODAY", desc: "Who Owns the Building?", count: "LIVE" },
         ].map((item, i) => (
           <div key={item.id} onClick={() => onSelect(item.id)} style={{
             background: "rgba(247,147,26,0.04)", border: "1px solid rgba(247,147,26,0.15)", borderRadius: 8,
@@ -1108,6 +1109,189 @@ function FindFloorScreen({ onBack }) {
   );
 }
 
+/* ─── The Hotel Today ─── */
+
+const KNOWN_ENTITIES = [
+  { name: "El Salvador", country: "🇸🇻", total_holdings: 6101, type: "Government", note: "First nation to adopt Bitcoin as legal tender" },
+  { name: "United States", country: "🇺🇸", total_holdings: 198000, type: "Government", note: "Seized assets held by U.S. government" },
+  { name: "Bhutan", country: "🇧🇹", total_holdings: 10635, type: "Government", note: "Mined via hydroelectric power" },
+  { name: "Michael Saylor", country: "🇺🇸", total_holdings: 17732, type: "Individual", note: "Personal holdings, separate from Strategy" },
+  { name: "Nakamoto Floors", country: "∅", total_holdings: 1100000, type: "Monument", note: "Sealed. Empty. As designed. The scarcity itself." },
+];
+
+function HotelTodayScreen({ onBack }) {
+  const [v, setV] = useState(false);
+  const [companies, setCompanies] = useState(null);
+  const [err, setErr] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => { setTimeout(() => setV(true), 50); }, []);
+
+  useEffect(() => {
+    let alive = true;
+    async function fetchData() {
+      try {
+        const res = await fetch("https://api.coingecko.com/api/v3/companies/public_treasury/bitcoin");
+        if (!res.ok) throw new Error("API error");
+        const data = await res.json();
+        if (!alive) return;
+
+        const apiCompanies = (data.companies || []).map(c => ({
+          name: c.name,
+          country: c.country || "—",
+          total_holdings: c.total_holdings || 0,
+          percentage_of_total_supply: c.percentage_of_total_supply || 0,
+          type: "Public Company",
+          note: null,
+        }));
+
+        const known = KNOWN_ENTITIES.map(e => ({
+          ...e,
+          percentage_of_total_supply: parseFloat(((e.total_holdings / 21000000) * 100).toFixed(3)),
+        }));
+
+        const all = [...known, ...apiCompanies].sort((a, b) => b.total_holdings - a.total_holdings);
+        setCompanies(all);
+        setLoading(false);
+      } catch (e) {
+        if (alive) { setErr(true); setLoading(false); }
+      }
+    }
+    fetchData();
+    return () => { alive = false; };
+  }, []);
+
+  const fmt = (n) => n.toLocaleString();
+  const totalClaimed = companies ? companies.reduce((sum, c) => sum + c.total_holdings, 0) : 0;
+  const pctClaimed = companies ? ((totalClaimed / 21000000) * 100).toFixed(1) : "0";
+
+  const countryFlag = (c) => {
+    if (c === "∅") return "∅";
+    if (c.length <= 4) return c;
+    const flags = { US: "🇺🇸", CA: "🇨🇦", JP: "🇯🇵", GB: "🇬🇧", HK: "🇭🇰", DE: "🇩🇪", AU: "🇦🇺", TH: "🇹🇭", SG: "🇸🇬", NO: "🇳🇴", KR: "🇰🇷", CN: "🇨🇳", BR: "🇧🇷", CH: "🇨🇭", SE: "🇸🇪", IN: "🇮🇳", FR: "🇫🇷", TW: "🇹🇼", NL: "🇳🇱", AR: "🇦🇷" };
+    return flags[c] || c;
+  };
+
+  const typeBadge = (type) => {
+    const colors = {
+      "Government": { bg: "rgba(100,180,255,0.12)", border: "rgba(100,180,255,0.25)", text: "#6ab4ff" },
+      "Individual": { bg: "rgba(180,130,255,0.12)", border: "rgba(180,130,255,0.25)", text: "#b482ff" },
+      "Monument": { bg: "rgba(120,120,120,0.12)", border: "rgba(120,120,120,0.25)", text: "#888" },
+      "Public Company": { bg: "rgba(247,147,26,0.08)", border: "rgba(247,147,26,0.15)", text: ORANGE },
+    };
+    const c = colors[type] || colors["Public Company"];
+    return { background: c.bg, border: `1px solid ${c.border}`, color: c.text, padding: "2px 8px", borderRadius: 12, fontSize: 8, fontFamily: "monospace", letterSpacing: ".06em", fontWeight: 600, whiteSpace: "nowrap" };
+  };
+
+  return (
+    <div style={{ minHeight: "100vh", background: DARK, position: "relative", overflow: "hidden" }}>
+      <Embers /><Noise /><Glow h={300} o={0.06} />
+
+      <div style={{ position: "relative", zIndex: 2 }}>
+        <div style={{ padding: "20px 24px", display: "flex", alignItems: "center", gap: 12 }}>
+          <button onClick={onBack} style={{ background: "rgba(0,0,0,.4)", border: "1px solid rgba(255,255,255,.1)", borderRadius: 6, color: "rgba(255,255,255,.5)", padding: "6px 14px", cursor: "pointer", fontSize: 12, fontFamily: "monospace" }}>← NEXUS</button>
+          <span style={{ fontSize: 11, color: "rgba(255,255,255,.2)", fontFamily: "monospace" }}>/ THE HOTEL TODAY</span>
+        </div>
+
+        <div style={{ textAlign: "center", padding: "30px 24px 24px" }}>
+          <div style={{ fontSize: 48, marginBottom: 16 }}>🌐</div>
+          <h2 style={{ fontSize: "clamp(28px,5vw,42px)", fontWeight: 800, color: "#fff", fontFamily: "'Georgia',serif", margin: "0 0 8px" }}>The Hotel Today</h2>
+          <p style={{ fontSize: 13, color: "rgba(255,255,255,.4)", fontFamily: "'Georgia',serif", fontStyle: "italic", maxWidth: 440, margin: "0 auto" }}>Every known entity with floors in the Hotel. Ranked by holdings. Updated live.</p>
+        </div>
+
+        {loading && (
+          <div style={{ textAlign: "center", padding: "60px 24px" }}>
+            <div style={{ fontSize: 13, color: "rgba(247,147,26,.4)", fontFamily: "monospace", animation: "pulse 2s ease-in-out infinite" }}>Checking the Ledger...</div>
+          </div>
+        )}
+
+        {err && (
+          <div style={{ textAlign: "center", padding: "40px 24px" }}>
+            <p style={{ fontSize: 13, color: "rgba(255,255,255,.3)", fontFamily: "monospace" }}>The Ledger is beyond reach right now. Try again shortly.</p>
+          </div>
+        )}
+
+        {companies && (
+          <div style={{ maxWidth: 600, margin: "0 auto", padding: "0 24px 60px" }}>
+            {/* Summary */}
+            <div style={{
+              display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 20,
+              opacity: v ? 1 : 0, transform: v ? "translateY(0)" : "translateY(15px)",
+              transition: "all .6s cubic-bezier(.22,1,.36,1) .1s",
+            }}>
+              <div style={{ background: "rgba(247,147,26,0.06)", border: "1px solid rgba(247,147,26,0.15)", borderRadius: 10, padding: "20px 16px", textAlign: "center" }}>
+                <div style={{ fontSize: 22, fontWeight: 800, color: ORANGE, fontFamily: "'Georgia',serif" }}>{fmt(totalClaimed)}</div>
+                <div style={{ fontSize: 9, color: "rgba(255,255,255,.3)", fontFamily: "monospace", letterSpacing: ".1em", marginTop: 6 }}>FLOORS CLAIMED</div>
+              </div>
+              <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 10, padding: "20px 16px", textAlign: "center" }}>
+                <div style={{ fontSize: 22, fontWeight: 800, color: "#fff", fontFamily: "'Georgia',serif" }}>{pctClaimed}%</div>
+                <div style={{ fontSize: 9, color: "rgba(255,255,255,.3)", fontFamily: "monospace", letterSpacing: ".1em", marginTop: 6 }}>OF THE HOTEL</div>
+              </div>
+            </div>
+
+            {/* Entity List */}
+            {companies.map((entity, i) => {
+              const isSpecial = entity.type !== "Public Company";
+              return (
+                <div key={entity.name + i} style={{
+                  display: "flex", alignItems: "center", gap: 12,
+                  padding: "14px 16px",
+                  background: isSpecial ? "rgba(247,147,26,0.03)" : "rgba(255,255,255,0.015)",
+                  border: "1px solid",
+                  borderColor: isSpecial ? "rgba(247,147,26,0.1)" : "rgba(255,255,255,0.04)",
+                  borderRadius: 8, marginBottom: 6,
+                  opacity: v ? 1 : 0, transform: v ? "translateY(0)" : "translateY(10px)",
+                  transition: `all .4s cubic-bezier(.22,1,.36,1) ${Math.min(i * .03, 1)}s`,
+                }}>
+                  {/* Rank */}
+                  <div style={{ width: 28, fontSize: 11, color: "rgba(255,255,255,.2)", fontFamily: "monospace", textAlign: "center", flexShrink: 0 }}>
+                    {i + 1}
+                  </div>
+
+                  {/* Flag */}
+                  <div style={{ fontSize: 18, width: 24, textAlign: "center", flexShrink: 0 }}>
+                    {countryFlag(entity.country)}
+                  </div>
+
+                  {/* Name + Type */}
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontSize: 13, fontWeight: 700, color: isSpecial ? "#fff" : "rgba(255,255,255,.75)", fontFamily: "'Georgia',serif", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                      {entity.name}
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 3 }}>
+                      <span style={typeBadge(entity.type)}>{entity.type.toUpperCase()}</span>
+                      {entity.note && <span style={{ fontSize: 9, color: "rgba(255,255,255,.2)", fontFamily: "monospace", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{entity.note}</span>}
+                    </div>
+                  </div>
+
+                  {/* Holdings */}
+                  <div style={{ textAlign: "right", flexShrink: 0 }}>
+                    <div style={{ fontSize: 14, fontWeight: 700, color: isSpecial ? ORANGE : "rgba(255,255,255,.6)", fontFamily: "'Georgia',serif" }}>
+                      {fmt(entity.total_holdings)}
+                    </div>
+                    <div style={{ fontSize: 8, color: "rgba(255,255,255,.2)", fontFamily: "monospace", letterSpacing: ".06em", marginTop: 2 }}>
+                      FLOORS
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+
+            {/* Footer Notes */}
+            <div style={{ marginTop: 20, padding: "16px 18px", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: 8 }}>
+              <p style={{ fontSize: 10, color: "rgba(255,255,255,.2)", fontFamily: "monospace", lineHeight: 1.8, margin: 0 }}>
+                Public company data updates live via CoinGecko. Government and individual holdings are updated periodically.
+                Nakamoto Floors represent the estimated coins held in Satoshi's original wallets — untouched since the beginning.
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
+      <Support />
+    </div>
+  );
+}
+
 /* ─── Main App ─── */
 
 export default function App() {
@@ -1126,6 +1310,7 @@ export default function App() {
     if (media === "glossary") return <GlossaryScreen onBack={() => { setScreen("hub"); setMedia(null); }} />;
     if (media === "fire") return <FireScreen onBack={() => { setScreen("hub"); setMedia(null); }} />;
     if (media === "findfloor") return <FindFloorScreen onBack={() => { setScreen("hub"); setMedia(null); }} />;
+    if (media === "hoteltoday") return <HotelTodayScreen onBack={() => { setScreen("hub"); setMedia(null); }} />;
   }
   return <Hub onSelect={(id) => { setMedia(id); setScreen("media"); }} />;
 }
