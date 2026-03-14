@@ -257,11 +257,12 @@ function Hub({ onSelect }) {
       </div>
 
       {/* Featured sections above media */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, padding: "0 24px 12px", maxWidth: 700, margin: "0 auto", position: "relative", zIndex: 2 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, padding: "0 24px 12px", maxWidth: 700, margin: "0 auto", position: "relative", zIndex: 2 }}>
         {[
           { id: "floors", icon: "🏨", label: "THE FLOORS", desc: "Know the Building", count: "7 FLOORS" },
           { id: "glossary", icon: "📜", label: "GLOSSARY", desc: "Hotel Lexicon", count: "11 TERMS" },
           { id: "fire", icon: "🔥", label: "THE FIRE", desc: "Live from the Chain", count: "LIVE" },
+          { id: "findfloor", icon: "🗝", label: "FIND YOUR FLOOR", desc: "Where Do You Live?", count: "CHECK IN" },
         ].map((item, i) => (
           <div key={item.id} onClick={() => onSelect(item.id)} style={{
             background: "rgba(247,147,26,0.04)", border: "1px solid rgba(247,147,26,0.15)", borderRadius: 8,
@@ -758,6 +759,257 @@ function FireScreen({ onBack }) {
   );
 }
 
+/* ─── Find Your Floor ─── */
+
+const FLOOR_TIERS = [
+  {
+    max: 100,
+    floor: "Floor 1",
+    zone: "The Bottom",
+    temp: "7°C",
+    desc: "The coldest habitable space in the Hotel. No room. No warmth. You sleep in shifts. You eat what you can find. The view screens show warm, empty floors above you twenty-four hours a day. You own almost nothing — and almost nothing is exactly what it feels like.",
+    color: "#4466aa",
+  },
+  {
+    max: 1000,
+    floor: "Floors 2–3",
+    zone: "The Bottom",
+    temp: "9–11°C",
+    desc: "Marginally better than Floor 1. You have a cubicle. You might have a blanket that isn't shared. The cold is still in your lungs every morning. You can see Floor 1 below you and you're grateful you're not there. You can see Floor 4 above you and you'd do anything to get there.",
+    color: "#4466aa",
+  },
+  {
+    max: 10000,
+    floor: "Floors 4–50",
+    zone: "The Lower Floors",
+    temp: "12–14°C",
+    desc: "You climbed out. The cold is still there but it doesn't own you anymore. Small businesses. Trade schools. Families who are building something. You can feel the warmth above you — not on your skin, not yet, but in the idea that things are getting better. Don't look down.",
+    color: "#557799",
+  },
+  {
+    max: 100000,
+    floor: "Floors 50–5,000",
+    zone: "The Mid-Floors",
+    temp: "14–20°C",
+    desc: "You crossed the line. Space to yourself. A door that locks. Air that doesn't hurt to breathe. You're not comfortable yet — but you're not suffering. The view screens still show warmer floors above, but you've stopped watching them with desperation. Now you watch them with a plan.",
+    color: "#887744",
+  },
+  {
+    max: 1000000,
+    floor: "Floors 5,000–20,000",
+    zone: "The Agricultural Belt",
+    temp: "18–22°C",
+    desc: "Comfortable. Real warmth. Real food — not paste, not rations, but vegetables that grew in soil under light. You have space. You have choices. You can smell green things growing. Children here have never known the cold. This is what 100,000 sats buys you: a life worth living.",
+    color: "#aa8833",
+  },
+  {
+    max: 10000000,
+    floor: "Floors 20,000–50,000",
+    zone: "The Open Range",
+    temp: "20–23°C",
+    desc: "The frontier. Sparsely populated. Wide corridors. Experimental communities. You didn't just escape the Bottom — you built something. The air here is warm enough to forget that ice exists outside. People up here think in decades, not days.",
+    color: "#cc7722",
+  },
+  {
+    max: 100000000,
+    floor: "Floors 50,000–200,000",
+    zone: "The High Floors",
+    temp: "23–28°C",
+    desc: "Estates. Dynasties. The Named Floor territory begins here. El Salvador. Nigeria. Japan. The Saylor Cathedral. Strategy's 738,731 floors. You don't just live in the Hotel — you shape it. The warmth here isn't a luxury. It's a fact of life. The cold is a story your grandparents told.",
+    color: "#dd6611",
+  },
+  {
+    max: Infinity,
+    floor: "Floors 200,000+",
+    zone: "The Highlands & Beyond",
+    temp: "28°C+",
+    desc: "You own a full floor. Or more. The air is warm. The space is vast. Ghost Floors stretch in every direction — sealed, empty, yours. The Eternal Fire glows above. From here, the Bottom is a number on a view screen. You are the Hotel. The Hotel is you.",
+    color: ORANGE,
+  },
+];
+
+function FindFloorScreen({ onBack }) {
+  const [v, setV] = useState(false);
+  const [input, setInput] = useState("");
+  const [result, setResult] = useState(null);
+  const [showResult, setShowResult] = useState(false);
+  const resultRef = useRef(null);
+
+  useEffect(() => { setTimeout(() => setV(true), 50); }, []);
+
+  useEffect(() => {
+    if (showResult && resultRef.current) {
+      setTimeout(() => resultRef.current.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
+    }
+  }, [showResult]);
+
+  const handleCheckIn = () => {
+    const sats = parseInt(input.replace(/,/g, ""), 10);
+    if (isNaN(sats) || sats < 0) return;
+    const tier = FLOOR_TIERS.find(t => sats <= t.max);
+    if (tier) {
+      setResult({ sats, tier });
+      setShowResult(true);
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") handleCheckIn();
+  };
+
+  const fmt = (n) => n.toLocaleString();
+
+  const btcEquiv = (sats) => {
+    if (sats >= 100000000) return (sats / 100000000).toFixed(2) + " BTC";
+    if (sats >= 1000000) return (sats / 1000000).toFixed(1) + "M sats";
+    if (sats >= 1000) return (sats / 1000).toFixed(1) + "K sats";
+    return sats + " sats";
+  };
+
+  const reset = () => {
+    setResult(null);
+    setShowResult(false);
+    setInput("");
+  };
+
+  return (
+    <div style={{ minHeight: "100vh", background: DARK, position: "relative", overflow: "hidden" }}>
+      <Embers /><Noise /><Glow h={300} o={0.06} />
+
+      <div style={{ position: "relative", zIndex: 2 }}>
+        <div style={{ padding: "20px 24px", display: "flex", alignItems: "center", gap: 12 }}>
+          <button onClick={onBack} style={{ background: "rgba(0,0,0,.4)", border: "1px solid rgba(255,255,255,.1)", borderRadius: 6, color: "rgba(255,255,255,.5)", padding: "6px 14px", cursor: "pointer", fontSize: 12, fontFamily: "monospace" }}>← NEXUS</button>
+          <span style={{ fontSize: 11, color: "rgba(255,255,255,.2)", fontFamily: "monospace" }}>/ FIND YOUR FLOOR</span>
+        </div>
+
+        <div style={{ textAlign: "center", padding: "40px 24px 32px" }}>
+          <div style={{ fontSize: 48, marginBottom: 16 }}>🗝</div>
+          <h2 style={{ fontSize: "clamp(28px,5vw,42px)", fontWeight: 800, color: "#fff", fontFamily: "'Georgia',serif", margin: "0 0 8px" }}>Find Your Floor</h2>
+          <p style={{ fontSize: 13, color: "rgba(255,255,255,.4)", fontFamily: "'Georgia',serif", fontStyle: "italic", maxWidth: 400, margin: "0 auto" }}>How many sats do you hold? The Hotel will show you where you live.</p>
+        </div>
+
+        <div style={{
+          maxWidth: 400, margin: "0 auto", padding: "0 24px",
+          opacity: v ? 1 : 0, transform: v ? "translateY(0)" : "translateY(20px)",
+          transition: "all .6s cubic-bezier(.22,1,.36,1) .1s",
+        }}>
+          <div style={{ marginBottom: 16 }}>
+            <input
+              type="text"
+              inputMode="numeric"
+              placeholder="Enter your sats..."
+              value={input}
+              onChange={(e) => setInput(e.target.value.replace(/[^0-9,]/g, ""))}
+              onKeyDown={handleKeyDown}
+              style={{
+                width: "100%", padding: "16px 20px", background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(247,147,26,0.2)", borderRadius: 8, color: "#fff",
+                fontSize: 20, fontFamily: "'Georgia',serif", fontWeight: 700, outline: "none",
+                boxSizing: "border-box", textAlign: "center", letterSpacing: "0.02em",
+              }}
+            />
+          </div>
+          <button
+            onClick={handleCheckIn}
+            style={{
+              width: "100%", padding: "14px 24px", background: ORANGE, border: "none",
+              borderRadius: 8, color: DARK, fontSize: 14, fontWeight: 700, fontFamily: "monospace",
+              letterSpacing: ".08em", cursor: "pointer",
+            }}
+          >
+            CHECK IN
+          </button>
+          <p style={{ fontSize: 11, color: "rgba(255,255,255,.2)", fontFamily: "monospace", textAlign: "center", marginTop: 12 }}>1 BTC = 100,000,000 sats</p>
+        </div>
+
+        {showResult && result && (
+          <div ref={resultRef} style={{
+            maxWidth: 400, margin: "32px auto 0", padding: "0 24px 60px",
+            animation: "floorFadeIn 0.6s ease",
+          }}>
+            <style>{`@keyframes floorFadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}`}</style>
+
+            {/* Your Position */}
+            <div style={{
+              background: `rgba(${result.tier.color === ORANGE ? "247,147,26" : "255,255,255"},0.04)`,
+              border: `1px solid ${result.tier.color}44`,
+              borderRadius: 10, padding: "32px 24px", textAlign: "center", marginBottom: 16,
+            }}>
+              <div style={{ fontSize: 11, color: "rgba(255,255,255,.3)", fontFamily: "monospace", letterSpacing: ".12em", marginBottom: 12 }}>YOUR POSITION IN THE HOTEL</div>
+              <div style={{ fontSize: "clamp(28px,6vw,42px)", fontWeight: 800, color: result.tier.color, fontFamily: "'Georgia',serif", marginBottom: 4 }}>{result.tier.floor}</div>
+              <div style={{ fontSize: 14, color: "rgba(255,255,255,.5)", fontFamily: "'Georgia',serif", fontStyle: "italic" }}>{result.tier.zone}</div>
+            </div>
+
+            {/* Stats Row */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 16 }}>
+              <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 8, padding: "16px 12px", textAlign: "center" }}>
+                <div style={{ fontSize: 18, fontWeight: 700, color: ORANGE, fontFamily: "'Georgia',serif" }}>{fmt(result.sats)}</div>
+                <div style={{ fontSize: 9, color: "rgba(255,255,255,.25)", fontFamily: "monospace", letterSpacing: ".1em", marginTop: 4 }}>YOUR SATS</div>
+              </div>
+              <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 8, padding: "16px 12px", textAlign: "center" }}>
+                <div style={{ fontSize: 18, fontWeight: 700, color: result.tier.color, fontFamily: "'Georgia',serif" }}>{result.tier.temp}</div>
+                <div style={{ fontSize: 9, color: "rgba(255,255,255,.25)", fontFamily: "monospace", letterSpacing: ".1em", marginTop: 4 }}>YOUR TEMPERATURE</div>
+              </div>
+            </div>
+
+            {/* Description */}
+            <div style={{
+              background: "rgba(0,0,0,0.3)", borderLeft: `2px solid ${result.tier.color}44`,
+              padding: "20px 20px", borderRadius: "0 8px 8px 0", marginBottom: 16,
+            }}>
+              <p style={{ fontSize: 14, color: "rgba(255,255,255,.55)", fontFamily: "'Georgia',serif", lineHeight: 1.8, margin: 0 }}>{result.tier.desc}</p>
+            </div>
+
+            {/* Vertical Position Bar */}
+            <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 10, padding: "20px 24px", marginBottom: 16 }}>
+              <div style={{ fontSize: 9, color: "rgba(255,255,255,.25)", fontFamily: "monospace", letterSpacing: ".1em", marginBottom: 12, textAlign: "center" }}>YOUR POSITION</div>
+              <div style={{ position: "relative", height: 200, background: "rgba(255,255,255,0.02)", borderRadius: 6, overflow: "hidden" }}>
+                {/* Gradient from cold (bottom) to warm (top) */}
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, #1a2a4a, #2a3a5a, #4a5a3a, #6a5a2a, #8a4a1a, #aa3a0a, #F7931A)", opacity: 0.15 }} />
+                {/* Floor labels */}
+                <div style={{ position: "absolute", top: 4, left: 0, right: 0, textAlign: "center", fontSize: 8, color: "rgba(255,255,255,.15)", fontFamily: "monospace" }}>SUMMIT</div>
+                <div style={{ position: "absolute", bottom: 4, left: 0, right: 0, textAlign: "center", fontSize: 8, color: "rgba(255,255,255,.15)", fontFamily: "monospace" }}>FLOOR 1</div>
+                {/* Your position marker */}
+                {(() => {
+                  const logSats = result.sats > 0 ? Math.log10(result.sats) : 0;
+                  const maxLog = Math.log10(2100000000000000);
+                  const pct = Math.min(Math.max((logSats / maxLog) * 100, 2), 98);
+                  return (
+                    <div style={{
+                      position: "absolute", left: 12, right: 12,
+                      bottom: `${pct}%`, transform: "translateY(50%)",
+                      display: "flex", alignItems: "center", gap: 8,
+                    }}>
+                      <div style={{ flex: 1, height: 2, background: result.tier.color, borderRadius: 1, boxShadow: `0 0 8px ${result.tier.color}66` }} />
+                      <div style={{
+                        padding: "3px 8px", background: result.tier.color,
+                        borderRadius: 4, fontSize: 9, fontWeight: 700, color: DARK,
+                        fontFamily: "monospace", whiteSpace: "nowrap",
+                      }}>YOU — {btcEquiv(result.sats)}</div>
+                      <div style={{ flex: 1, height: 2, background: result.tier.color, borderRadius: 1, boxShadow: `0 0 8px ${result.tier.color}66` }} />
+                    </div>
+                  );
+                })()}
+              </div>
+            </div>
+
+            {/* Try Again */}
+            <button onClick={reset} style={{
+              width: "100%", padding: "12px 24px", background: "none",
+              border: "1px solid rgba(255,255,255,0.1)", borderRadius: 8,
+              color: "rgba(255,255,255,.4)", fontSize: 12, fontFamily: "monospace",
+              letterSpacing: ".1em", cursor: "pointer",
+            }}>
+              CHECK IN AGAIN
+            </button>
+          </div>
+        )}
+      </div>
+      <Support />
+    </div>
+  );
+}
+
 /* ─── Main App ─── */
 
 export default function App() {
@@ -775,6 +1027,7 @@ export default function App() {
     if (media === "floors") return <FloorsList onBack={() => { setScreen("hub"); setMedia(null); }} />;
     if (media === "glossary") return <GlossaryScreen onBack={() => { setScreen("hub"); setMedia(null); }} />;
     if (media === "fire") return <FireScreen onBack={() => { setScreen("hub"); setMedia(null); }} />;
+    if (media === "findfloor") return <FindFloorScreen onBack={() => { setScreen("hub"); setMedia(null); }} />;
   }
   return <Hub onSelect={(id) => { setMedia(id); setScreen("media"); }} />;
 }
