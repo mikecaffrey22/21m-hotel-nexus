@@ -1112,11 +1112,31 @@ function FindFloorScreen({ onBack }) {
 /* ─── The Hotel Today ─── */
 
 const KNOWN_ENTITIES = [
-  { name: "El Salvador", country: "🇸🇻", total_holdings: 6101, type: "Government", note: "First nation to adopt Bitcoin as legal tender" },
-  { name: "United States", country: "🇺🇸", total_holdings: 198000, type: "Government", note: "Seized assets held by U.S. government" },
-  { name: "Bhutan", country: "🇧🇹", total_holdings: 10635, type: "Government", note: "Mined via hydroelectric power" },
-  { name: "Michael Saylor", country: "🇺🇸", total_holdings: 17732, type: "Individual", note: "Personal holdings, separate from Strategy" },
+  // Monument
   { name: "Nakamoto Floors", country: "∅", total_holdings: 1100000, type: "Monument", note: "Sealed. Empty. As designed. The scarcity itself." },
+  // ETFs
+  { name: "BlackRock iShares (IBIT)", country: "🇺🇸", total_holdings: 568000, type: "ETF", note: "Largest Bitcoin ETF in the world" },
+  { name: "Fidelity (FBTC)", country: "🇺🇸", total_holdings: 201815, type: "ETF", note: "Fidelity Wise Origin Bitcoin Fund" },
+  { name: "Grayscale (GBTC)", country: "🇺🇸", total_holdings: 167683, type: "ETF", note: "First major Bitcoin trust, converted to spot ETF" },
+  { name: "ARK 21Shares (ARKB)", country: "🇺🇸", total_holdings: 48978, type: "ETF", note: "Cathie Wood's Bitcoin ETF" },
+  { name: "Bitwise (BITB)", country: "🇺🇸", total_holdings: 40230, type: "ETF", note: "Bitwise Bitcoin ETF" },
+  // Governments
+  { name: "United States", country: "🇺🇸", total_holdings: 207000, type: "Government", note: "Strategic Bitcoin Reserve + seized assets" },
+  { name: "China", country: "🇨🇳", total_holdings: 194000, type: "Government", note: "Seized assets — banned crypto but kept the coins" },
+  { name: "United Kingdom", country: "🇬🇧", total_holdings: 61000, type: "Government", note: "Seized from money laundering operations" },
+  { name: "Ukraine", country: "🇺🇦", total_holdings: 46351, type: "Government", note: "Donated by the world during the war" },
+  { name: "Bhutan", country: "🇧🇹", total_holdings: 10635, type: "Government", note: "Mined with hydroelectric power from the Himalayas" },
+  { name: "El Salvador", country: "🇸🇻", total_holdings: 6101, type: "Government", note: "First nation to adopt Bitcoin as legal tender" },
+  // Private Companies
+  { name: "Block.one", country: "🇭🇰", total_holdings: 140000, type: "Private Company", note: "Creators of EOS, one of the largest private holders" },
+  { name: "Tether", country: "🇻🇬", total_holdings: 96124, type: "Private Company", note: "Stablecoin giant backs reserves with Bitcoin" },
+  { name: "SpaceX", country: "🇺🇸", total_holdings: 8285, type: "Private Company", note: "Elon Musk's space company holds Bitcoin" },
+  { name: "Cardone Capital", country: "🇺🇸", total_holdings: 2000, type: "Private Company", note: "Estimated — hybrid real estate + BTC funds" },
+  // Individuals
+  { name: "Tim Draper", country: "🇺🇸", total_holdings: 29656, type: "Individual", note: "Bought at the 2014 US Marshals Silk Road auction" },
+  { name: "Michael Saylor", country: "🇺🇸", total_holdings: 17732, type: "Individual", note: "Personal holdings, separate from Strategy" },
+  { name: "Winklevoss Twins", country: "🇺🇸", total_holdings: 8700, type: "Individual", note: "Early Bitcoin believers, Gemini founders" },
+  { name: "Ross Ulbricht", country: "🇺🇸", total_holdings: 300, type: "Individual", note: "Silk Road founder, pardoned 2025, donated 300 BTC" },
 ];
 
 function HotelTodayScreen({ onBack }) {
@@ -1178,6 +1198,8 @@ function HotelTodayScreen({ onBack }) {
       "Individual": { bg: "rgba(180,130,255,0.12)", border: "rgba(180,130,255,0.25)", text: "#b482ff" },
       "Monument": { bg: "rgba(120,120,120,0.12)", border: "rgba(120,120,120,0.25)", text: "#888" },
       "Public Company": { bg: "rgba(247,147,26,0.08)", border: "rgba(247,147,26,0.15)", text: ORANGE },
+      "ETF": { bg: "rgba(80,200,120,0.12)", border: "rgba(80,200,120,0.25)", text: "#50c878" },
+      "Private Company": { bg: "rgba(255,180,100,0.12)", border: "rgba(255,180,100,0.25)", text: "#ffb464" },
     };
     const c = colors[type] || colors["Public Company"];
     return { background: c.bg, border: `1px solid ${c.border}`, color: c.text, padding: "2px 8px", borderRadius: 12, fontSize: 8, fontFamily: "monospace", letterSpacing: ".06em", fontWeight: 600, whiteSpace: "nowrap" };
@@ -1280,8 +1302,8 @@ function HotelTodayScreen({ onBack }) {
             {/* Footer Notes */}
             <div style={{ marginTop: 20, padding: "16px 18px", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: 8 }}>
               <p style={{ fontSize: 10, color: "rgba(255,255,255,.2)", fontFamily: "monospace", lineHeight: 1.8, margin: 0 }}>
-                Public company data updates live via CoinGecko. Government and individual holdings are updated periodically.
-                Nakamoto Floors represent the estimated coins held in Satoshi's original wallets — untouched since the beginning.
+                Public company data updates live via CoinGecko. Government, ETF, private company, and individual holdings are updated periodically.
+                Nakamoto Floors represent the estimated coins held in Satoshi's original wallets — untouched since the beginning. Numbers marked as estimated are based on the best publicly available data.
               </p>
             </div>
           </div>
