@@ -257,10 +257,11 @@ function Hub({ onSelect }) {
       </div>
 
       {/* Featured sections above media */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, padding: "0 24px 12px", maxWidth: 700, margin: "0 auto", position: "relative", zIndex: 2 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, padding: "0 24px 12px", maxWidth: 700, margin: "0 auto", position: "relative", zIndex: 2 }}>
         {[
           { id: "floors", icon: "🏨", label: "THE FLOORS", desc: "Know the Building", count: "7 FLOORS" },
           { id: "glossary", icon: "📜", label: "GLOSSARY", desc: "Hotel Lexicon", count: "11 TERMS" },
+          { id: "fire", icon: "🔥", label: "THE FIRE", desc: "Live from the Chain", count: "LIVE" },
         ].map((item, i) => (
           <div key={item.id} onClick={() => onSelect(item.id)} style={{
             background: "rgba(247,147,26,0.04)", border: "1px solid rgba(247,147,26,0.15)", borderRadius: 8,
@@ -544,6 +545,173 @@ function GlossaryScreen({ onBack }) {
   );
 }
 
+/* ─── The Fire (Live Bitcoin Data) ─── */
+
+function calcSupply(height) {
+  let supply = 0;
+  let reward = 50;
+  let remaining = height;
+  while (remaining > 0) {
+    const blocks = Math.min(remaining, 210000);
+    supply += blocks * reward;
+    remaining -= blocks;
+    reward /= 2;
+  }
+  return Math.min(supply, 21000000);
+}
+
+function BigFire({ intensity = 1 }) {
+  const ref = useRef(null);
+  const anim = useRef(null);
+  useEffect(() => {
+    const c = ref.current; if (!c) return;
+    const ctx = c.getContext("2d"); let w, h;
+    const resize = () => { w = c.width = window.innerWidth; h = c.height = window.innerHeight; };
+    resize(); window.addEventListener("resize", resize);
+    const count = 200;
+    const P = Array.from({ length: count }, () => ({
+      x: 0.3 + Math.random() * 0.4, y: 0.3 + Math.random() * 0.7,
+      r: 0.5 + Math.random() * 3.5, sp: 0.0006 + Math.random() * 0.002,
+      dr: (Math.random() - 0.5) * 0.0006, a: 0.1 + Math.random() * 0.5,
+      hue: Math.random(), ph: Math.random() * 6.28,
+    }));
+    const draw = () => {
+      ctx.clearRect(0, 0, w, h);
+      const t = Date.now() * 0.001;
+      const bright = 0.6 + intensity * 0.4;
+      for (const p of P) {
+        p.y -= p.sp * bright; p.x += p.dr + Math.sin(t * 0.8 + p.ph) * 0.0003;
+        if (p.y < -0.05) { p.y = 1.05; p.x = 0.3 + Math.random() * 0.4; }
+        const tw = 0.5 + 0.5 * Math.sin(t * 2 + p.ph * 3);
+        const a = p.a * tw * bright;
+        const col = p.hue < 0.4 ? `rgba(247,147,26,${a})` : p.hue < 0.65 ? `rgba(255,180,40,${a})` : p.hue < 0.85 ? `rgba(255,100,20,${a * 0.8})` : `rgba(255,220,80,${a * 0.6})`;
+        const rad = p.r * (6 + intensity * 4);
+        const g = ctx.createRadialGradient(p.x * w, p.y * h, 0, p.x * w, p.y * h, rad);
+        g.addColorStop(0, col); g.addColorStop(1, "rgba(247,147,26,0)");
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(p.x * w, p.y * h, rad, 0, Math.PI * 2); ctx.fill();
+      }
+      anim.current = requestAnimationFrame(draw);
+    };
+    draw();
+    return () => { window.removeEventListener("resize", resize); cancelAnimationFrame(anim.current); };
+  }, [intensity]);
+  return <canvas ref={ref} style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }} />;
+}
+
+function FireScreen({ onBack }) {
+  const [v, setV] = useState(false);
+  const [data, setData] = useState(null);
+  const [err, setErr] = useState(false);
+  const [intensity, setIntensity] = useState(0.5);
+
+  useEffect(() => { setTimeout(() => setV(true), 50); }, []);
+
+  useEffect(() => {
+    let alive = true;
+    async function fetchFire() {
+      try {
+        const [heightRes, hashRes] = await Promise.all([
+          fetch("https://mempool.space/api/blocks/tip/height"),
+          fetch("https://mempool.space/api/v1/mining/hashrate/1d"),
+        ]);
+        const height = await heightRes.json();
+        const hashData = await hashRes.json();
+        if (!alive) return;
+        const supply = calcSupply(height);
+        const occupied = Math.floor(supply);
+        const remaining = 21000000 - occupied;
+        const hashrate = hashData.currentHashrate || 0;
+        const ehash = hashrate / 1e18;
+        const norm = Math.min(ehash / 1000, 1);
+        setIntensity(0.3 + norm * 0.7);
+        setData({ occupied, remaining, ehash: ehash.toFixed(1) });
+      } catch (e) {
+        if (alive) setErr(true);
+      }
+    }
+    fetchFire();
+    const timer = setInterval(fetchFire, 30000);
+    return () => { alive = false; clearInterval(timer); };
+  }, []);
+
+  const fmt = (n) => n.toLocaleString();
+
+  return (
+    <div style={{ minHeight: "100vh", background: "#050200", position: "relative", overflow: "hidden" }}>
+      <BigFire intensity={intensity} /><Noise o={0.03} />
+
+      <div style={{ position: "relative", zIndex: 2 }}>
+        <div style={{ padding: "20px 24px", display: "flex", alignItems: "center", gap: 12 }}>
+          <button onClick={onBack} style={{ background: "rgba(0,0,0,.6)", border: "1px solid rgba(255,255,255,.1)", borderRadius: 6, color: "rgba(255,255,255,.5)", padding: "6px 14px", cursor: "pointer", fontSize: 12, fontFamily: "monospace" }}>← NEXUS</button>
+          <span style={{ fontSize: 11, color: "rgba(255,255,255,.2)", fontFamily: "monospace" }}>/ THE FIRE</span>
+        </div>
+
+        <div style={{ textAlign: "center", padding: "60px 24px 40px" }}>
+          <div style={{ fontSize: 48, marginBottom: 16, filter: `brightness(${0.8 + intensity * 0.4})` }}>🔥</div>
+          <h2 style={{ fontSize: "clamp(28px,5vw,42px)", fontWeight: 800, color: "#fff", fontFamily: "'Georgia',serif", margin: "0 0 8px", textShadow: "0 0 40px rgba(247,147,26,0.3)" }}>The Fire</h2>
+          <p style={{ fontSize: 13, color: "rgba(255,255,255,.35)", fontFamily: "'Georgia',serif", fontStyle: "italic" }}>Live from the Bitcoin blockchain</p>
+        </div>
+
+        {err && (
+          <div style={{ textAlign: "center", padding: "40px 24px" }}>
+            <p style={{ fontSize: 13, color: "rgba(255,255,255,.3)", fontFamily: "monospace" }}>The Fire is beyond reach right now. Try again shortly.</p>
+          </div>
+        )}
+
+        {data && (
+          <div style={{ maxWidth: 400, margin: "0 auto", padding: "0 24px 60px" }}>
+            {/* Floors Occupied */}
+            <div style={{
+              background: "rgba(247,147,26,0.06)", border: "1px solid rgba(247,147,26,0.15)",
+              borderRadius: 10, padding: "28px 24px", marginBottom: 14, textAlign: "center",
+              opacity: v ? 1 : 0, transform: v ? "translateY(0)" : "translateY(20px)",
+              transition: "all .8s cubic-bezier(.22,1,.36,1) .1s",
+            }}>
+              <div style={{ fontSize: "clamp(32px,6vw,48px)", fontWeight: 800, color: ORANGE, fontFamily: "'Georgia',serif", letterSpacing: "-0.02em" }}>{fmt(data.occupied)}</div>
+              <div style={{ fontSize: 11, color: "rgba(255,255,255,.35)", fontFamily: "monospace", letterSpacing: ".12em", marginTop: 8 }}>FLOORS OCCUPIED</div>
+            </div>
+
+            {/* Floors Still to Be Built */}
+            <div style={{
+              background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.08)",
+              borderRadius: 10, padding: "28px 24px", marginBottom: 14, textAlign: "center",
+              opacity: v ? 1 : 0, transform: v ? "translateY(0)" : "translateY(20px)",
+              transition: "all .8s cubic-bezier(.22,1,.36,1) .2s",
+            }}>
+              <div style={{ fontSize: "clamp(32px,6vw,48px)", fontWeight: 800, color: "#fff", fontFamily: "'Georgia',serif", letterSpacing: "-0.02em" }}>{fmt(data.remaining)}</div>
+              <div style={{ fontSize: 11, color: "rgba(255,255,255,.35)", fontFamily: "monospace", letterSpacing: ".12em", marginTop: 8 }}>FLOORS STILL TO BE BUILT</div>
+            </div>
+
+            {/* Fire Intensity */}
+            <div style={{
+              background: "rgba(247,147,26,0.04)", border: "1px solid rgba(247,147,26,0.10)",
+              borderRadius: 10, padding: "28px 24px", textAlign: "center",
+              opacity: v ? 1 : 0, transform: v ? "translateY(0)" : "translateY(20px)",
+              transition: "all .8s cubic-bezier(.22,1,.36,1) .3s",
+            }}>
+              <div style={{ fontSize: "clamp(32px,6vw,48px)", fontWeight: 800, color: ORANGE, fontFamily: "'Georgia',serif", letterSpacing: "-0.02em" }}>{data.ehash}</div>
+              <div style={{ fontSize: 11, color: "rgba(255,255,255,.35)", fontFamily: "monospace", letterSpacing: ".12em", marginTop: 8 }}>FIRE INTENSITY (EH/s)</div>
+              <div style={{ marginTop: 14, height: 4, background: "rgba(255,255,255,0.05)", borderRadius: 2, overflow: "hidden" }}>
+                <div style={{ height: "100%", width: `${intensity * 100}%`, background: `linear-gradient(90deg, ${ORANGE}, #ff6a00)`, borderRadius: 2, transition: "width 1s ease" }} />
+              </div>
+            </div>
+
+            <div style={{ textAlign: "center", marginTop: 24, opacity: v ? 1 : 0, transition: "opacity 1s ease .5s" }}>
+              <p style={{ fontSize: 11, color: "rgba(255,255,255,.15)", fontFamily: "monospace", letterSpacing: ".1em" }}>REFRESHES EVERY 30 SECONDS</p>
+            </div>
+          </div>
+        )}
+
+        {!data && !err && (
+          <div style={{ textAlign: "center", padding: "60px 24px" }}>
+            <div style={{ fontSize: 13, color: "rgba(247,147,26,.4)", fontFamily: "monospace", animation: "pulse 2s ease-in-out infinite" }}>Reaching the Fire...</div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 /* ─── Main App ─── */
 
 export default function App() {
@@ -560,6 +728,7 @@ export default function App() {
     }
     if (media === "floors") return <FloorsList onBack={() => { setScreen("hub"); setMedia(null); }} />;
     if (media === "glossary") return <GlossaryScreen onBack={() => { setScreen("hub"); setMedia(null); }} />;
+    if (media === "fire") return <FireScreen onBack={() => { setScreen("hub"); setMedia(null); }} />;
   }
   return <Hub onSelect={(id) => { setMedia(id); setScreen("media"); }} />;
 }
