@@ -610,21 +610,39 @@ function FireScreen({ onBack }) {
     let alive = true;
     async function fetchFire() {
       try {
-        const [heightRes, hashRes] = await Promise.all([
+        const [heightRes, hashRes, priceRes] = await Promise.all([
           fetch("https://mempool.space/api/blocks/tip/height"),
           fetch("https://mempool.space/api/v1/mining/hashrate/1d"),
+          fetch("https://mempool.space/api/v1/prices"),
         ]);
         const height = await heightRes.json();
         const hashData = await hashRes.json();
+        const priceData = await priceRes.json();
         if (!alive) return;
+
         const supply = calcSupply(height);
         const occupied = Math.floor(supply);
         const remaining = 21000000 - occupied;
+
         const hashrate = hashData.currentHashrate || 0;
         const ehash = hashrate / 1e18;
         const norm = Math.min(ehash / 1000, 1);
         setIntensity(0.3 + norm * 0.7);
-        setData({ occupied, remaining, ehash: ehash.toFixed(1) });
+
+        const price = priceData.USD || 0;
+        const marketCap = price * occupied;
+
+        const genesis = new Date("2009-01-03T18:15:05Z");
+        const now = new Date();
+        const daysBurned = Math.floor((now - genesis) / (1000 * 60 * 60 * 24));
+
+        const nextHalvingBlock = Math.ceil(height / 210000) * 210000;
+        const blocksUntilHalving = nextHalvingBlock - height;
+        const minutesUntilHalving = blocksUntilHalving * 10;
+        const halvingDays = Math.floor(minutesUntilHalving / 60 / 24);
+        const halvingHours = Math.floor((minutesUntilHalving / 60) % 24);
+
+        setData({ occupied, remaining, ehash: ehash.toFixed(1), price, marketCap, daysBurned, halvingDays, halvingHours });
       } catch (e) {
         if (alive) setErr(true);
       }
@@ -635,6 +653,20 @@ function FireScreen({ onBack }) {
   }, []);
 
   const fmt = (n) => n.toLocaleString();
+  const fmtUsd = (n) => "$" + n.toLocaleString(undefined, { maximumFractionDigits: 0 });
+  const fmtTril = (n) => {
+    if (n >= 1e12) return "$" + (n / 1e12).toFixed(2) + " TRILLION";
+    if (n >= 1e9) return "$" + (n / 1e9).toFixed(1) + " BILLION";
+    return fmtUsd(n);
+  };
+
+  const card = (content, accent, delay) => ({
+    background: accent ? "rgba(247,147,26,0.06)" : "rgba(255,255,255,0.02)",
+    border: `1px solid ${accent ? "rgba(247,147,26,0.15)" : "rgba(255,255,255,0.08)"}`,
+    borderRadius: 10, padding: "28px 24px", marginBottom: 14, textAlign: "center",
+    opacity: v ? 1 : 0, transform: v ? "translateY(0)" : "translateY(20px)",
+    transition: `all .8s cubic-bezier(.22,1,.36,1) ${delay}s`,
+  });
 
   return (
     <div style={{ minHeight: "100vh", background: "#050200", position: "relative", overflow: "hidden" }}>
@@ -646,7 +678,7 @@ function FireScreen({ onBack }) {
           <span style={{ fontSize: 11, color: "rgba(255,255,255,.2)", fontFamily: "monospace" }}>/ THE FIRE</span>
         </div>
 
-        <div style={{ textAlign: "center", padding: "60px 24px 40px" }}>
+        <div style={{ textAlign: "center", padding: "40px 24px 30px" }}>
           <div style={{ fontSize: 48, marginBottom: 16, filter: `brightness(${0.8 + intensity * 0.4})` }}>🔥</div>
           <h2 style={{ fontSize: "clamp(28px,5vw,42px)", fontWeight: 800, color: "#fff", fontFamily: "'Georgia',serif", margin: "0 0 8px", textShadow: "0 0 40px rgba(247,147,26,0.3)" }}>The Fire</h2>
           <p style={{ fontSize: 13, color: "rgba(255,255,255,.35)", fontFamily: "'Georgia',serif", fontStyle: "italic" }}>Live from the Bitcoin blockchain</p>
@@ -660,44 +692,58 @@ function FireScreen({ onBack }) {
 
         {data && (
           <div style={{ maxWidth: 400, margin: "0 auto", padding: "0 24px 60px" }}>
+
+            {/* Days the Fire Has Burned */}
+            <div style={card(true, true, 0.1)}>
+              <div style={{ fontSize: "clamp(32px,6vw,48px)", fontWeight: 800, color: ORANGE, fontFamily: "'Georgia',serif", letterSpacing: "-0.02em" }}>{fmt(data.daysBurned)}</div>
+              <div style={{ fontSize: 11, color: "rgba(255,255,255,.35)", fontFamily: "monospace", letterSpacing: ".12em", marginTop: 8 }}>DAYS THE FIRE HAS BURNED</div>
+            </div>
+
             {/* Floors Occupied */}
-            <div style={{
-              background: "rgba(247,147,26,0.06)", border: "1px solid rgba(247,147,26,0.15)",
-              borderRadius: 10, padding: "28px 24px", marginBottom: 14, textAlign: "center",
-              opacity: v ? 1 : 0, transform: v ? "translateY(0)" : "translateY(20px)",
-              transition: "all .8s cubic-bezier(.22,1,.36,1) .1s",
-            }}>
+            <div style={card(true, true, 0.15)}>
               <div style={{ fontSize: "clamp(32px,6vw,48px)", fontWeight: 800, color: ORANGE, fontFamily: "'Georgia',serif", letterSpacing: "-0.02em" }}>{fmt(data.occupied)}</div>
               <div style={{ fontSize: 11, color: "rgba(255,255,255,.35)", fontFamily: "monospace", letterSpacing: ".12em", marginTop: 8 }}>FLOORS OCCUPIED</div>
             </div>
 
             {/* Floors Still to Be Built */}
-            <div style={{
-              background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.08)",
-              borderRadius: 10, padding: "28px 24px", marginBottom: 14, textAlign: "center",
-              opacity: v ? 1 : 0, transform: v ? "translateY(0)" : "translateY(20px)",
-              transition: "all .8s cubic-bezier(.22,1,.36,1) .2s",
-            }}>
+            <div style={card(false, false, 0.2)}>
               <div style={{ fontSize: "clamp(32px,6vw,48px)", fontWeight: 800, color: "#fff", fontFamily: "'Georgia',serif", letterSpacing: "-0.02em" }}>{fmt(data.remaining)}</div>
               <div style={{ fontSize: 11, color: "rgba(255,255,255,.35)", fontFamily: "monospace", letterSpacing: ".12em", marginTop: 8 }}>FLOORS STILL TO BE BUILT</div>
             </div>
 
-            {/* Fire Intensity */}
+            {/* Price Per Floor */}
+            <div style={card(true, true, 0.25)}>
+              <div style={{ fontSize: "clamp(32px,6vw,48px)", fontWeight: 800, color: ORANGE, fontFamily: "'Georgia',serif", letterSpacing: "-0.02em" }}>{fmtUsd(data.price)}</div>
+              <div style={{ fontSize: 11, color: "rgba(255,255,255,.35)", fontFamily: "monospace", letterSpacing: ".12em", marginTop: 8 }}>PRICE PER FLOOR</div>
+            </div>
+
+            {/* The Hotel's Value */}
+            <div style={card(true, true, 0.3)}>
+              <div style={{ fontSize: "clamp(24px,5vw,36px)", fontWeight: 800, color: ORANGE, fontFamily: "'Georgia',serif", letterSpacing: "-0.02em" }}>{fmtTril(data.marketCap)}</div>
+              <div style={{ fontSize: 11, color: "rgba(255,255,255,.35)", fontFamily: "monospace", letterSpacing: ".12em", marginTop: 8 }}>THE HOTEL'S VALUE</div>
+            </div>
+
+            {/* The Fire's Hashrate */}
             <div style={{
-              background: "rgba(247,147,26,0.04)", border: "1px solid rgba(247,147,26,0.10)",
-              borderRadius: 10, padding: "28px 24px", textAlign: "center",
-              opacity: v ? 1 : 0, transform: v ? "translateY(0)" : "translateY(20px)",
-              transition: "all .8s cubic-bezier(.22,1,.36,1) .3s",
+              ...card(true, true, 0.35),
+              marginBottom: 14,
             }}>
-              <div style={{ fontSize: "clamp(32px,6vw,48px)", fontWeight: 800, color: ORANGE, fontFamily: "'Georgia',serif", letterSpacing: "-0.02em" }}>{data.ehash}</div>
-              <div style={{ fontSize: 11, color: "rgba(255,255,255,.35)", fontFamily: "monospace", letterSpacing: ".12em", marginTop: 8 }}>FIRE INTENSITY (EH/s)</div>
+              <div style={{ fontSize: "clamp(32px,6vw,48px)", fontWeight: 800, color: ORANGE, fontFamily: "'Georgia',serif", letterSpacing: "-0.02em" }}>{data.ehash} EH/s</div>
+              <div style={{ fontSize: 11, color: "rgba(255,255,255,.35)", fontFamily: "monospace", letterSpacing: ".12em", marginTop: 8 }}>THE FIRE'S HASHRATE</div>
               <div style={{ marginTop: 14, height: 4, background: "rgba(255,255,255,0.05)", borderRadius: 2, overflow: "hidden" }}>
                 <div style={{ height: "100%", width: `${intensity * 100}%`, background: `linear-gradient(90deg, ${ORANGE}, #ff6a00)`, borderRadius: 2, transition: "width 1s ease" }} />
               </div>
             </div>
 
-            <div style={{ textAlign: "center", marginTop: 24, opacity: v ? 1 : 0, transition: "opacity 1s ease .5s" }}>
-              <p style={{ fontSize: 11, color: "rgba(255,255,255,.15)", fontFamily: "monospace", letterSpacing: ".1em" }}>REFRESHES EVERY 30 SECONDS</p>
+            {/* Time Until Next Halving */}
+            <div style={card(false, false, 0.4)}>
+              <div style={{ fontSize: "clamp(28px,5vw,40px)", fontWeight: 800, color: "#fff", fontFamily: "'Georgia',serif", letterSpacing: "-0.02em" }}>{fmt(data.halvingDays)} DAYS</div>
+              <div style={{ fontSize: 13, color: "rgba(255,255,255,.25)", fontFamily: "monospace", marginTop: 4 }}>{data.halvingHours} hours</div>
+              <div style={{ fontSize: 11, color: "rgba(255,255,255,.35)", fontFamily: "monospace", letterSpacing: ".12em", marginTop: 8 }}>UNTIL THE NEXT HALVING</div>
+            </div>
+
+            <div style={{ textAlign: "center", marginTop: 24, opacity: v ? 1 : 0, transition: "opacity 1s ease .6s" }}>
+              <p style={{ fontSize: 11, color: "rgba(255,255,255,.15)", fontFamily: "monospace", letterSpacing: ".1em" }}>LIVE DATA · REFRESHES EVERY 30 SECONDS</p>
             </div>
           </div>
         )}
