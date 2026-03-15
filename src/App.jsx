@@ -264,6 +264,7 @@ function Hub({ onSelect }) {
           { id: "fire", icon: "🔥", label: "THE FIRE", desc: "Live from the Chain", count: "LIVE" },
           { id: "findfloor", icon: "🗝", label: "FIND YOUR FLOOR", desc: "Where Do You Live?", count: "CHECK IN" },
           { id: "hoteltoday", icon: "🌐", label: "THE HOTEL TODAY", desc: "Who Owns the Building?", count: "LIVE" },
+          { id: "tower", icon: "🗼", label: "THE TOWER", desc: "See the Building", count: "VISUAL" },
         ].map((item, i) => (
           <div key={item.id} onClick={() => onSelect(item.id)} style={{
             background: "rgba(247,147,26,0.04)", border: "1px solid rgba(247,147,26,0.15)", borderRadius: 8,
@@ -1366,6 +1367,309 @@ function HotelTodayScreen({ onBack }) {
   );
 }
 
+
+/* ─── The Tower (Visual Map) ─── */
+
+function TowerFire({ width }) {
+  const ref = useRef(null);
+  const anim = useRef(null);
+  useEffect(() => {
+    const c = ref.current; if (!c) return;
+    const ctx = c.getContext("2d");
+    const w = width || 110, h = 70;
+    c.width = w; c.height = h;
+    const P = Array.from({ length: 55 }, () => ({
+      x: 0.15 + Math.random() * 0.7, y: 0.2 + Math.random() * 0.8,
+      r: 1 + Math.random() * 4, sp: 0.003 + Math.random() * 0.007,
+      a: 0.2 + Math.random() * 0.6, hue: Math.random(), ph: Math.random() * 6.28,
+    }));
+    const draw = () => {
+      ctx.clearRect(0, 0, w, h);
+      const t = Date.now() * 0.001;
+      for (const p of P) {
+        p.y -= p.sp; p.x += Math.sin(t * 1.5 + p.ph) * 0.003;
+        if (p.y < -0.1) { p.y = 1.1; p.x = 0.15 + Math.random() * 0.7; }
+        const tw = 0.5 + 0.5 * Math.sin(t * 2.5 + p.ph * 3);
+        const a = p.a * tw;
+        const col = p.hue < 0.4 ? `rgba(247,147,26,${a})` : p.hue < 0.7 ? `rgba(255,180,40,${a})` : `rgba(255,100,20,${a * 0.7})`;
+        const g = ctx.createRadialGradient(p.x * w, p.y * h, 0, p.x * w, p.y * h, p.r * 3);
+        g.addColorStop(0, col); g.addColorStop(1, "rgba(247,147,26,0)");
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(p.x * w, p.y * h, p.r * 3, 0, Math.PI * 2); ctx.fill();
+      }
+      anim.current = requestAnimationFrame(draw);
+    };
+    draw();
+    return () => cancelAnimationFrame(anim.current);
+  }, [width]);
+  return <canvas ref={ref} style={{ width: width || 110, height: 70, display: "block" }} />;
+}
+
+function TowerScreen({ onBack }) {
+  const [v, setV] = useState(false);
+  const [apiTotal, setApiTotal] = useState(0);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => { setTimeout(() => setV(true), 50); }, []);
+
+  useEffect(() => {
+    let alive = true;
+    async function fetchData() {
+      try {
+        const res = await fetch("https://api.coingecko.com/api/v3/companies/public_treasury/bitcoin");
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+        if (!alive) return;
+        setApiTotal((data.companies || []).reduce((s, c) => s + (c.total_holdings || 0), 0));
+        setLoaded(true);
+      } catch (e) { if (alive) setLoaded(true); }
+    }
+    fetchData();
+    return () => { alive = false; };
+  }, []);
+
+  const TOTAL = 21000000;
+  const UNBUILT = 1200000;
+  const NAKAMOTO = 1100000;
+  const LOST_EST = 3700000;
+  const govTotal = KNOWN_ENTITIES.filter(e => e.type === "Government").reduce((s, e) => s + e.total_holdings, 0);
+  const etfTotal = KNOWN_ENTITIES.filter(e => e.type === "ETF").reduce((s, e) => s + e.total_holdings, 0);
+  const privateTotal = KNOWN_ENTITIES.filter(e => e.type === "Private Company").reduce((s, e) => s + e.total_holdings, 0);
+  const individualTotal = KNOWN_ENTITIES.filter(e => e.type === "Individual").reduce((s, e) => s + e.total_holdings, 0);
+  const publicCoTotal = apiTotal;
+  const knownLit = govTotal + etfTotal + privateTotal + publicCoTotal;
+  const believers = Math.max(TOTAL - UNBUILT - NAKAMOTO - LOST_EST - knownLit, 0) + individualTotal;
+  const litTotal = knownLit + believers;
+  const darkRatio = LOST_EST / (TOTAL - UNBUILT - NAKAMOTO);
+
+  const segments = [
+    { label: "Unbuilt", amount: UNBUILT, lit: false, noWindows: true },
+    { label: "Private Companies", amount: privateTotal, color: "#ffb464", lit: true, desc: "Block.one, Tether, SpaceX, Cardone" },
+    { label: "Public Companies", amount: publicCoTotal, color: ORANGE, lit: true, desc: "Strategy, MARA, Metaplanet, Tesla & more" },
+    { label: "Governments", amount: govTotal, color: "#6ab4ff", lit: true, desc: "US, China, UK, Ukraine, Bhutan, El Salvador" },
+    { label: "ETFs", amount: etfTotal, color: "#50c878", lit: true, desc: "BlackRock, Fidelity, Grayscale, ARK, Bitwise" },
+    { label: "\u20bfelievers", amount: believers, color: ORANGE, lit: true, desc: "Individuals, HODLers, and millions of quiet wallets. Lights on." },
+    { label: "Nakamoto Floors", amount: NAKAMOTO, lit: false, noWindows: false, desc: "Sealed. Untouched since the beginning." },
+  ];
+
+  const fmt = (n) => n.toLocaleString();
+  const pct = (n) => ((n / TOTAL) * 100);
+
+  const towerHeight = 640;
+  const towerWidth = 110;
+
+  const minSegHeight = 32;
+  const rawHeights = segments.map(s => (s.amount / TOTAL) * towerHeight);
+  const boosted = rawHeights.map((h, i) => segments[i].amount > 0 ? Math.max(h, minSegHeight) : 0);
+  const boostedTotal = boosted.reduce((a, b) => a + b, 0);
+  const scl = towerHeight / boostedTotal;
+  const segHeights = boosted.map(h => h * scl);
+
+  const WindowGrid = ({ height, lit, noWindows }) => {
+    if (height < 6 || noWindows) return null;
+    const rows = Math.max(Math.floor(height / 7), 1);
+    const cols = 9;
+    const darkRows = new Set();
+    if (lit) {
+      let lastDark = -3;
+      for (let r = 0; r < rows; r++) {
+        if (r - lastDark >= 3 && Math.random() < 0.1) { darkRows.add(r); lastDark = r; }
+      }
+    }
+    return (
+      <div style={{ position: "absolute", inset: 3, display: "flex", flexDirection: "column", justifyContent: "space-evenly", overflow: "hidden" }}>
+        {Array.from({ length: Math.min(rows, 55) }, (_, r) => {
+          const isFullDark = darkRows.has(r);
+          return (
+            <div key={r} style={{ display: "flex", justifyContent: "space-evenly" }}>
+              {Array.from({ length: cols }, (_, c) => {
+                const isLost = lit && !isFullDark && Math.random() < darkRatio;
+                const isLit = lit && !isFullDark && !isLost;
+                const warmth = 0.4 + Math.random() * 0.6;
+                return (
+                  <div key={c} style={{
+                    width: 7, height: 4, borderRadius: 0.5,
+                    background: isFullDark ? "rgba(255,255,255,0.01)"
+                      : isLit ? `rgba(247,${Math.floor(110 + warmth * 90)},${Math.floor(warmth * 50)},${0.35 + warmth * 0.5})`
+                      : lit ? "rgba(255,255,255,0.015)" : "rgba(255,255,255,0.01)",
+                    boxShadow: isLit ? `0 0 ${2 + warmth * 3}px rgba(247,147,26,${0.1 + warmth * 0.25})` : "none",
+                  }} />
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
+  const litPct = pct(litTotal).toFixed(1);
+  const darkPct = pct(LOST_EST + NAKAMOTO).toFixed(1);
+
+  return (
+    <div style={{ minHeight: "100vh", background: "#030303", position: "relative", overflow: "hidden" }}>
+      <Noise o={0.03} />
+      <div style={{ position: "relative", zIndex: 2 }}>
+        <div style={{ padding: "20px 24px", display: "flex", alignItems: "center", gap: 12 }}>
+          <button onClick={onBack} style={{ background: "rgba(0,0,0,.6)", border: "1px solid rgba(255,255,255,.1)", borderRadius: 6, color: "rgba(255,255,255,.5)", padding: "6px 14px", cursor: "pointer", fontSize: 12, fontFamily: "monospace" }}>← NEXUS</button>
+          <span style={{ fontSize: 11, color: "rgba(255,255,255,.2)", fontFamily: "monospace" }}>/ THE TOWER</span>
+        </div>
+
+        <div style={{ textAlign: "center", padding: "20px 24px 24px" }}>
+          <h2 style={{ fontSize: "clamp(28px,5vw,42px)", fontWeight: 800, color: "#fff", fontFamily: "'Georgia',serif", margin: "0 0 8px" }}>The Tower</h2>
+          <p style={{ fontSize: 13, color: "rgba(255,255,255,.35)", fontFamily: "'Georgia',serif", fontStyle: "italic", maxWidth: 400, margin: "0 auto" }}>Twenty-one million floors. See who left the lights on.</p>
+        </div>
+
+        {!loaded ? (
+          <div style={{ textAlign: "center", padding: "60px 24px" }}>
+            <div style={{ fontSize: 13, color: "rgba(247,147,26,.4)", fontFamily: "monospace", animation: "pulse 2s ease-in-out infinite" }}>Constructing the Tower...</div>
+          </div>
+        ) : (
+          <div style={{ maxWidth: 500, margin: "0 auto", padding: "0 24px 60px" }}>
+
+            {/* Summary */}
+            <div style={{
+              display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8, marginBottom: 24,
+              opacity: v ? 1 : 0, transition: "opacity .8s ease .1s",
+            }}>
+              <div style={{ background: "rgba(247,147,26,0.06)", border: "1px solid rgba(247,147,26,0.12)", borderRadius: 8, padding: "14px 8px", textAlign: "center" }}>
+                <div style={{ fontSize: 16, fontWeight: 800, color: ORANGE, fontFamily: "'Georgia',serif" }}>{litPct}%</div>
+                <div style={{ fontSize: 8, color: "rgba(255,255,255,.25)", fontFamily: "monospace", letterSpacing: ".08em", marginTop: 4 }}>LIGHTS ON</div>
+              </div>
+              <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 8, padding: "14px 8px", textAlign: "center" }}>
+                <div style={{ fontSize: 16, fontWeight: 800, color: "rgba(255,255,255,.25)", fontFamily: "'Georgia',serif" }}>{darkPct}%</div>
+                <div style={{ fontSize: 8, color: "rgba(255,255,255,.25)", fontFamily: "monospace", letterSpacing: ".08em", marginTop: 4 }}>LIGHTS OFF</div>
+              </div>
+              <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 8, padding: "14px 8px", textAlign: "center" }}>
+                <div style={{ fontSize: 16, fontWeight: 800, color: "rgba(255,255,255,.15)", fontFamily: "'Georgia',serif" }}>{pct(UNBUILT).toFixed(1)}%</div>
+                <div style={{ fontSize: 8, color: "rgba(255,255,255,.25)", fontFamily: "monospace", letterSpacing: ".08em", marginTop: 4 }}>UNBUILT</div>
+              </div>
+            </div>
+
+            {/* The Hotel — clean tower, no side labels */}
+            <div style={{
+              opacity: v ? 1 : 0, transform: v ? "translateY(0)" : "translateY(20px)",
+              transition: "all 1.2s cubic-bezier(.22,1,.36,1) .2s",
+              display: "flex", flexDirection: "column", alignItems: "center",
+            }}>
+              {/* Fire centered on roof */}
+              <div style={{ width: towerWidth, marginBottom: -12, position: "relative", zIndex: 1 }}>
+                <TowerFire width={towerWidth} />
+              </div>
+
+              {/* Hotel Building */}
+              <div style={{
+                width: towerWidth, height: towerHeight,
+                display: "flex", flexDirection: "column",
+                borderRadius: "3px 3px 0 0",
+                overflow: "hidden",
+                border: "1px solid rgba(255,255,255,0.08)",
+                boxShadow: "0 0 80px rgba(247,147,26,0.05), 0 4px 30px rgba(0,0,0,0.5)",
+                position: "relative",
+              }}>
+                {[...segments].reverse().map((seg, i) => {
+                  const h = segHeights[segments.length - 1 - i];
+                  const isUnbuilt = seg.label === "Unbuilt";
+                  return (
+                    <div key={seg.label} style={{
+                      height: h, position: "relative", flexShrink: 0,
+                      background: isUnbuilt
+                        ? "repeating-linear-gradient(45deg, #050505, #050505 3px, #080808 3px, #080808 6px)"
+                        : seg.lit ? "rgba(10,8,5,0.97)" : "rgba(4,4,4,0.99)",
+                      borderBottom: "1px solid rgba(255,255,255,0.02)",
+                      overflow: "hidden",
+                    }}>
+                      <WindowGrid height={h} lit={seg.lit} noWindows={seg.noWindows} />
+                      {isUnbuilt && h >= 16 && (
+                        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                          <span style={{ fontSize: 7, color: "rgba(255,255,255,.1)", fontFamily: "monospace", letterSpacing: ".15em" }}>UNBUILT</span>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Ground */}
+              <div style={{ width: towerWidth, height: 3, background: "rgba(255,255,255,0.06)", borderRadius: "0 0 2px 2px" }} />
+            </div>
+
+            {/* Dark windows note */}
+            <div style={{
+              marginTop: 16, padding: "10px 16px", textAlign: "center",
+              background: "rgba(255,255,255,0.015)", border: "1px solid rgba(255,255,255,0.04)", borderRadius: 8,
+              opacity: v ? 1 : 0, transition: "opacity .8s ease .6s",
+            }}>
+              <p style={{ fontSize: 10, color: "rgba(255,255,255,.2)", fontFamily: "monospace", margin: 0, lineHeight: 1.7 }}>
+                Dark windows & blacked-out floors = ~{fmt(LOST_EST)} lost coins scattered throughout
+              </p>
+            </div>
+
+            {/* Breakdown */}
+            <div style={{ marginTop: 28 }}>
+              <div style={{ fontSize: 9, color: "rgba(255,255,255,.25)", fontFamily: "monospace", letterSpacing: ".12em", marginBottom: 14, textAlign: "center" }}>BREAKDOWN</div>
+              {segments.filter(s => s.amount > 0).map((seg, i) => {
+                const barWidth = Math.max(pct(seg.amount), 0.3);
+                return (
+                  <div key={seg.label} style={{
+                    marginBottom: 8,
+                    opacity: v ? 1 : 0, transform: v ? "translateY(0)" : "translateY(10px)",
+                    transition: `all .5s cubic-bezier(.22,1,.36,1) ${0.7 + i * 0.06}s`,
+                  }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4 }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                        <div style={{
+                          width: 8, height: 8, borderRadius: 2, flexShrink: 0,
+                          background: seg.lit ? (seg.color || ORANGE) : "rgba(255,255,255,0.06)",
+                          boxShadow: seg.lit ? `0 0 4px ${(seg.color || ORANGE)}44` : "none",
+                        }} />
+                        <span style={{
+                          fontSize: 11, fontWeight: 600, fontFamily: "'Georgia',serif",
+                          color: seg.lit ? "#fff" : "rgba(255,255,255,.2)",
+                        }}>{seg.label}</span>
+                        {seg.lit && <span style={{ fontSize: 8, opacity: 0.4 }}>💡</span>}
+                      </div>
+                      <span style={{
+                        fontSize: 11, fontFamily: "monospace", fontWeight: 700,
+                        color: seg.lit ? (seg.color || ORANGE) : "rgba(255,255,255,.12)",
+                      }}>{fmt(seg.amount)}</span>
+                    </div>
+                    <div style={{ height: 4, background: "rgba(255,255,255,0.03)", borderRadius: 2, overflow: "hidden", marginBottom: 2 }}>
+                      <div style={{
+                        height: "100%", width: `${barWidth}%`,
+                        background: seg.lit ? (seg.color || ORANGE) : "rgba(255,255,255,0.04)",
+                        borderRadius: 2, transition: "width 1.2s ease",
+                        boxShadow: seg.lit ? `0 0 6px ${(seg.color || ORANGE)}33` : "none",
+                      }} />
+                    </div>
+                    {seg.desc && <div style={{ fontSize: 9, color: "rgba(255,255,255,.13)", fontFamily: "monospace" }}>{seg.desc}</div>}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* The Insight */}
+            <div style={{
+              marginTop: 28, padding: "20px 18px",
+              background: "rgba(0,0,0,0.4)", borderLeft: "2px solid rgba(247,147,26,0.2)",
+              borderRadius: "0 8px 8px 0",
+              opacity: v ? 1 : 0, transition: "opacity 1s ease 1s",
+            }}>
+              <p style={{ fontSize: 13, color: "rgba(255,255,255,.4)", fontFamily: "'Georgia',serif", lineHeight: 1.8, margin: 0, fontStyle: "italic" }}>
+                Look at the Tower. Most of the lights are on. Millions of {"\u20bf"}elievers checked in quietly — no announcements, no press releases, no SEC filings. They just hold their keys and keep the lights burning. The dark windows and blacked-out floors belong to the lost — coins that will never move again. At the very top, the Nakamoto Floors sit sealed and silent. At the bottom, the foundation is still being poured. The Hotel won't be finished until 2140.
+              </p>
+            </div>
+
+            <div style={{ textAlign: "center", marginTop: 20, opacity: v ? 1 : 0, transition: "opacity 1s ease 1.2s" }}>
+              <p style={{ fontSize: 10, color: "rgba(255,255,255,.12)", fontFamily: "monospace", letterSpacing: ".08em" }}>PUBLIC COMPANY DATA LIVE VIA COINGECKO · OTHER DATA UPDATED PERIODICALLY</p>
+            </div>
+          </div>
+        )}
+      </div>
+      <Support />
+    </div>
+  );
+}
+
 /* ─── Main App ─── */
 
 export default function App() {
@@ -1385,6 +1689,7 @@ export default function App() {
     if (media === "fire") return <FireScreen onBack={() => { setScreen("hub"); setMedia(null); }} />;
     if (media === "findfloor") return <FindFloorScreen onBack={() => { setScreen("hub"); setMedia(null); }} />;
     if (media === "hoteltoday") return <HotelTodayScreen onBack={() => { setScreen("hub"); setMedia(null); }} />;
+    if (media === "tower") return <TowerScreen onBack={() => { setScreen("hub"); setMedia(null); }} />;
   }
   return <Hub onSelect={(id) => { setMedia(id); setScreen("media"); }} />;
 }
