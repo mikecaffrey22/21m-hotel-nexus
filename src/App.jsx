@@ -1376,21 +1376,29 @@ function TowerFire({ width }) {
   useEffect(() => {
     const c = ref.current; if (!c) return;
     const ctx = c.getContext("2d");
-    const w = width || 110, h = 70;
+    const w = width || 110, h = 180;
     c.width = w; c.height = h;
-    const P = Array.from({ length: 55 }, () => ({
-      x: 0.15 + Math.random() * 0.7, y: 0.2 + Math.random() * 0.8,
-      r: 1 + Math.random() * 4, sp: 0.003 + Math.random() * 0.007,
-      a: 0.2 + Math.random() * 0.6, hue: Math.random(), ph: Math.random() * 6.28,
+    const fireBase = 0.72;
+    const emberCeiling = 0.12;
+    const P = Array.from({ length: 65 }, (_, i) => ({
+      x: 0.15 + Math.random() * 0.7, y: fireBase + Math.random() * 0.15,
+      r: i < 45 ? (1 + Math.random() * 4) : (0.5 + Math.random() * 1.5),
+      sp: i < 45 ? (0.0008 + Math.random() * 0.002) : (0.0003 + Math.random() * 0.0008),
+      a: i < 45 ? (0.2 + Math.random() * 0.6) : (0.06 + Math.random() * 0.12),
+      hue: Math.random(), ph: Math.random() * 6.28,
+      isEmber: i >= 45,
     }));
     const draw = () => {
       ctx.clearRect(0, 0, w, h);
       const t = Date.now() * 0.001;
       for (const p of P) {
-        p.y -= p.sp; p.x += Math.sin(t * 1.5 + p.ph) * 0.003;
-        if (p.y < -0.1) { p.y = 1.1; p.x = 0.15 + Math.random() * 0.7; }
-        const tw = 0.5 + 0.5 * Math.sin(t * 2.5 + p.ph * 3);
-        const a = p.a * tw;
+        p.y -= p.sp;
+        p.x += Math.sin(t * (p.isEmber ? 0.5 : 1.0) + p.ph) * (p.isEmber ? 0.001 : 0.0005);
+        if (p.isEmber && p.y < emberCeiling) { p.y = fireBase + Math.random() * 0.1; p.x = 0.15 + Math.random() * 0.7; }
+        if (!p.isEmber && p.y < fireBase - 0.15) { p.y = fireBase + 0.15; p.x = 0.15 + Math.random() * 0.7; }
+        const tw = 0.5 + 0.5 * Math.sin(t * 1.2 + p.ph * 3);
+        const fade = p.isEmber ? Math.max(0, (p.y - emberCeiling) / (fireBase - emberCeiling)) : 1;
+        const a = p.a * tw * fade;
         const col = p.hue < 0.4 ? `rgba(247,147,26,${a})` : p.hue < 0.7 ? `rgba(255,180,40,${a})` : `rgba(255,100,20,${a * 0.7})`;
         const g = ctx.createRadialGradient(p.x * w, p.y * h, 0, p.x * w, p.y * h, p.r * 3);
         g.addColorStop(0, col); g.addColorStop(1, "rgba(247,147,26,0)");
@@ -1401,7 +1409,7 @@ function TowerFire({ width }) {
     draw();
     return () => cancelAnimationFrame(anim.current);
   }, [width]);
-  return <canvas ref={ref} style={{ width: width || 110, height: 70, display: "block" }} />;
+  return <canvas ref={ref} style={{ width: width || 110, height: 180, display: "block" }} />;
 }
 
 function TowerScreen({ onBack }) {
@@ -1517,6 +1525,7 @@ function TowerScreen({ onBack }) {
         <div style={{ textAlign: "center", padding: "20px 24px 24px" }}>
           <h2 style={{ fontSize: "clamp(28px,5vw,42px)", fontWeight: 800, color: "#fff", fontFamily: "'Georgia',serif", margin: "0 0 8px" }}>The Tower</h2>
           <p style={{ fontSize: 13, color: "rgba(255,255,255,.35)", fontFamily: "'Georgia',serif", fontStyle: "italic", maxWidth: 400, margin: "0 auto" }}>Twenty-one million floors. See who left the lights on.</p>
+          <p style={{ fontSize: 9, color: "rgba(255,255,255,.10)", fontFamily: "monospace", letterSpacing: ".06em", marginTop: 8 }}>Tower segments are representational and not drawn to exact proportional scale.</p>
         </div>
 
         {!loaded ? (
@@ -1552,8 +1561,10 @@ function TowerScreen({ onBack }) {
               display: "flex", flexDirection: "column", alignItems: "center",
             }}>
               {/* Fire centered on roof */}
-              <div style={{ width: towerWidth, marginBottom: -12, position: "relative", zIndex: 1 }}>
-                <TowerFire width={towerWidth} />
+              <div style={{ width: towerWidth, height: 70, marginBottom: 0, position: "relative", zIndex: 1, overflow: "visible" }}>
+                <div style={{ position: "absolute", bottom: 0, left: 0 }}>
+                  <TowerFire width={towerWidth} />
+                </div>
               </div>
 
               {/* Hotel Building */}
