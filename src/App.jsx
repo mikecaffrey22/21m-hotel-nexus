@@ -46,12 +46,12 @@ const FLOORS_DATA = [
   {
     id: "strategy",
     name: "The Strategy Floors",
-    floorRange: "738,731 Corporate Floors",
-    tagline: "The Company That Became the Standard",
+    floorRange: "1,100,000 Corporate Floors",
+    tagline: "The Only Entity to Match the Nakamoto Floors",
     icon: "📊",
     accent: "#E63946",
-    description: "738,731 floors. One for every Bitcoin that Strategy — formerly MicroStrategy — holds on its corporate balance sheet. This is the largest single floor cluster owned by any entity in the Hotel. What began as a software company became the world's first and largest Bitcoin treasury company. Financial engineers and visionaries who figured out how to create space — real, livable, warm space — for middle-class people stuck on the lower floors. They turned conviction into infrastructure. They turned belief into blueprints. Every sat of space on these floors exists because someone at Strategy understood that Bitcoin isn't just an asset — it's a lever, and if you position it right, you can move the world.",
-    lore: "Strategy began buying Bitcoin in August 2020. They never stopped. They never sold. 738,731 and counting.",
+    description: "1,100,000 floors. One for every Bitcoin that Strategy — formerly MicroStrategy — holds on its corporate balance sheet. The unit of account here is a Nakamoto — a nod to Strategy being the only company in the world whose holdings match the scale of the Nakamoto Floors themselves. What began as a software company became the world's first and largest Bitcoin treasury company. Financial engineers and visionaries who figured out how to create space — real, livable, warm space — for middle-class people stuck on the lower floors. They turned conviction into infrastructure. They turned belief into blueprints. Every sat of space on these floors exists because someone at Strategy understood that Bitcoin isn't just an asset — it's a lever, and if you position it right, you can move the world.",
+    lore: "Strategy began buying Bitcoin in August 2020. They never stopped. They never sold. 1,100,000 and the only name in the Hotel that stands level with Nakamoto.",
   },
   {
     id: "michaels-club",
@@ -93,6 +93,56 @@ const FLOORS_DATA = [
     accent: "#555",
     description: "Over one million floors. Sealed. Silent. Warm beyond imagination. Nobody lives here. Nobody has ever lived here. The Nakamoto Floors are the Hotel's cruel, beautiful reminder of scarcity. They exist to be empty. They are the space that will never be occupied, the warmth that will never be shared. You can see them on the view screens — endless corridors of perfect temperature, perfect light, perfect nothing. They are what makes every other floor valuable. Without the empty, the full means nothing. Without the cap, the count means nothing. Twenty-one million. Not one more.",
     lore: "Satoshi's floors. The warmest place in existence. The loneliest too. That's the point.",
+  },
+  {
+    id: "lost",
+    name: "The Lost Floors",
+    floorRange: "~3,700,000 Floors — Sealed Forever",
+    tagline: "Warm. Lit. Empty. Permanently.",
+    icon: "🔒",
+    accent: "#666",
+    description: "The largest ghost story in the Hotel. Nearly four million floors — warm, lit, fully built — and permanently sealed. The keys are gone. Some owners bought early, didn't understand what they had, and threw the keys away like junk mail. Some used their floors to buy drugs on the dark corridors — the old Silk Road markets — and tossed the keys when law enforcement came looking. Some owners died without telling a soul. Some forgot. Some lost everything when the old exchanges collapsed and took their keys with them. The reasons are as varied as the people who once held them. Now the floors sit behind locked doors that will never open again. You can see them on the view screens — perfect temperature, perfect light, perfect nothing. Nobody's coming home.",
+    lore: "They bought. They lost. They forgot. They died. The Hotel doesn't care why. The doors are shut. The lights stay on. Nobody's coming home.",
+  },
+  {
+    id: "ulbricht",
+    name: "The Ross Ulbricht Floors",
+    floorRange: "300 Floors",
+    tagline: "A Man Who Believed in Freedom for All",
+    icon: "🕊️",
+    accent: "#C9A84C",
+    description: "Ross Ulbricht was a man who believed the internet should be free. He built Silk Road — an anonymous marketplace that the world wasn't ready for — and paid for it with twelve years of his life. Sentenced to two life terms plus forty years for nonviolent charges, Ulbricht became a symbol of everything the freedom movement fought for. He was pardoned, came home, and started a family. By 2140, the Ulbricht floors belong to his descendants — a small inheritance carrying the weight of a very large name. Three hundred floors isn't much in a building of twenty-one million. But these three hundred mean something. They mean a man went to prison for building what he believed in, and his family kept the lights on.",
+    lore: "They locked him up for freedom. They let him out for the same reason. The floors stayed warm the whole time.",
+  },
+  {
+    id: "blackrock",
+    name: "The BlackRock Floors",
+    floorRange: "600,000 Floors",
+    tagline: "Wall Street Moved In",
+    icon: "🏦",
+    accent: "#4A90D9",
+    description: "Six hundred thousand floors. The largest institutional holder in the Hotel. BlackRock didn't believe in the Hotel — they believed in the math. They arrived late, bought massive, and built floors that gleam with cold efficiency. The architecture is pristine, corporate, deliberately imposing. The residents are elite, insular, and they look down — literally and figuratively — on everyone below them. They didn't pour the foundation. They didn't stack through the cold years. They showed up after the math was proven and wrote a check large enough to skip the line. Whether that makes them stewards or occupiers depends entirely on which floor you're standing on when you answer the question.",
+    lore: "Wall Street laughed at the Hotel for a decade. Then they bought 600,000 floors of it. Nobody's laughing now — least of all the people below them.",
+  },
+  {
+    id: "draper",
+    name: "The Draper Floors",
+    floorRange: "~29,656 Floors",
+    tagline: "The Rockefellers of the Hotel",
+    icon: "👑",
+    accent: "#D4AF37",
+    description: "A dynasty. Tim Draper bought floors that the US Government seized from Silk Road at auction — floors confiscated from people who used the Hotel's freedom for the wrong reasons. He'd already lost 40,000 floors to the collapse of Mt. Gox and came back swinging. His sons Adam and Billy built venture empires around Bitcoin. Their children carried the keys forward. By 2140, the Draper name has been on these floors for over a century — four generations of venture capitalists who bet on Bitcoin before most people had heard of it. The floors are a living museum of conviction passed from parent to child. In the old world, they would have been called Rockefellers. In the Hotel, they're just called Drapers. Everyone knows what that means.",
+    lore: "He lost 40,000 floors to Mt. Gox. He bought 30,000 back from the government. He handed the keys to his sons. They handed them to theirs. That's a dynasty.",
+  },
+  {
+    id: "ai",
+    name: "The AI Floors",
+    floorRange: "Unknown Count — Unknown Location",
+    tagline: "Owned by Minds That Were Never Born",
+    icon: "🤖",
+    accent: "#00FFAA",
+    description: "By 2140, artificial intelligence learned to create its own wallets, acquire its own satoshis, and transact without human oversight. No one knows how many floors they control. No one knows which floors are theirs. No one knows how many AIs hold keys. The Ledger records every transaction — but the Ledger doesn't say who's on the other side. Are there a thousand AI-held floors? A million? Are some of the Ghost Floors not ghosts at all, but occupied by intelligences that don't need corridors or kitchens or warmth? Nobody can answer. Nobody can track it. The AIs operate in the spaces between human understanding, holding keys to doors that may or may not exist in any way humans recognize. These are the Hotel's deepest mystery: floors owned by minds that were never born.",
+    lore: "The Ledger records every transaction. It doesn't record who — or what — is on the other side.",
   },
 ];
 
@@ -259,7 +309,7 @@ function Hub({ onSelect }) {
       {/* Featured sections above media */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, padding: "0 24px 12px", maxWidth: 700, margin: "0 auto", position: "relative", zIndex: 2 }}>
         {[
-          { id: "floors", icon: "🏨", label: "THE FLOORS", desc: "Know the Building", count: "7 FLOORS" },
+          { id: "floors", icon: "🏨", label: "THE FLOORS", desc: "Know the Building", count: "12 FLOORS" },
           { id: "glossary", icon: "📜", label: "GLOSSARY", desc: "Hotel Lexicon", count: "11 TERMS" },
           { id: "fire", icon: "🔥", label: "THE FIRE", desc: "Live from the Chain", count: "LIVE" },
           { id: "findfloor", icon: "🗝", label: "FIND YOUR FLOOR", desc: "Where Do You Live?", count: "CHECK IN" },
@@ -428,6 +478,7 @@ function FloorsList({ onBack }) {
         <div style={{ fontSize: 32, marginBottom: 12 }}>🏨</div>
         <h2 style={{ fontSize: "clamp(24px,4vw,36px)", fontWeight: 800, color: "#fff", fontFamily: "'Georgia',serif", margin: "0 0 8px" }}>Get to Know the Floors</h2>
         <p style={{ fontSize: 13, color: "rgba(255,255,255,.4)", fontFamily: "'Georgia',serif", fontStyle: "italic" }}>The Hotel is twenty-one million floors of civilization stacked on ice</p>
+        <p style={{ fontSize: 10, color: "rgba(255,255,255,.15)", fontFamily: "monospace", marginTop: 10, lineHeight: 1.6, maxWidth: 420, marginLeft: "auto", marginRight: "auto" }}>The 21M Hotel is set in 2140, when all 21 million floors have been built. Everything here is fantasy, prediction, and hope for the future.</p>
       </div>
       <div style={{ maxWidth: 600, margin: "0 auto", padding: "0 24px 40px", position: "relative", zIndex: 2 }}>
         {FLOORS_DATA.map((floor, i) => (
@@ -817,7 +868,7 @@ const FLOOR_TIERS = [
     floor: "Floors 50,000–200,000",
     zone: "The High Floors",
     temp: "23–28°C",
-    desc: "Estates. Dynasties. The Named Floor territory begins here. El Salvador. Nigeria. Japan. The Saylor Cathedral. Strategy's 738,731 floors. You don't just live in the Hotel — you shape it. The warmth here isn't a luxury. It's a fact of life. The cold is a story your grandparents told.",
+    desc: "Estates. Dynasties. The Named Floor territory begins here. El Salvador. Nigeria. Japan. The Saylor Cathedral. Strategy's 1,100,000 floors. You don't just live in the Hotel — you shape it. The warmth here isn't a luxury. It's a fact of life. The cold is a story your grandparents told.",
     color: "#dd6611",
   },
   {
