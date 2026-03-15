@@ -1032,6 +1032,58 @@ function FindFloorScreen({ onBack }) {
               <div style={{ fontSize: 14, color: "rgba(255,255,255,.5)", fontFamily: "'Georgia',serif", fontStyle: "italic" }}>{result.tier.zone} · {result.tier.temp}</div>
             </div>
 
+            {/* Floor Registry — Phase 2 */}
+            {(() => {
+              const satsPerFloor = 100000000;
+              const totalFloors = result.sats / satsPerFloor;
+              const fullFloors = Math.floor(totalFloors);
+              const partialPct = ((totalFloors - fullFloors) * 100).toFixed(2);
+              const pctOfHotel = ((result.sats / 2100000000000000) * 100);
+              const pctDisplay = pctOfHotel < 0.000001 ? "< 0.000001%" : pctOfHotel < 0.01 ? pctOfHotel.toFixed(6) + "%" : pctOfHotel.toFixed(4) + "%";
+
+              return (
+                <div style={{
+                  background: "rgba(247,147,26,0.04)", border: "1px solid rgba(247,147,26,0.12)",
+                  borderRadius: 10, padding: "24px 20px", marginBottom: 16,
+                }}>
+                  <div style={{ fontSize: 9, color: "rgba(255,255,255,.25)", fontFamily: "monospace", letterSpacing: ".12em", marginBottom: 14, textAlign: "center" }}>FLOOR REGISTRY</div>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+                    <div style={{ background: "rgba(0,0,0,0.2)", borderRadius: 8, padding: "14px 12px", textAlign: "center" }}>
+                      <div style={{ fontSize: 20, fontWeight: 800, color: ORANGE, fontFamily: "'Georgia',serif" }}>
+                        {fullFloors > 0 ? fmt(fullFloors) : "0"}
+                      </div>
+                      <div style={{ fontSize: 9, color: "rgba(255,255,255,.25)", fontFamily: "monospace", letterSpacing: ".08em", marginTop: 4 }}>
+                        {fullFloors === 1 ? "FULL FLOOR" : "FULL FLOORS"}
+                      </div>
+                    </div>
+                    <div style={{ background: "rgba(0,0,0,0.2)", borderRadius: 8, padding: "14px 12px", textAlign: "center" }}>
+                      <div style={{ fontSize: 20, fontWeight: 800, color: fullFloors > 0 ? ORANGE : result.tier.color, fontFamily: "'Georgia',serif" }}>
+                        {fullFloors > 0 ? partialPct + "%" : totalFloors >= 0.01 ? (totalFloors * 100).toFixed(1) + "%" : "< 0.01%"}
+                      </div>
+                      <div style={{ fontSize: 9, color: "rgba(255,255,255,.25)", fontFamily: "monospace", letterSpacing: ".08em", marginTop: 4 }}>
+                        {fullFloors > 0 ? "OF NEXT FLOOR" : "OF ONE FLOOR"}
+                      </div>
+                    </div>
+                  </div>
+                  <div style={{ marginTop: 12, textAlign: "center" }}>
+                    <div style={{ fontSize: 11, color: "rgba(255,255,255,.3)", fontFamily: "monospace" }}>
+                      {fmt(result.sats)} sats = {totalFloors >= 1 ? totalFloors.toFixed(4) : totalFloors >= 0.0001 ? totalFloors.toFixed(6) : totalFloors.toExponential(2)} floors
+                    </div>
+                    <div style={{ fontSize: 10, color: "rgba(255,255,255,.2)", fontFamily: "monospace", marginTop: 4 }}>
+                      You own {pctDisplay} of the entire Hotel
+                    </div>
+                  </div>
+                  <div style={{ marginTop: 14, padding: "10px 14px", background: "rgba(0,0,0,0.2)", borderRadius: 6 }}>
+                    <div style={{ fontSize: 10, color: "rgba(255,255,255,.2)", fontFamily: "monospace", lineHeight: 1.7, textAlign: "center" }}>
+                      1 floor = 100,000,000 sats = 1 BTC
+                      <br />
+                      The Hotel has 21,000,000 floors. Every sat is space.
+                    </div>
+                  </div>
+                </div>
+              );
+            })()}
+
             {/* Stats Row (manual mode only) */}
             {!result.address && (
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 16 }}>
