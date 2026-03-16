@@ -36,7 +36,7 @@ const FLOORS_DATA = [
   {
     id: "saylor",
     name: "The Michael Saylor Floors",
-    floorRange: "17,732 Personal Floors",
+    floorRange: "Floors 150,000 – 167,732",
     tagline: "A Cathedral to Conviction",
     icon: "⛪",
     accent: "#FF6B00",
@@ -46,7 +46,7 @@ const FLOORS_DATA = [
   {
     id: "strategy",
     name: "The Strategy Floors",
-    floorRange: "1,100,000 Corporate Floors",
+    floorRange: "Floors 6,000,000 – 7,100,000",
     tagline: "The Only Entity to Match the Nakamoto Floors",
     icon: "📊",
     accent: "#E63946",
@@ -61,7 +61,7 @@ const FLOORS_DATA = [
     icon: "🏆",
     accent: "#90EE90",
     description: "An ambitious person named Michael decided to create a floor and only let people named Michael live on it. His logic was simple and unhinged: there are too many excellent Michaels in the world. Every Michael is given the overwhelming pressure of being better than every other Michael. They needed their own platform. So he built one. And it worked. The floor is absolutely packed. Wall-to-wall Michaels. Michael became the most popular name in the Hotel. Michaels came from every floor, every nation cluster, every temperature zone. They argue constantly about who the best Michael is. They have a leaderboard. They have a Michael of the Month award. The corridor signs all say MICHAEL. It is, objectively, hilarious.",
-    lore: "The waiting list to get on the Michael floor is longer than the queue for the Great Stampede. Somehow there's always room for one more Michael. Michael will come. The most.",
+    lore: "The waiting list to get on the Michael floor is longer than the queue for the Great Check-In. Somehow there's always room for one more Michael. Michael will come. The most.",
   },
   {
     id: "japan",
@@ -72,6 +72,16 @@ const FLOORS_DATA = [
     accent: "#FFFFFF",
     description: "First started by Simon Gerovich, the visionary CEO who transformed a struggling Tokyo hotel company into Asia's most aggressive Bitcoin treasury. Gerovich — a former Goldman Sachs derivatives trader turned entrepreneur — saw what Japan's conservative financial establishment couldn't: that Bitcoin was the future. He and his team at Metaplanet revolutionized Japan's economy by being the first to adopt Bitcoin as corporate strategy, then later handed over the floors to the people of Japan. The result rivals El Salvador as one of the most beautiful floor clusters in the Hotel. The culture here is that of an older Japan — exquisite, deliberate, breathtaking. Cherry blossom trees bloom under artificial light along the central promenades. Tea ceremonies are performed in rooms that feel older than the Hotel itself. Calligraphy schools connect children to a civilization buried under miles of ice. If something in the Hotel needs to be invented, it's probably invented here.",
     lore: "Simon Gerovich bet on Bitcoin when Japan's establishment called it madness. Metaplanet became the best-performing stock in the entire Japanese market. The floors are his legacy.",
+  },
+  {
+    id: "swiss",
+    name: "The Swiss Floors",
+    floorRange: "Floors 52,000 – 54,000",
+    tagline: "Neutral Ground",
+    icon: "🇨🇭",
+    accent: "#DDDDDD",
+    description: "Switzerland was the second nation to acquire Hotel floors, purchasing a small but strategically positioned cluster with national reserves and the proceeds of its banking sector's liquidation. The Swiss Floors are the Hotel's financial center — home to the Neutral Exchange, the closest thing the building has to a central marketplace for large-scale floor transactions. The architecture is clean, orderly, and aggressively functional: white walls, efficient lighting, corridors that intersect at perfect right angles. The Neutral Exchange is governed by a charter that guarantees impartiality — no nation, no family, no faction receives preferential treatment. This makes the Swiss Floors the default venue for high-stakes negotiations between hostile parties. The air smells like nothing. The Swiss consider this a feature.",
+    lore: "Two thousand floors. Perfectly neutral. Perfectly clean. The air smells like nothing. The Swiss consider this a feature.",
   },
   {
     id: "finney",
@@ -107,7 +117,7 @@ const FLOORS_DATA = [
   {
     id: "ulbricht",
     name: "The Ross Ulbricht Floors",
-    floorRange: "300 Floors",
+    floorRange: "Floors 500 – 800",
     tagline: "A Man Who Believed in Freedom for All",
     icon: "🕊️",
     accent: "#C9A84C",
@@ -117,7 +127,7 @@ const FLOORS_DATA = [
   {
     id: "blackrock",
     name: "The BlackRock Floors",
-    floorRange: "600,000 Floors",
+    floorRange: "Floors 4,000,000 – 4,600,000",
     tagline: "Wall Street Moved In",
     icon: "🏦",
     accent: "#4A90D9",
@@ -127,7 +137,7 @@ const FLOORS_DATA = [
   {
     id: "draper",
     name: "The Draper Floors",
-    floorRange: "~29,656 Floors",
+    floorRange: "Floors 400,000 – 429,656",
     tagline: "The Rockefellers of the Hotel",
     icon: "👑",
     accent: "#D4AF37",
@@ -151,13 +161,13 @@ const FLOORS_DATA = [
     tagline: "Everything in the Hotel Drains Down. So Did They.",
     icon: "🪫",
     accent: "#556",
-    description: "Floors 1 through 3. Seven to eleven degrees. Ninety-five percent of humanity packed into three floors of flickering lights, recycled air, and the kind of cold that doesn't kill you — it just never leaves. The residents up above call them Drips. It's not a slur anyone shouts. It's worse than that. It's the word people use without thinking, the way you'd say \"dust\" or \"runoff.\" A Drip is what collects at the bottom when warmth rises and leaves something behind. The Warrens stretch through Floor 1 like a maze nobody drew on purpose — cubicles stacked four high, corridors that haven't been mapped since the Great Stampede, children who navigate by sound and smell because there are no street signs. The Lamp Market sells everything from rehydrated paste to stories about the upper floors. Floor 2 is the textile district — seamstresses stitching layers for people who will never be warm enough. Floor 3 is the ceiling, the best the bottom has to offer, where people stand on the Ledge and stare up the elevator shaft at light they can't reach. The Gutter didn't choose its residents. The Great Stampede did. Millions showed up late, took what was left, and never climbed out. The view screens are the cruelest part — twenty-four hours a day, you can watch warm, empty floors that belong to no one while you shiver in a space you share with six strangers. The people above don't think about the Gutter. That's the point. That's what makes it the Gutter.",
+    description: "Floors 1 through 3. Ninety-five percent of humanity packed into three floors of flickering lights, recycled air, and the kind of cold that doesn't kill you — it just never leaves. The residents up above call them Drips. It's not a slur anyone shouts. It's worse than that. It's the word people use without thinking, the way you'd say \"dust\" or \"runoff.\" A Drip is what collects at the bottom when warmth rises and leaves something behind. The corridors stretch through the Gutter like a maze nobody drew on purpose — cubicles stacked four high, passages that haven't been mapped since the Great Check-In, children who navigate by sound and smell because nobody ever drew a map. The Lamp Market sells everything from rehydrated paste to bootleg fermented drinks to information about the upper floors. Floor 2 is marginally less dense. Floor 3 is marginally less cold. The differences are so small that only the people living there can feel them. The Gutter didn't choose its residents. The Great Check-In did. Millions showed up late, took what was left, and never climbed out. The view screens are the cruelest part — twenty-four hours a day, you can watch warm, empty floors that belong to no one while you shiver in a space you share with six strangers. The people above don't think about the Gutter. That's the point. That's what makes it the Gutter.",
     lore: "The upper floors have a word for them: Drips. What collects at the bottom when warmth rises. The Gutter doesn't argue. The Gutter doesn't have time.",
   },
   {
     id: "winklevoss",
     name: "The Winklevoss Floors",
-    floorRange: "~1,500 Floors",
+    floorRange: "Floors 33,000 – 34,500",
     tagline: "They Had 120,000. They Built the Door Instead.",
     icon: "👯",
     accent: "#3CB8AD",
@@ -167,7 +177,7 @@ const FLOORS_DATA = [
   {
     id: "tesla",
     name: "The Tesla Floors",
-    floorRange: "~8,000 Floors",
+    floorRange: "Floors 320,000 – 328,000",
     tagline: "The Last Race Track on Earth",
     icon: "🏎️",
     accent: "#CC0000",
@@ -177,7 +187,7 @@ const FLOORS_DATA = [
   {
     id: "spacex",
     name: "The SpaceX Floors",
-    floorRange: "~6,000 Floors",
+    floorRange: "Floors 480,000 – 486,000",
     tagline: "The Departure Lounge",
     icon: "🚀",
     accent: "#005288",
@@ -187,7 +197,7 @@ const FLOORS_DATA = [
   {
     id: "us-gov",
     name: "The US Government Floors",
-    floorRange: "~500,000 Floors",
+    floorRange: "Floors 1,200,000 – 1,700,000",
     tagline: "Seized. Legislated. Stockpiled.",
     icon: "🇺🇸",
     accent: "#B22234",
@@ -197,7 +207,7 @@ const FLOORS_DATA = [
   {
     id: "china",
     name: "The China Floors",
-    floorRange: "~400,000 Floors",
+    floorRange: "Floors 2,500,000 – 2,900,000",
     tagline: "Banned It Seven Times. Built 400,000 Floors.",
     icon: "🇨🇳",
     accent: "#DE2910",
@@ -207,27 +217,27 @@ const FLOORS_DATA = [
   {
     id: "bhutan",
     name: "The Bhutan Floor",
-    floorRange: "1 Floor",
-    tagline: "They Mined It with Rivers and Sold It All",
+    floorRange: "Floor 88,888",
+    tagline: "They Mined It with Rivers and Sold Almost Everything",
     icon: "🇧🇹",
     accent: "#FF6F00",
-    description: "Bhutan doesn't have floors. Bhutan had floors. A tiny Himalayan kingdom that mined Bitcoin with hydroelectric power — rivers turned into digital space — and then sold every single floor they built. Cycle after cycle, decade after decade. They mined with rivers. They sold for cash. The money funded schools, hospitals, roads, and a Mindfulness City that still stands in the mountains of the old world, long buried under ice. By 2140, Bhutan holds exactly one floor. A single room. A monument to the nation that touched Bitcoin, used it wisely, and never held on. It's the Hotel's most beloved cautionary tale: you can build floors with nothing but water and patience, and still end up with almost nothing if you sell every one.",
-    lore: "They mined with rivers. They sold every floor they built. The schools are buried under ice now. But they were built. That counts for something.",
+    description: "Bhutan mined Bitcoin with rivers — hydroelectric power turned into digital space — and then sold nearly every floor they built. Cycle after cycle, decade after decade. The money funded schools, hospitals, roads, and a Mindfulness City that still stands in the mountains of the old world, long buried under ice. By 2140, Bhutan holds exactly one floor. Floor 88,888, chosen for its number — auspicious in Buddhist tradition. What was once a cautionary tale became something else entirely. The single remaining floor is a monastery: meditation halls, prayer rooms, and gardens so meticulously maintained they function as living art. The population is approximately two hundred monks and nuns, plus a rotating group of pilgrims from every floor. The Bhutan Floor accepts no satoshis. It operates entirely on donation and barter. The monks teach meditation, philosophy, and breath training. They do not turn anyone away. Bhutan is the Hotel's most beloved resident: a nation that touched Bitcoin, used it wisely, sold almost everything, and turned what remained into the only place in the Hotel dedicated entirely to silence.",
+    lore: "They mined with rivers. They sold almost everything. What they kept became the quietest floor in the Hotel. The monks don't turn anyone away.",
   },
   {
     id: "genesis",
     name: "The Genesis Floor",
-    floorRange: "Floor 0 — Sealed",
+    floorRange: "Top Floor — Sealed",
     tagline: "The Times 03/Jan/2009 Chancellor on Brink of Second Bailout for Banks",
     icon: "🖥️",
     accent: "#F7931A",
-    description: "The first floor ever built. Block zero. Part of the Nakamoto Floors, permanently sealed. You can see it on the view screens — a single room, perfectly warm, perfectly still. Inside sits a computer and a newspaper. The newspaper is The Times, dated January 3, 2009. The headline reads: \"Chancellor on brink of second bailout for banks.\" Satoshi embedded that headline into the first block ever mined — a message to the future about why this was built. The computer sits beside it, silent, its work finished 131 years ago. No furniture. No decoration. Just the machine that started everything and the paper that explained why. Pilgrims come from every level of the Hotel to watch it on the view screens. They stand in the cold on Floor 1 and stare at the warm, sealed room where it all began. Nobody has ever set foot inside. Nobody ever will. The Genesis Floor is not a home. It is a monument. The Hotel's first heartbeat, preserved forever behind glass that will never open.",
-    lore: "A computer. A newspaper. A warm room no one will ever enter. The beginning of everything, sealed shut for eternity.",
+    description: "The first floor ever built. Block zero. The Genesis Floor sits at the very top of the Hotel, just beneath the roof and the Eternal Fire — because it was the first floor to exist, and the Hotel was built defying the laws of physics, growing downward from its origin. It is part of the Nakamoto Floors, permanently sealed. You can see it on the view screens — a single room, perfectly warm, perfectly still. Inside sits a computer and a newspaper. The newspaper is The Times, dated January 3, 2009. The headline reads: \"Chancellor on brink of second bailout for banks.\" Satoshi embedded that headline into the first block ever mined — a message to the future about why this was built. The computer sits beside it, silent, its work finished 131 years ago. No furniture. No decoration. Just the machine that started everything and the paper that explained why. Pilgrims come from every level of the Hotel to watch it on the view screens. Nobody has ever set foot inside. Nobody ever will. The Genesis Floor is not a home. It is a monument. The Hotel's first heartbeat, preserved at its crown forever.",
+    lore: "A computer. A newspaper. A warm room no one will ever enter. The beginning of everything, at the top of everything, sealed shut for eternity.",
   },
   {
     id: "splinter",
     name: "The Splinter Floor",
-    floorRange: "1 Floor — 2 Owners",
+    floorRange: "Floor 21,000 — 2 Owners",
     tagline: "99.99999% Isn't 100%",
     icon: "🪵",
     accent: "#C8A96E",
@@ -237,7 +247,7 @@ const FLOORS_DATA = [
   {
     id: "schiff",
     name: "The Peter Schiff Floor",
-    floorRange: "1 Floor — Donated",
+    floorRange: "Floor 11,111 — Donated",
     tagline: "He Said the Hotel Would Collapse. Then He Moved In.",
     icon: "🪙",
     accent: "#FFD700",
@@ -247,7 +257,7 @@ const FLOORS_DATA = [
   {
     id: "adam-back",
     name: "The Adam Back Floors",
-    floorRange: "~25,000 Floors",
+    floorRange: "Floors 230,000 – 255,000",
     tagline: "The Man Who Built the Foundation Before the Foundation Existed",
     icon: "⚙️",
     accent: "#7B68EE",
@@ -257,7 +267,7 @@ const FLOORS_DATA = [
   {
     id: "andreas",
     name: "The Andreas Antonopoulos Floor",
-    floorRange: "~150 Floors",
+    floorRange: "Floors 2,100 – 2,250",
     tagline: "The Teacher Who Couldn't Afford a Floor",
     icon: "📚",
     accent: "#E8A838",
@@ -267,7 +277,7 @@ const FLOORS_DATA = [
   {
     id: "saifedean",
     name: "The Saifedean Library",
-    floorRange: "1 Floor",
+    floorRange: "Floor 8,500",
     tagline: "The Book That Moved Nations",
     icon: "🏛️",
     accent: "#8B4513",
@@ -277,20 +287,20 @@ const FLOORS_DATA = [
   {
     id: "keiser",
     name: "The Max Keiser Floors",
-    floorRange: "~90,000 Floors — Unverified",
+    floorRange: "Floors 600,000 – 690,000 — Unverified",
     tagline: "The Loudest Man in the Hotel",
     icon: "📢",
     accent: "#FF4500",
-    description: "Max Keiser has been screaming about Bitcoin since 2011. Literally screaming. On television, on podcasts, on view screens, in the corridors of the El Salvador Floors where he lives with his wife Stacy Herbert. He started buying at $1. He claims to hold 90,000 floors. Nobody can verify it. Nobody can shut him up. And that's exactly how he likes it. Keiser is Bukele's senior Bitcoin advisor — the American broadcaster who left everything behind and moved to El Salvador because he believed in the mission before anyone else did. His floors — however many there actually are — sit adjacent to the El Salvador cluster. The corridors echo with his voice at all hours. He argues with anyone. He predicts prices that sound insane until they happen. He is obnoxious, brilliant, relentless, and the Hotel's most divisive personality not named Satoshi. Half the Hotel thinks he's a prophet. The other half wishes he'd lower his voice. He will not.",
-    lore: "He's been yelling about the Hotel since it was three floors tall. He was right about everything. He's still yelling.",
+    description: "Max Keiser screamed about Bitcoin from 2011 until the day he died. On television, on podcasts, on view screens, in the corridors of the El Salvador Floors where he lived with his wife Stacy Herbert. He started buying at $1. He claimed to hold 90,000 floors. Nobody could verify it. Nobody could shut him up. Keiser was Bukele's senior Bitcoin advisor — the American broadcaster who left everything behind and moved to El Salvador because he believed in the mission before anyone else did. By 2140, his descendants own the floors — however many there actually are — adjacent to the El Salvador cluster. The Keiser family inherited his conviction and his volume. They argue with anyone. They predict prices that sound insane until they happen. The Hotel's most divisive dynasty not named Satoshi. Half the Hotel thinks they're prophets. The other half wishes they'd lower their voices. They will not.",
+    lore: "He yelled about the Hotel since it was three floors tall. He was right about everything. His grandchildren are still yelling.",
   },
 ];
 
 const GLOSSARY_DATA = [
   {
-    term: "The Great Stampede",
-    aka: "The Great Check-In",
-    definition: "The Hotel was built slowly, over decades. Early arrivals checked in when floors were plentiful and cheap. They understood what they were buying. They stacked. They rose. Then — thirty years after the Hotel was already built — the rest of the world showed up at once. The Great Stampede was the day the majority of humanity tried to check in at the same time. The queues stretched for miles across the ice. People were crushed. Families were separated. Children were lost. In the panic, millions accepted whatever floor they could get — the lowest, the coldest, the most cramped. Some sold their keys for almost nothing to people who understood what the keys were worth. The Stampede is why 95% of humanity lives on Floors 1 through 3. They didn't choose the bottom. They arrived too late and got stuck there.",
+    term: "The Great Check-In",
+    aka: "The Great Stampede",
+    definition: "The Hotel was built slowly, over decades. Early arrivals checked in when floors were plentiful and cheap. They understood what they were buying. They stacked. They rose. Then — thirty years after the Hotel was already built — the rest of the world showed up at once. The Great Check-In was the day the majority of humanity tried to check in at the same time. The queues stretched for miles across the ice. People were crushed. Families were separated. Children were lost. In the panic, millions accepted whatever floor they could get — the lowest, the coldest, the most cramped. Some sold their keys for almost nothing to people who understood what the keys were worth. The Great Check-In is why 95% of humanity lives on Floors 1 through 3. They didn't choose the bottom. They arrived too late and got stuck there.",
   },
   {
     term: "Satoshis (Sats)",
@@ -314,7 +324,7 @@ const GLOSSARY_DATA = [
   },
   {
     term: "The Cult of Regret",
-    definition: "The pervasive condition among Bottom Floor residents who sold, traded, or lost their keys during the Great Stampede. They know exactly what their floor would be worth now. They've done the math a thousand times. The view screens make it worse — they can watch their old floors, warm and empty, any time they want. Regret is the Bottom Floor's most common affliction, and there's no treatment.",
+    definition: "The pervasive condition among Bottom Floor residents who sold, traded, or lost their keys during the Great Check-In. They know exactly what their floor would be worth now. They've done the math a thousand times. The view screens make it worse — they can watch their old floors, warm and empty, any time they want. Regret is the Bottom Floor's most common affliction, and there's no treatment.",
   },
   {
     term: "Stacking",
@@ -449,7 +459,7 @@ function Hub({ onSelect }) {
       {/* Featured sections above media */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, padding: "0 24px 12px", maxWidth: 700, margin: "0 auto", position: "relative", zIndex: 2 }}>
         {[
-          { id: "floors", icon: "🏨", label: "THE FLOORS", desc: "Know the Building", count: "26 FLOORS" },
+          { id: "floors", icon: "🏨", label: "THE FLOORS", desc: "Know the Building", count: "27 FLOORS" },
           { id: "glossary", icon: "📜", label: "GLOSSARY", desc: "Hotel Lexicon", count: "11 TERMS" },
           { id: "fire", icon: "🔥", label: "THE FIRE", desc: "Live from the Chain", count: "LIVE" },
           { id: "findfloor", icon: "🗝", label: "FIND YOUR FLOOR", desc: "Where Do You Live?", count: "CHECK IN" },
@@ -959,7 +969,6 @@ const FLOOR_TIERS = [
     max: 100,
     floor: "Floor 1",
     zone: "The Bottom",
-    temp: "7°C",
     desc: "The coldest habitable space in the Hotel. No room. No warmth. You sleep in shifts. You eat what you can find. The view screens show warm, empty floors above you twenty-four hours a day. You own almost nothing — and almost nothing is exactly what it feels like.",
     color: "#4466aa",
   },
@@ -967,7 +976,6 @@ const FLOOR_TIERS = [
     max: 1000,
     floor: "Floors 2–3",
     zone: "The Bottom",
-    temp: "9–11°C",
     desc: "Marginally better than Floor 1. You have a cubicle. You might have a blanket that isn't shared. The cold is still in your lungs every morning. You can see Floor 1 below you and you're grateful you're not there. You can see Floor 4 above you and you'd do anything to get there.",
     color: "#4466aa",
   },
@@ -975,7 +983,6 @@ const FLOOR_TIERS = [
     max: 10000,
     floor: "Floors 4–50",
     zone: "The Lower Floors",
-    temp: "12–14°C",
     desc: "You climbed out. The cold is still there but it doesn't own you anymore. Small businesses. Trade schools. Families who are building something. You can feel the warmth above you — not on your skin, not yet, but in the idea that things are getting better. Don't look down.",
     color: "#557799",
   },
@@ -983,7 +990,6 @@ const FLOOR_TIERS = [
     max: 100000,
     floor: "Floors 50–5,000",
     zone: "The Mid-Floors",
-    temp: "14–20°C",
     desc: "You crossed the line. Space to yourself. A door that locks. Air that doesn't hurt to breathe. You're not comfortable yet — but you're not suffering. The view screens still show warmer floors above, but you've stopped watching them with desperation. Now you watch them with a plan.",
     color: "#887744",
   },
@@ -991,7 +997,6 @@ const FLOOR_TIERS = [
     max: 1000000,
     floor: "Floors 5,000–20,000",
     zone: "The Agricultural Belt",
-    temp: "18–22°C",
     desc: "Comfortable. Real warmth. Real food — not paste, not rations, but vegetables that grew in soil under light. You have space. You have choices. You can smell green things growing. Children here have never known the cold. This is what 100,000 sats buys you: a life worth living.",
     color: "#aa8833",
   },
@@ -999,7 +1004,6 @@ const FLOOR_TIERS = [
     max: 10000000,
     floor: "Floors 20,000–50,000",
     zone: "The Open Range",
-    temp: "20–23°C",
     desc: "The frontier. Sparsely populated. Wide corridors. Experimental communities. You didn't just escape the Bottom — you built something. The air here is warm enough to forget that ice exists outside. People up here think in decades, not days.",
     color: "#cc7722",
   },
@@ -1007,15 +1011,13 @@ const FLOOR_TIERS = [
     max: 100000000,
     floor: "Floors 50,000–200,000",
     zone: "The High Floors",
-    temp: "23–28°C",
-    desc: "Estates. Dynasties. The Named Floor territory begins here. El Salvador. Nigeria. Japan. The Saylor Cathedral. Strategy's 1,100,000 floors. You don't just live in the Hotel — you shape it. The warmth here isn't a luxury. It's a fact of life. The cold is a story your grandparents told.",
+    desc: "Estates. Dynasties. The Named Floor territory begins here. El Salvador. Japan. The Saylor Cathedral. Strategy's 1,100,000 floors. You don't just live in the Hotel — you shape it. The warmth here isn't a luxury. It's a fact of life. The cold is a story your grandparents told.",
     color: "#dd6611",
   },
   {
     max: Infinity,
     floor: "Floors 200,000+",
     zone: "The Highlands & Beyond",
-    temp: "28°C+",
     desc: "You own a full floor. Or more. The air is warm. The space is vast. Ghost Floors stretch in every direction — sealed, empty, yours. The Eternal Fire glows above. From here, the Bottom is a number on a view screen. You are the Hotel. The Hotel is you.",
     color: ORANGE,
   },
@@ -1221,7 +1223,7 @@ function FindFloorScreen({ onBack }) {
             }}>
               <div style={{ fontSize: 11, color: "rgba(255,255,255,.3)", fontFamily: "monospace", letterSpacing: ".12em", marginBottom: 12 }}>YOUR POSITION IN THE HOTEL</div>
               <div style={{ fontSize: "clamp(28px,6vw,42px)", fontWeight: 800, color: result.tier.color, fontFamily: "'Georgia',serif", marginBottom: 4 }}>{result.tier.floor}</div>
-              <div style={{ fontSize: 14, color: "rgba(255,255,255,.5)", fontFamily: "'Georgia',serif", fontStyle: "italic" }}>{result.tier.zone} · {result.tier.temp}</div>
+              <div style={{ fontSize: 14, color: "rgba(255,255,255,.5)", fontFamily: "'Georgia',serif", fontStyle: "italic" }}>{result.tier.zone}</div>
             </div>
 
             {/* Floor Registry — Phase 2 */}
@@ -1284,8 +1286,8 @@ function FindFloorScreen({ onBack }) {
                   <div style={{ fontSize: 9, color: "rgba(255,255,255,.25)", fontFamily: "monospace", letterSpacing: ".1em", marginTop: 4 }}>YOUR SATS</div>
                 </div>
                 <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 8, padding: "16px 12px", textAlign: "center" }}>
-                  <div style={{ fontSize: 18, fontWeight: 700, color: result.tier.color, fontFamily: "'Georgia',serif" }}>{result.tier.temp}</div>
-                  <div style={{ fontSize: 9, color: "rgba(255,255,255,.25)", fontFamily: "monospace", letterSpacing: ".1em", marginTop: 4 }}>YOUR TEMPERATURE</div>
+                  <div style={{ fontSize: 14, fontWeight: 700, color: result.tier.color, fontFamily: "'Georgia',serif" }}>{result.tier.zone}</div>
+                  <div style={{ fontSize: 9, color: "rgba(255,255,255,.25)", fontFamily: "monospace", letterSpacing: ".1em", marginTop: 4 }}>YOUR ZONE</div>
                 </div>
               </div>
             )}
