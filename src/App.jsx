@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 
 const ORANGE = "#F7931A";
 const DARK = "#0A0A0A";
-const BTC_ADDRESS = "YOUR_BITCOIN_ADDRESS_HERE";
+const BTC_ADDRESS = "bc1qpxpfpg7nmkc7l9ha76azjr9zhw2dwlhx3dh0kr";
 
 const BOOKS = [
   { id: "every-floor-between-us", title: "Every Floor Between Us", genre: "Romance / Thriller", tagline: "6,195 floors apart. One truth between them.", description: "A seamstress from Floor 2 takes a job on a wealthy family's estate on Floor 6,200. The warmth is intoxicating. So is the heir. But the family that employs her bought her mother's floor during the Great Check-In — and her mother's story about a stolen key is a lie.", chapters: 15, words: "41,400", themes: ["Class divide", "Family secrets", "Inherited guilt", "Found independence"], floor: "Floors 2 → 6,200", heat: "9°C → 24°C", bible: "v3", file: "Every-Floor-Between-Us-Complete.docx" },
