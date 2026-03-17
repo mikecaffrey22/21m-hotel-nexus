@@ -414,7 +414,7 @@ const GLOSSARY_DATA = [
   },
   {
     term: "The Eternal Fire",
-    definition: "The energy source that burns at the Hotel's crown, far above the Summit. It is the Hotel's sun — the origin of all warmth, all light, all life inside the building. Some believe it's conscious. Some believe it's mechanical. Everyone agrees it's real. The higher you go, the closer you get to the Fire, the warmer it becomes.",
+    definition: "The visible crown of the Hotel — the combined thermal output of every mining rig in the building, rising upward and burning at the peak. The Fire is what keeps 21 million floors warm. The Firewalkers worship it as a conscious, living entity. The miners who maintain it know it burns because their machines are running. Sacred to some, mechanical to others, essential to all. The higher you go, the closer you get to the Fire, the warmer it becomes.",
   },
   {
     term: "View Screens",
@@ -471,6 +471,10 @@ const GLOSSARY_DATA = [
   {
     term: "Corporate Estates",
     definition: "By 2140, the Hotel's largest corporate floor holders are no longer companies in any meaningful sense. They are feudal estates. The language is still corporate — CEOs, Boards, shareholders — but the reality is medieval. Tenants on corporate floors are bound by contracts and obligations. They cannot simply leave. In exchange, they receive warmth, food, security, and a standard of living far above the Gutter. They are the Hotel's middle class: comfortable but trapped. The estates compete with each other for talent — a skilled engineer on one estate might be recruited to another with a better contract. Every estate has its own rules, its own culture, its own version of justice.",
+  },
+  {
+    term: "Mining (Miners)",
+    definition: "The Hotel runs because miners run. Across every floor cluster, in every nation and corporate estate, machines grind through the mathematical work that verifies Ledger transactions and secures Lightning payments. The computation generates heat. That heat rises. The Eternal Fire at the Hotel's crown is the combined thermal output of every mining rig in the building. The math keeps ownership honest. The heat keeps people alive. Same machines, both functions, inseparable. Miners are decentralized — no single entity controls them. Nations, corporations, and individuals all run rigs, and the balance of power shifts with whoever can direct the most energy. Bhutan mined with rivers. The Strategy Floors run industrial operations. Independent miners in the mid-floors keep small rigs humming in back rooms. No strike can kill the Fire — shut down one operation and the others keep burning. By 2140, all 21 million floors are built. Miners no longer earn new floors. They earn transaction fees — sats paid every time ownership transfers on the Ledger or Lightning processes a payment. The Hotel's warmth is not free. Someone is always paying for it, and someone is always working to produce it. Nations and corporations that mine at industrial scale don't just earn more sats — they have a hand on the speed dial of everyone else's economy. Miners choose which transactions to verify and in what order. A nation with enough hash power can prioritize its own transfers and its allies', slow a rival's commerce to a crawl, or offer fast processing as a diplomatic bargaining chip. It is the Hotel's version of what the petrodollar did in the old world — control the flow of money, control the world. The difference is decentralization. No single nation can dominate it. But the nations with the most energy will always come closest.",
   },
 ];
 
@@ -590,7 +594,7 @@ function Hub({ onSelect }) {
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, padding: "0 24px 12px", maxWidth: 700, margin: "0 auto", position: "relative", zIndex: 2 }}>
         {[
           { id: "floors", icon: "🏨", label: "THE FLOORS", desc: "Know the Building", count: "29 FLOORS" },
-          { id: "glossary", icon: "📜", label: "GLOSSARY", desc: "Hotel Lexicon", count: "19 TERMS" },
+          { id: "glossary", icon: "📜", label: "GLOSSARY", desc: "Hotel Lexicon", count: "20 TERMS" },
           { id: "fire", icon: "🔥", label: "THE FIRE", desc: "Live from the Chain", count: "LIVE" },
           { id: "findfloor", icon: "🗝", label: "FIND YOUR FLOOR", desc: "Where Do You Live?", count: "CHECK IN" },
           { id: "hoteltoday", icon: "🌐", label: "THE HOTEL TODAY", desc: "Who Owns the Building?", count: "LIVE" },
