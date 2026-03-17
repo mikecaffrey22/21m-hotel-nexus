@@ -13,8 +13,85 @@ const BOOKS = [
   { id: "the-ascent", title: "The Ascent", genre: "Epic / Odyssey", tagline: "From the ice to the Fire. Every floor between.", description: "A man born in a dying settlement on the ice walks into the Hotel for the first time, carrying a key to Floor 19,500,000. He climbs through every civilization in the building until he reaches a warm room where the sky is blue and the sun comes through the window. Then he walks home.", chapters: 15, words: "11,500", themes: ["Vertical odyssey", "Every floor", "Freedom vs. shelter", "The full Hotel"], floor: "The Ice → Floor 19,500,000", heat: "-67°C → 34°C", bible: "v3", file: "The-Ascent.docx" },
 ];
 
+const TALES_DATA = [
+  {
+    id: "ten-candles",
+    title: "Ten Candles",
+    subtitle: "A Tale from the El Salvador Floors",
+    floor: "El Salvador Floors (70,000 – 80,000)",
+    words: "1,800",
+    teaser: "The morning Mateo turned ten, his mother let him eat a pupusa before breakfast.",
+    content: [
+      "The morning Mateo turned ten, his mother let him eat a pupusa before breakfast.",
+      "Not the regular kind\u2014the kind with the thick curtido, the kind Abuela Luc\u00eda made only when she was in a mood to stand at the plancha for an hour, pressing each one flat with her palms and cursing softly at the heat. Mateo sat cross-legged on the kitchen floor, the warm corn smell filling up his chest, and watched his grandmother work. She was seventy-three years old and she moved like she was angry at the dough. The dough never complained.",
+      "\u201CYou\u2019re staring,\u201D she said without turning around.",
+      "\u201CI\u2019m watching.\u201D",
+      "\u201CSame thing.\u201D",
+      "She slid the pupusa onto his plate. The cheese stretched when he pulled it apart. He ate it with his hands, curtido dripping down his wrist, and his mother said nothing because today he was ten and ten was old enough to be messy on purpose.",
+      "The El Salvador Floors woke up the same way they always did\u2014warm and golden, the corridors filling with the smell of copal and coffee before most people had opened their doors. Mateo couldn\u2019t remember a morning that didn\u2019t feel like this. He wasn\u2019t sure one existed.",
+      "By midmorning the courtyard outside their unit was loud. Mateo\u2019s t\u00edo Carlos was hanging papel picado from the garden trellis, bright tissue paper in orange and blue and white, and yelling at Mateo\u2019s cousin Diego to hold the ladder steady. Diego was twelve and thought he was too old for birthday parties but not too old for cake, so he held the ladder and said nothing.",
+      "Mateo\u2019s father carried a table out from the storage corridor\u2014the real table, the wooden one, not the folding kind. They only used the real table for birthdays and Christmas and the one time T\u00edo Carlos had come home with a promotion and cried into a plate of rice. The table had been built by a man in the Agricultural Belt who worked with actual timber. It was heavy and scarred and it smelled like something Mateo couldn\u2019t name. His father said the smell was cedar. Mateo didn\u2019t know what a cedar was. He just knew the table smelled good and that they only brought it out when something mattered.",
+      "\u201CMateo! Come help your t\u00edo!\u201D",
+      "He went. He held the other end of a streamer roll while Carlos walked backward through the courtyard, draping it over the garden railing. The vertical gardens climbed three stories on either side of the courtyard\u2014ferns, jasmine, something purple that Mateo\u2019s mother called lavanda. The smell mixed with the copal that drifted in from the promenade. Someone was burning it early. Mateo breathed it in and held it.",
+      "By afternoon the courtyard was full. Aunts he saw every week and aunts he saw once a year. His grandfather, Abuelo Tom\u00e1s, sitting in the corner chair he claimed every time more than six people gathered. Three of Mateo\u2019s school friends, still in their uniforms, chasing Diego through the garden and screaming. Se\u00f1ora Raquel from four doors down, who always brought tamales wrapped in banana leaves and always stayed too long and who everyone loved because her tamales were perfect and her gossip was worse.",
+      "The music started when Mateo\u2019s uncle pulled out the guitar. Not amplified. Just wood and strings and his uncle\u2019s voice, which was not a good voice but was a loud one. He played cumbia and Mateo\u2019s mother danced with his father and his aunts clapped on the off-beat and his grandfather tapped the arm of his chair like a man conducting an orchestra only he could hear.",
+      "Pupusas came in waves. Beans and cheese. Loroco and cheese. Chicharr\u00f3n. A platter of fried plantains. Rice with red beans. Curtido in three different bowls because Abuela Luc\u00eda, T\u00eda Marta, and Se\u00f1ora Raquel each made their own and each one swore theirs was best. Mateo ate until his stomach pressed against his belt and then he ate one more plantain because his mother put it on his plate and you don\u2019t say no to your mother on your birthday.",
+      "He was sitting on the garden ledge, feet dangling, watching the courtyard spin with voices and color, when Abuela Luc\u00eda sat down next to him. She moved slowly these days. She lowered herself onto the ledge the way you set down something breakable\u2014with both hands and a held breath.",
+      "\u201CTen,\u201D she said.",
+      "\u201CTen.\u201D",
+      "\u201CYou know what my grandmother was doing when she was ten?\u201D",
+      "Mateo shook his head.",
+      "\u201CSweeping a floor. Not this kind of floor.\u201D She tapped the smooth tile beneath them. \u201CA dirt floor. In Soyapango. Your bisabuela Consuelo\u2019s house.\u201D",
+      "Mateo had heard the name before. Bisabuela Consuelo. The woman in the photograph on his grandmother\u2019s shelf\u2014dark hair, wide face, a look in her eyes like she was daring someone to waste her time. Mateo had never met her. She\u2019d died before he was born. But Luc\u00eda talked about her the way some people talked about weather\u2014constantly, naturally, like she was just always there.",
+      "\u201CWas it cold?\u201D he asked.",
+      "Luc\u00eda laughed. A short laugh. \u201CNo, mijo. Consuelo said it was hot. So hot you could feel the air sitting on your skin like a wet cloth. They didn\u2019t know what cold was. Not the real kind.\u201D",
+      "She looked out at the courtyard. At the garden walls climbing high. At the papel picado lifting in the ventilation breeze.",
+      "\u201CWhen Consuelo was young, none of this existed. There was no Hotel. There were no floors. There was just the country. El Salvador. Small. Poor. Beautiful. And everyone told them they were nothing.\u201D",
+      "She said it without bitterness. Like she was reporting the weather from a long time ago.",
+      "\u201CAnd then Bukele came.\u201D",
+      "Mateo knew the name. Everyone on the floors knew the name. There was a mural of Bukele on the main promenade\u2014not a painting of his face but of his hands, placing a bright orange coin into a map of El Salvador. The mural was three stories tall. Mateo passed it every day on his way to school.",
+      "\u201CConsuelo told me he was young,\u201D Luc\u00eda said. \u201CYounger than your father. And he stood up in front of the whole world and said, \u2018We\u2019re going to do this.\u2019 And the whole world laughed.\u201D",
+      "\u201CWhy?\u201D",
+      "\u201CBecause nobody believed a little country could do what the big ones wouldn\u2019t. They called him crazy. They said it would fail. The newspapers, the bankers, the other presidents\u2014all of them, laughing. And your bisabuela Consuelo, she watched it on the television and she said, \u2018That boy is either a fool or a prophet.\u2019\u201D",
+      "\u201CWhich one was he?\u201D",
+      "Luc\u00eda put her hand on Mateo\u2019s knee. Her fingers were rough from decades of cooking. The knuckles were wide.",
+      "\u201CHe was right. That\u2019s all that matters.\u201D",
+      "She told him the rest in pieces\u2014the way she always told stories, between sips of horchata and interruptions from Carlos asking where the napkins were. How Bukele made El Salvador the first country on Earth to adopt Bitcoin. How they started stacking when nobody else would. How the other nations called it reckless, irresponsible, dangerous. How El Salvador kept stacking. All of this passed down through the family like a recipe\u2014Consuelo told Luc\u00eda, and now Luc\u00eda was telling Mateo.",
+      "\u201CAnd then the Cold came,\u201D she said.",
+      "Mateo knew about the Cold. They taught it in school. The world outside the Hotel, frozen. The money that stopped working. The governments that fell.",
+      "\u201CWhen the Cold came, everyone needed floors. Everyone was desperate. And the nations that had laughed\u2014they were scrambling. Trying to buy what El Salvador already had.\u201D",
+      "She picked up a fried plantain from the plate beside her and bit into it. Chewed slowly. Mateo waited.",
+      "\u201CConsuelo checked in with your bisabuelo. She was old by then. She said the floors were warm and she cried because she\u2019d never thought she\u2019d live to see it. Ten thousand floors, mijo. Because one man believed in something when nobody else would, and a whole country followed him.\u201D",
+      "She waved her hand at the courtyard. At the aunts and the uncles and the screaming cousins and the guitar and the copal and the warmth.",
+      "\u201CThis is what ten thousand floors looks like.\u201D",
+      "Mateo looked. He\u2019d looked at his home a million times. But something about hearing it\u2014about hearing that it almost didn\u2019t happen, that the world had laughed, that his bisabuela had watched a young president on television and not known whether to hope or be afraid\u2014made the courtyard sharper. The colors brighter. The warmth heavier on his skin.",
+      "\u201CAbuela?\u201D",
+      "\u201CMm.\u201D",
+      "\u201CAre we rich?\u201D",
+      "She laughed again. Louder this time. His grandfather looked over from his chair.",
+      "\u201CWe are warm,\u201D she said. \u201CWe are fed. We are together. Your cousins go to school. Your father has work he\u2019s proud of. And nobody\u2014nobody\u2014can take these floors from us. They\u2019re on the Ledger. They\u2019re ours.\u201D",
+      "She squeezed his knee.",
+      "\u201CThat\u2019s not rich, mijo. That\u2019s something better. That\u2019s built.\u201D",
+      "The cake came out as the evening settled in\u2014the courtyard warm and golden, the way it always was. Ten candles. His mother carried it and the whole courtyard sang, off-key and too loud and in a mix of Spanish and English that would have made a choir director faint. Mateo stood in front of the candles and the heat from the little flames touched his face and for a second the courtyard was quiet.",
+      "\u201CMake a wish,\u201D his mother said.",
+      "He closed his eyes. He thought about the mural on the promenade. The hands placing the coin on the map. He thought about a dirt floor in Soyapango that didn\u2019t exist anymore. He thought about Bisabuela Consuelo at ten years old, sweeping.",
+      "He didn\u2019t wish for anything. He opened his eyes and blew out the candles because everything he could think to wish for was already in the room.",
+      "The courtyard erupted. Carlos whooped. Diego shoved a finger into the frosting before the first slice was cut and Mateo\u2019s mother swatted his hand without looking. Abuelo Tom\u00e1s raised his horchata glass and said something Mateo couldn\u2019t hear over the noise but it made three of his aunts cry.",
+      "Later\u2014much later, after the guests had gone and the paper plates were stacked and the guitar was back in its case and Diego was asleep on the courtyard bench\u2014Mateo sat with his grandmother one more time. The corridor was quiet. The warmth had settled into the kind of stillness that only comes after a room full of people leaves.",
+      "\u201CAbuela.\u201D",
+      "\u201CStill here.\u201D",
+      "\u201CThank you for the story.\u201D",
+      "She was quiet for a moment. Then she rested her head back against the garden wall and closed her eyes.",
+      "\u201CIt\u2019s not a story, mijo. It\u2019s where you live.\u201D",
+      "Mateo walked back to his room through the quiet promenade. The copal had faded but not gone. The gardens smelled green. Somewhere three floors below, a guitar was still playing\u2014someone else\u2019s party, someone else\u2019s night. The warmth settled on everything like it had always been there. Like it always would be.",
+      "He was ten years old. He lived on the El Salvador Floors. And the floors were warm.",
+    ],
+  },
+];
+
 const MEDIA = [
-  { id: "books", label: "BOOKS", icon: "📖", desc: "Novels & Novellas", count: BOOKS.length, active: true },
+  { id: "tales", label: "TALES & SHORT STORIES", icon: "✍️", desc: "Stories from the Floors", count: TALES_DATA.length, active: true },
+  { id: "books", label: "BOOKS", icon: "📖", desc: "Novels & Novellas", count: 0, active: false },
   { id: "manga", label: "MANGA", icon: "🎨", desc: "Graphic Stories", count: 0, active: false },
   { id: "tv", label: "TV SHOWS", icon: "📺", desc: "Episodic Series", count: 0, active: false },
   { id: "movies", label: "MOVIES", icon: "🎬", desc: "Feature Films", count: 0, active: false },
@@ -516,7 +593,7 @@ function Hub({ onSelect }) {
           { id: "fire", icon: "🔥", label: "THE FIRE", desc: "Live from the Chain", count: "LIVE" },
           { id: "findfloor", icon: "🗝", label: "FIND YOUR FLOOR", desc: "Where Do You Live?", count: "CHECK IN" },
           { id: "hoteltoday", icon: "🌐", label: "THE HOTEL TODAY", desc: "Who Owns the Building?", count: "LIVE" },
-          { id: "tower", icon: "🗼", label: "THE TOWER", desc: "See the Building", count: "VISUAL" },
+          { id: "tower", icon: "🏢", label: "THE HOTEL", desc: "See the Building", count: "VISUAL" },
         ].map((item, i) => (
           <div key={item.id} onClick={() => onSelect(item.id)} style={{
             background: "rgba(247,147,26,0.04)", border: "1px solid rgba(247,147,26,0.15)", borderRadius: 8,
@@ -554,7 +631,7 @@ function Hub({ onSelect }) {
               <div style={{ fontSize: 28, marginBottom: 10, opacity: locked ? 0.65 : 1 }}>{m.icon}</div>
               <div style={{ fontSize: 13, fontWeight: 700, color: locked ? "rgba(255,255,255,0.55)" : "#fff", fontFamily: "'Georgia',serif", letterSpacing: ".1em", marginBottom: 4 }}>{m.label}</div>
               <div style={{ fontSize: 11, color: locked ? "rgba(255,255,255,0.3)" : "rgba(255,255,255,0.4)", fontFamily: "monospace" }}>{m.desc}</div>
-              {m.count > 0 && <div style={{ marginTop: 10, display: "inline-block", padding: "3px 10px", background: "rgba(247,147,26,0.15)", borderRadius: 20, fontSize: 10, color: ORANGE, fontFamily: "monospace", fontWeight: 600 }}>{m.count} TITLES</div>}
+              {m.count > 0 && <div style={{ marginTop: 10, display: "inline-block", padding: "3px 10px", background: "rgba(247,147,26,0.15)", borderRadius: 20, fontSize: 10, color: ORANGE, fontFamily: "monospace", fontWeight: 600 }}>{m.count} {m.count === 1 ? "TITLE" : "TITLES"}</div>}
             </div>
           );
         })}
@@ -567,7 +644,99 @@ function Hub({ onSelect }) {
   );
 }
 
-/* ─── BookList (unchanged) ─── */
+/* ─── Tales Screen ─── */
+
+function TalesScreen({ onBack, onPick }) {
+  const [v, setV] = useState(false);
+  useEffect(() => { setTimeout(() => setV(true), 50); }, []);
+  return (
+    <div style={{ minHeight: "100vh", background: DARK, position: "relative", overflow: "hidden" }}>
+      <Embers /><Noise /><Glow h={300} o={0.06} />
+      <div style={{ padding: "20px 24px", display: "flex", alignItems: "center", gap: 12, position: "relative", zIndex: 2 }}>
+        <button onClick={onBack} style={{ background: "rgba(0,0,0,.4)", border: "1px solid rgba(255,255,255,.1)", borderRadius: 6, color: "rgba(255,255,255,.5)", padding: "6px 14px", cursor: "pointer", fontSize: 12, fontFamily: "monospace" }}>← NEXUS</button>
+        <span style={{ fontSize: 11, color: "rgba(255,255,255,.2)", fontFamily: "monospace" }}>/ TALES</span>
+      </div>
+      <div style={{ textAlign: "center", padding: "20px 24px 40px", position: "relative", zIndex: 2 }}>
+        <div style={{ fontSize: 32, marginBottom: 12 }}>✍️</div>
+        <h2 style={{ fontSize: "clamp(24px,4vw,36px)", fontWeight: 800, color: "#fff", fontFamily: "'Georgia',serif", margin: "0 0 8px" }}>Tales from the Hotel</h2>
+        <p style={{ fontSize: 13, color: "rgba(255,255,255,.4)", fontFamily: "'Georgia',serif", fontStyle: "italic" }}>Short stories set across the floors</p>
+        <p style={{ fontSize: 10, color: "rgba(255,255,255,.15)", fontFamily: "monospace", marginTop: 10, lineHeight: 1.6, maxWidth: 420, marginLeft: "auto", marginRight: "auto" }}>Each tale is a window into a different floor, a different life. Read them in any order.</p>
+      </div>
+      <div style={{ maxWidth: 600, margin: "0 auto", padding: "0 24px 40px", position: "relative", zIndex: 2 }}>
+        {TALES_DATA.map((tale, i) => (
+          <div key={tale.id} onClick={() => onPick(tale)} style={{
+            background: "rgba(247,147,26,0.04)", border: "1px solid rgba(247,147,26,0.15)", borderRadius: 10, padding: 24, cursor: "pointer",
+            opacity: v ? 1 : 0, transform: v ? "translateY(0)" : "translateY(20px)", transition: `all .6s cubic-bezier(.22,1,.36,1) ${i * .08}s`, marginBottom: 12,
+          }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 12 }}>
+              <div>
+                <h3 style={{ fontSize: 20, fontWeight: 700, color: "#fff", fontFamily: "'Georgia',serif", margin: "0 0 4px" }}>{tale.title}</h3>
+                <div style={{ fontSize: 11, color: ORANGE, fontFamily: "monospace", letterSpacing: ".1em", opacity: .8 }}>{tale.subtitle.toUpperCase()}</div>
+              </div>
+              <div style={{ padding: "4px 10px", background: "rgba(247,147,26,.15)", borderRadius: 20, fontSize: 10, color: ORANGE, fontFamily: "monospace", fontWeight: 600, whiteSpace: "nowrap" }}>{tale.words} WORDS</div>
+            </div>
+            <p style={{ fontSize: 14, color: "rgba(255,255,255,.5)", fontFamily: "'Georgia',serif", lineHeight: 1.6, margin: "0 0 12px", fontStyle: "italic" }}>{tale.teaser}</p>
+            <div style={{ display: "flex", gap: 16 }}>
+              <Meta label="FLOOR" value={tale.floor} />
+            </div>
+          </div>
+        ))}
+        <div style={{ border: "1px dashed rgba(255,255,255,.08)", borderRadius: 10, padding: 32, textAlign: "center", marginTop: 16, opacity: v ? 1 : 0, transition: "opacity .6s ease .4s" }}>
+          <div style={{ fontSize: 13, color: "rgba(255,255,255,.15)", fontFamily: "monospace", letterSpacing: ".1em" }}>MORE TALES COMING</div>
+          <div style={{ fontSize: 11, color: "rgba(255,255,255,.08)", fontFamily: "monospace", marginTop: 8 }}>The Hotel has 21,000,000 floors. We've barely begun.</div>
+        </div>
+      </div>
+      <Support />
+    </div>
+  );
+}
+
+/* ─── Tale Detail (reading view) ─── */
+
+function TaleDetail({ tale, onBack }) {
+  const [v, setV] = useState(false);
+  useEffect(() => { setTimeout(() => setV(true), 50); window.scrollTo(0, 0); }, []);
+  return (
+    <div style={{ minHeight: "100vh", background: DARK, position: "relative", overflow: "hidden" }}>
+      <Noise />
+      <div style={{ position: "relative", height: 160, overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center top,rgba(247,147,26,.12),rgba(247,147,26,.02) 60%,transparent)" }} />
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 100, background: `linear-gradient(to top,${DARK},transparent)` }} />
+        <button onClick={onBack} style={{ position: "absolute", top: 20, left: 20, background: "rgba(0,0,0,.5)", border: "1px solid rgba(255,255,255,.1)", borderRadius: 6, color: "rgba(255,255,255,.6)", padding: "6px 14px", cursor: "pointer", fontSize: 12, fontFamily: "monospace", zIndex: 3 }}>← BACK</button>
+      </div>
+      <div style={{ maxWidth: 600, margin: "-40px auto 0", padding: "0 24px 60px", position: "relative", zIndex: 2, opacity: v ? 1 : 0, transform: v ? "translateY(0)" : "translateY(20px)", transition: "all .6s cubic-bezier(.22,1,.36,1)" }}>
+        <div style={{ textAlign: "center", marginBottom: 40 }}>
+          <div style={{ fontSize: 11, color: ORANGE, fontFamily: "monospace", letterSpacing: ".15em", marginBottom: 8, opacity: .7 }}>TALES FROM THE 21M HOTEL</div>
+          <h1 style={{ fontSize: "clamp(28px,5vw,40px)", fontWeight: 800, color: "#fff", fontFamily: "'Georgia',serif", margin: "0 0 6px", lineHeight: 1.1 }}>{tale.title}</h1>
+          <p style={{ fontSize: 14, color: "rgba(255,255,255,.4)", fontFamily: "'Georgia',serif", fontStyle: "italic", margin: "0 0 16px" }}>{tale.subtitle}</p>
+          <div style={{ fontSize: 16, color: ORANGE, opacity: 0.4 }}>─── ₿ ───</div>
+        </div>
+        <div>
+          {tale.content.map((para, i) => {
+            const isShortDialogue = para.startsWith("\u201C") && para.length < 80;
+            return (
+              <p key={i} style={{
+                fontSize: 16, color: "rgba(255,255,255,.75)", fontFamily: "'Georgia',serif",
+                lineHeight: 1.85, margin: isShortDialogue ? "0 0 8px" : "0 0 20px",
+                textIndent: isShortDialogue ? 0 : 24,
+              }}>{para}</p>
+            );
+          })}
+        </div>
+        <div style={{ textAlign: "center", marginTop: 48, marginBottom: 32 }}>
+          <div style={{ fontSize: 16, color: ORANGE, opacity: 0.3 }}>─── ₿ ───</div>
+        </div>
+        <div style={{ textAlign: "center" }}>
+          <div style={{ fontSize: 10, color: "rgba(255,255,255,.15)", fontFamily: "monospace", letterSpacing: ".12em", marginBottom: 12 }}>FLOOR</div>
+          <div style={{ fontSize: 12, color: "rgba(255,255,255,.35)", fontFamily: "monospace" }}>{tale.floor}</div>
+        </div>
+      </div>
+      <Support />
+    </div>
+  );
+}
+
+/* ─── BookList (locked — placeholder for future) ─── */
 
 function BookList({ onBack, onPick }) {
   const [v, setV] = useState(false);
@@ -1764,18 +1933,18 @@ function TowerScreen({ onBack }) {
       <div style={{ position: "relative", zIndex: 2 }}>
         <div style={{ padding: "20px 24px", display: "flex", alignItems: "center", gap: 12 }}>
           <button onClick={onBack} style={{ background: "rgba(0,0,0,.6)", border: "1px solid rgba(255,255,255,.1)", borderRadius: 6, color: "rgba(255,255,255,.5)", padding: "6px 14px", cursor: "pointer", fontSize: 12, fontFamily: "monospace" }}>← NEXUS</button>
-          <span style={{ fontSize: 11, color: "rgba(255,255,255,.2)", fontFamily: "monospace" }}>/ THE TOWER</span>
+          <span style={{ fontSize: 11, color: "rgba(255,255,255,.2)", fontFamily: "monospace" }}>/ THE HOTEL</span>
         </div>
 
         <div style={{ textAlign: "center", padding: "20px 24px 24px" }}>
-          <h2 style={{ fontSize: "clamp(28px,5vw,42px)", fontWeight: 800, color: "#fff", fontFamily: "'Georgia',serif", margin: "0 0 8px" }}>The Tower</h2>
+          <h2 style={{ fontSize: "clamp(28px,5vw,42px)", fontWeight: 800, color: "#fff", fontFamily: "'Georgia',serif", margin: "0 0 8px" }}>The Hotel</h2>
           <p style={{ fontSize: 13, color: "rgba(255,255,255,.35)", fontFamily: "'Georgia',serif", fontStyle: "italic", maxWidth: 400, margin: "0 auto" }}>Twenty-one million floors. See who left the lights on.</p>
-          <p style={{ fontSize: 9, color: "rgba(255,255,255,.10)", fontFamily: "monospace", letterSpacing: ".06em", marginTop: 8 }}>Tower segments are representational and not drawn to exact proportional scale.</p>
+          <p style={{ fontSize: 9, color: "rgba(255,255,255,.10)", fontFamily: "monospace", letterSpacing: ".06em", marginTop: 8 }}>Segments are representational and not drawn to exact proportional scale.</p>
         </div>
 
         {!loaded ? (
           <div style={{ textAlign: "center", padding: "60px 24px" }}>
-            <div style={{ fontSize: 13, color: "rgba(247,147,26,.4)", fontFamily: "monospace", animation: "pulse 2s ease-in-out infinite" }}>Constructing the Tower...</div>
+            <div style={{ fontSize: 13, color: "rgba(247,147,26,.4)", fontFamily: "monospace", animation: "pulse 2s ease-in-out infinite" }}>Constructing the Hotel...</div>
           </div>
         ) : (
           <div style={{ maxWidth: 500, margin: "0 auto", padding: "0 24px 60px" }}>
@@ -1911,7 +2080,7 @@ function TowerScreen({ onBack }) {
               opacity: v ? 1 : 0, transition: "opacity 1s ease 1s",
             }}>
               <p style={{ fontSize: 13, color: "rgba(255,255,255,.4)", fontFamily: "'Georgia',serif", lineHeight: 1.8, margin: 0, fontStyle: "italic" }}>
-                Look at the Tower. Most of the lights are on. Millions of {"\u20bf"}elievers checked in quietly — no announcements, no press releases, no SEC filings. They just hold their keys and keep the lights burning. The dark windows and blacked-out floors belong to the lost — coins that will never move again. At the very top, the Nakamoto Floors sit sealed and silent. At the bottom, the foundation is still being poured. The Hotel won't be finished until 2140.
+                Look at the Hotel. Most of the lights are on. Millions of {"\u20bf"}elievers checked in quietly — no announcements, no press releases, no SEC filings. They just hold their keys and keep the lights burning. The dark windows and blacked-out floors belong to the lost — coins that will never move again. At the very top, the Nakamoto Floors sit sealed and silent. At the bottom, the foundation is still being poured. The Hotel won't be finished until 2140.
               </p>
             </div>
 
@@ -1931,14 +2100,14 @@ function TowerScreen({ onBack }) {
 export default function App() {
   const [screen, setScreen] = useState("splash");
   const [media, setMedia] = useState(null);
-  const [book, setBook] = useState(null);
+  const [tale, setTale] = useState(null);
 
   if (screen === "splash") return <Splash onEnter={() => setScreen("hub")} />;
   if (screen === "hub") return <Hub onSelect={(id) => { setMedia(id); setScreen("media"); }} />;
   if (screen === "media") {
-    if (media === "books") {
-      if (book) return <BookDetail book={book} onBack={() => setBook(null)} />;
-      return <BookList onBack={() => { setScreen("hub"); setMedia(null); }} onPick={setBook} />;
+    if (media === "tales") {
+      if (tale) return <TaleDetail tale={tale} onBack={() => setTale(null)} />;
+      return <TalesScreen onBack={() => { setScreen("hub"); setMedia(null); setTale(null); }} onPick={setTale} />;
     }
     if (media === "floors") return <FloorsList onBack={() => { setScreen("hub"); setMedia(null); }} />;
     if (media === "glossary") return <GlossaryScreen onBack={() => { setScreen("hub"); setMedia(null); }} />;
