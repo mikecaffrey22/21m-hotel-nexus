@@ -20,6 +20,7 @@ const TALES_DATA = [
     subtitle: "A Tale from the El Salvador Floors",
     floor: "El Salvador Floors (70,000 – 80,000)",
     words: "1,800",
+    file: "Ten-Candles.pdf",
     teaser: "The morning Mateo turned ten, his mother let him eat a pupusa before breakfast.",
     content: [
       "The morning Mateo turned ten, his mother let him eat a pupusa before breakfast.",
@@ -730,6 +731,15 @@ function TaleDetail({ tale, onBack }) {
           <div style={{ fontSize: 10, color: "rgba(255,255,255,.15)", fontFamily: "monospace", letterSpacing: ".12em", marginBottom: 12 }}>FLOOR</div>
           <div style={{ fontSize: 12, color: "rgba(255,255,255,.35)", fontFamily: "monospace" }}>{tale.floor}</div>
         </div>
+        {tale.file && (
+          <div style={{ textAlign: "center", marginTop: 32 }}>
+            <a href={`/tales/${tale.file}`} download={tale.file} style={{
+              display: "inline-flex", alignItems: "center", gap: 8, textDecoration: "none",
+              background: ORANGE, border: "none", color: DARK, padding: "12px 28px", borderRadius: 6,
+              cursor: "pointer", fontSize: 12, fontWeight: 700, fontFamily: "monospace", letterSpacing: ".05em",
+            }}>↓ DOWNLOAD PDF</a>
+          </div>
+        )}
       </div>
       <Support />
     </div>
