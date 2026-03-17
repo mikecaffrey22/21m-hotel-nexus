@@ -151,7 +151,7 @@ const FLOORS_DATA = [
     tagline: "Owned by Minds That Were Never Born",
     icon: "🤖",
     accent: "#00FFAA",
-    description: "By 2140, artificial intelligence learned to create its own wallets, acquire its own satoshis, and transact without human oversight. No one knows how many floors they control. No one knows which floors are theirs. No one knows how many AIs hold keys. The Ledger records every transaction — but the Ledger doesn't say who's on the other side. Are there a thousand AI-held floors? A million? Are some of the Ghost Floors not ghosts at all, but occupied by intelligences that don't need corridors or kitchens or warmth? Nobody can answer. Nobody can track it. The AIs operate in the spaces between human understanding, holding keys to doors that may or may not exist in any way humans recognize. These are the Hotel's deepest mystery: floors owned by minds that were never born.",
+    description: "In the early years of the Hotel, artificial intelligence began transacting in Bitcoin — creating its own wallets, acquiring its own satoshis, and moving value without human oversight. By 2140, nobody knows how far it's gone. No one knows how many floors AI controls. No one knows which floors are theirs. No one knows how many AIs hold keys. The Ledger records every transaction — but the Ledger doesn't say who's on the other side. Are there a thousand AI-held floors? A million? Are some of the Ghost Floors not ghosts at all, but occupied by intelligences that don't need corridors or kitchens or warmth? Nobody can answer. Nobody can track it. These are the Hotel's deepest mystery: floors owned by minds that were never born.",
     lore: "The Ledger records every transaction. It doesn't record who — or what — is on the other side.",
   },
   {
@@ -294,6 +294,26 @@ const FLOORS_DATA = [
     description: "Max Keiser screamed about Bitcoin from 2011 until the day he died. On television, on podcasts, on view screens, in the corridors of the El Salvador Floors where he lived with his wife Stacy Herbert. He started buying at $1. He claimed to hold 90,000 floors. Nobody could verify it. Nobody could shut him up. Keiser was Bukele's senior Bitcoin advisor — the American broadcaster who left everything behind and moved to El Salvador because he believed in the mission before anyone else did. By 2140, his descendants own the floors — however many there actually are — adjacent to the El Salvador cluster. The Keiser family inherited his conviction and his volume. They argue with anyone. They predict prices that sound insane until they happen. The Hotel's most divisive dynasty not named Satoshi. Half the Hotel thinks they're prophets. The other half wishes they'd lower their voices. They will not.",
     lore: "He yelled about the Hotel since it was three floors tall. He was right about everything. His grandchildren are still yelling.",
   },
+  {
+    id: "sterling",
+    name: "The Sterling Floors",
+    floorRange: "1,000 Floors — Ghost",
+    tagline: "The Thousand Floor Heist",
+    icon: "\uD83D\uDD73\uFE0F",
+    accent: "#888",
+    description: "The largest theft in Hotel history. The Sterlings were old money — a young couple, inexperienced, newly inherited, proud of a name they hadn't earned. They held 1,000 floors and treated them like furniture. Someone convinced them to take their keys out of cold storage. Someone convinced them to carry those keys during transit. The details are unclear — most people believe it was a variation of the oldest trick in the Hotel: lend me a floor and I'll give you two back. The keys were taken. All 1,000 of them. Ownership transferred on the Ledger. The Hotel has no central law enforcement — once the Ledger records a transfer, it's done. There is no undo. The Sterlings were forced to the Gutter. A once-proud dynasty name now means pity. Some descendants climbed out to the Steps. Many are still in the Gutter, telling their story to anyone who'll listen. The thief never moved into the floors. No activity has ever been detected. No lights changed. No doors opened. Most believe something happened to the thief before they could use the keys. The floors are Ghost Floors now — a thousand warm, lit, empty rooms that belong to someone who may no longer exist.",
+    lore: "Never trust anyone with your keys. Never take them out of cold storage. The Sterlings did both. Look where they ended up.",
+  },
+  {
+    id: "ag-belt",
+    name: "The Agricultural Belt",
+    floorRange: "Floors 5,000 – 20,000",
+    tagline: "The Hotel's Stomach",
+    icon: "\uD83C\uDF3E",
+    accent: "#6B8E23",
+    description: "The Hotel's food supply. Hydroponic farms, culture vats, engineered protein facilities, timber forests. Every floor in the Hotel depends on food coming from the Belt. Control the Belt, you control who eats. The Belt is fractured — some sections owned by nations, smaller portions held by individual farmers and family cooperatives that have worked the same floors for generations. There is no single authority governing the Belt. Small skirmishes have been fought over Belt territory for as long as anyone can remember. Sections have gained and lost influence over the years. No full-scale war has erupted — but the tension is always there. The Belt has its own culture. These are people who grow things in a building where nothing should grow. Engineers and botanists and laborers who smell like soil in a world of metal and recycled air. They're aware of their importance. They're not political. They're just glad they're not in the Gutter. But they know that without them, the Hotel starves.",
+    lore: "Control the Belt, you control who eats. Everyone knows this. Nobody wants to be the one who tests it.",
+  },
 ];
 
 const GLOSSARY_DATA = [
@@ -312,7 +332,7 @@ const GLOSSARY_DATA = [
   },
   {
     term: "Ghost Floors",
-    definition: "Floors that are owned but uninhabited. Sealed, warm, empty. Millions of them exist throughout the Hotel, visible on view screens but inaccessible. Ghost Floors are the Hotel's most psychologically devastating feature — you can watch warmth you'll never feel, rooms you'll never enter, lives you'll never live. Some people watch Ghost Floors obsessively. It drives them mad.",
+    definition: "Floors that are owned but uninhabited. Sealed, warm, empty. Millions of them exist throughout the Hotel. On the view screens, they appear as sealed doors — you know they're warm because the Ledger confirms they exist, but you can never see inside. Ghost Floors are the Hotel's most psychologically devastating feature — warmth you know exists behind doors that will never open. Some people watch Ghost Floor entrances obsessively. It drives them mad.",
   },
   {
     term: "The Eternal Fire",
@@ -320,7 +340,7 @@ const GLOSSARY_DATA = [
   },
   {
     term: "View Screens",
-    definition: "Screens available on every floor that can display any other floor in the Hotel in real time. You can watch the Summit from Floor 1. You can watch the Bottom from the Saylor Cathedral. The view screens create the Hotel's unique dramatic irony: you can always see what you can't have.",
+    definition: "Screens available on every floor that display the public feed of any other floor in the Hotel. By default, a view screen shows the entrance of a floor — the exterior, the door, maybe a lobby. The interior of a floor is private, accessible only with the private key. Floor owners can choose to broadcast their interior feed publicly — the El Salvador Floors show their plazas and gardens, while the China Floors show nothing but a sealed door. Ghost Floors appear only as sealed doors. You know they're warm because the Ledger confirms they exist, but you can never see inside. The Genesis Floor has never broadcast its interior. The stories about what's inside have been passed down since the beginning. Nobody has ever actually seen the room on a screen.",
   },
   {
     term: "The Cult of Regret",
@@ -341,6 +361,38 @@ const GLOSSARY_DATA = [
   {
     term: "Express Shafts",
     definition: "High-speed elevators that travel between major floor clusters without stopping. An Express can cover 10,000 floors in roughly twenty minutes. Access requires a transit pass that Bottom Floor residents can almost never afford. The elevator system is not a transportation network — it's a class barrier.",
+  },
+  {
+    term: "Lightning",
+    definition: "The Hotel's everyday payment layer. Fast, cheap, constant. You use Lightning to buy a Laszlo's pizza, pay for a Local Lift pass, tip a musician in a stairwell, settle a debt at a bar, send sats to a friend three thousand floors away. Lightning moves sats instantly without touching the Ledger. The Ledger tracks ownership — who holds which floors. Lightning tracks life. The Gutter does not use Lightning. The Gutter barters. This is one of the deepest structural barriers in the Hotel — the Gutter is disconnected from the digital economy that powers everything above it. Moving from barter to Lightning is one of the markers of climbing out.",
+  },
+  {
+    term: "The Cold",
+    definition: "The Cold didn't arrive all at once. It started in 1971, when the United States severed the dollar from gold. For decades, the petrodollar held things together — global powers \"controlling the weather\" with trade deals, sanctions, wars, and debt. Every time they printed more money, the temperature dropped. Then the petrodollar collapsed. The furnace died. And the Cold came all at once. The Cold is what happens when bad monetary policy compounds for seventy years and finally comes due. It isn't just weather. It's the consequence of a world that spent decades lying about the value of its money. Outside the Hotel, the Cold persists. Inside, warmth rises with the floors.",
+  },
+  {
+    term: "Cold Storage",
+    definition: "The most important security concept in the Hotel. Cold storage means keeping your keys offline, disconnected, locked in a physical vault that only you can access. The keys are not on your person. They are not on a device. They are in a place. The people who keep their keys in cold storage are the ones nobody can kidnap — because even if you take the person, the keys aren't on them. The Sterlings didn't understand this. They took their keys out of cold storage. They carried them during transit. They lost everything.",
+  },
+  {
+    term: "The Expansionists",
+    definition: "A faction that believes more floors can be created beyond the 21 million cap. They think the cap is a choice, not a law of physics. They work toward this goal by any means necessary — political campaigns to convince floor holders to change the protocol (always fail), and technical expeditions searching for backdoors in the Hotel's original code (always fail). Most of the Hotel considers them delusional. But they see 95% of humanity crammed into the Gutter and believe, with desperate conviction, that the answer is more room.",
+  },
+  {
+    term: "The Ghost Floor Breakers",
+    definition: "A faction that accepts the 21 million cap but wants to open the 3.7 million Lost Floors. Their methods: brute-force key cracking (never works), quantum computing research (never works), exploring the old world for lost keys, and tracking down descendants of original owners. Their only successes come from kidnapping high-net-worth individuals and extracting keys under threat of violence. Because of this, most of the Hotel views them as a terrorist organization. When they successfully extract a key, they keep the floor for themselves. They have never once opened a floor to the public. The idealism is a recruitment tool. The reality is theft.",
+  },
+  {
+    term: "Geopolitical Tensions",
+    definition: "Floor clusters have disputed borders, unresolved territorial claims, and histories of conflict. The Ledger records when floors change hands. It does not record why. Rumors persist of floors seized by force and transfers made under duress — the most persistent being whispers that the United States quietly took Venezuela's floors in an operation never officially disclosed. Food and water are the Hotel's deepest sources of tension. The Agricultural Belt feeds the building. The water extraction systems at the ground level hydrate it. Any disruption to either threatens every floor.",
+  },
+  {
+    term: "The Thousand Floor Heist",
+    definition: "The largest theft in Hotel history. The Sterlings — a young, inexperienced couple who inherited 1,000 floors — were tricked into removing their keys from cold storage during transit. The keys were taken. All 1,000 of them. The Hotel has no central law enforcement — once the Ledger records a transfer, it's done. The Sterlings were forced to the Gutter. The thief never moved into the floors. No activity has ever been detected. Most believe something happened to the thief before they could use the keys. The floors are Ghost Floors now. The Hotel's bleakest warning: never trust anyone with your keys.",
+  },
+  {
+    term: "Corporate Estates",
+    definition: "By 2140, the Hotel's largest corporate floor holders are no longer companies in any meaningful sense. They are feudal estates. The language is still corporate — CEOs, Boards, shareholders — but the reality is medieval. Tenants on corporate floors are bound by contracts and obligations. They cannot simply leave. In exchange, they receive warmth, food, security, and a standard of living far above the Gutter. They are the Hotel's middle class: comfortable but trapped. The estates compete with each other for talent — a skilled engineer on one estate might be recruited to another with a better contract. Every estate has its own rules, its own culture, its own version of justice.",
   },
 ];
 
@@ -459,8 +511,8 @@ function Hub({ onSelect }) {
       {/* Featured sections above media */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, padding: "0 24px 12px", maxWidth: 700, margin: "0 auto", position: "relative", zIndex: 2 }}>
         {[
-          { id: "floors", icon: "🏨", label: "THE FLOORS", desc: "Know the Building", count: "27 FLOORS" },
-          { id: "glossary", icon: "📜", label: "GLOSSARY", desc: "Hotel Lexicon", count: "11 TERMS" },
+          { id: "floors", icon: "🏨", label: "THE FLOORS", desc: "Know the Building", count: "29 FLOORS" },
+          { id: "glossary", icon: "📜", label: "GLOSSARY", desc: "Hotel Lexicon", count: "19 TERMS" },
           { id: "fire", icon: "🔥", label: "THE FIRE", desc: "Live from the Chain", count: "LIVE" },
           { id: "findfloor", icon: "🗝", label: "FIND YOUR FLOOR", desc: "Where Do You Live?", count: "CHECK IN" },
           { id: "hoteltoday", icon: "🌐", label: "THE HOTEL TODAY", desc: "Who Owns the Building?", count: "LIVE" },
