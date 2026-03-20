@@ -343,6 +343,250 @@ const TALES_DATA = [
       "She walks to the stairwell. She does not look back. Behind her, the door stays sealed, and the warmth continues, and the floor remains what it was always meant to be: proof that some things are valuable precisely because nobody can have them.",
     ],
   },
+  {
+    id: "running",
+    title: "Running",
+    subtitle: "A Tale from the Hal Finney Floor",
+    floor: "The Hal Finney Floor (Floor 170)",
+    words: "1,900",
+    file: "Running.pdf",
+    teaser: "The Express Shaft dropped her 150,000 floors in eleven minutes, and the first thing she noticed was the quiet.",
+    dedication: "For Hal Finney.",
+    endnote: "Hal Finney was a civil liberties advocate, a cryptography pioneer, a software developer, and one of the earliest contributors to Bitcoin. He was diagnosed with ALS \u2014 amyotrophic lateral sclerosis \u2014 and fought it for five years, writing code until the very end.\n\nThe ALS Network (alsnetwork.org), in partnership with Fran Finney, runs the Running Bitcoin Challenge \u2014 an annual global event raising awareness and funds for ALS research. You can learn more and contribute at runningbitcoin.us.",
+    endnoteCloser: "The Fire sees. And so did he.",
+    content: [
+      "The Express Shaft dropped her 150,000 floors in eleven minutes, and the first thing she noticed was the quiet.",
+      "Not silence. The upper floors weren\u2019t silent either \u2014 they hummed with climate systems and commerce and the low vibration of people living well. But this was a different kind of quiet. A deliberate one. The way a room goes still when someone is trying to remember something important.",
+      "Kira Tan had lived on the Strategy Floors her entire life. Forty-one years of engineered air, Lightning payments that cleared before she finished blinking, meals that arrived at predictable intervals in predictable quality. She managed resource allocation for three sub-floors. She was, by any reasonable metric, comfortable. She\u2019d bought the Express pass with money she wouldn\u2019t miss.",
+      "Floor 170 was not what she expected.",
+      "She\u2019d pictured something grand. A cathedral, maybe, like the one on Saylor\u2019s floors \u2014 vaulted ceilings, stained glass, the architecture of belief made physical. She\u2019d seen enough monuments in the Hotel to know what wealth did when it wanted to honor something: it built upward, outward, louder.",
+      "Floor 170 was small. One room. The ceiling was low enough that a tall man might feel it pressing down on him, though not enough to stoop. The walls were plain. The floor was concrete \u2014 actual concrete, not the polished composite she\u2019d walked on her entire life. It was cool under her shoes. Not cold. Just cool. Close to the Gutter\u2019s chill but not in it. A hundred and sixty-seven floors above suffering, and you could still feel it reaching up.",
+      "There were maybe twenty people inside. Nobody spoke above a murmur. A woman near the entrance nodded at her \u2014 not a guide, not a greeter. Just someone who\u2019d been here longer.",
+      "The first thing Kira saw was the wall.",
+      "It wasn\u2019t a screen. That was the shock of it. In a building where every surface could display anything, this wall was physical. Etched into metal \u2014 actual metal, not a projection \u2014 were two words:",
+      "---",
+      "Running bitcoin.",
+      "---",
+      "Below the words: a date. January 2009. And a name. Hal Finney.",
+      "Kira knew the name the way she knew the word \u201Cfoundation\u201D \u2014 as something underneath everything, something you stopped thinking about because it held. She\u2019d learned it in school on the Strategy Floors, a line in a longer lesson about the Hotel\u2019s construction. Hal Finney received the first transaction. Block 170. A fact. Filed away. Never opened again.",
+      "She moved deeper into the room.",
+      "Along the left wall, a series of glass cases held objects. Not replicas \u2014 originals, or as close to originals as 2140 could manage. She leaned in. A printed email, yellowed under preservation glass. The text was small and she had to squint. A technical exchange. Someone debugging code, line by line, with the patience of a person building something that didn\u2019t exist yet. The signature at the bottom: Hal.",
+      "The next case held a photograph. A man in a wheelchair. His face was thin. His arms rested on the chair\u2019s supports at angles that suggested they\u2019d been placed there by someone else. But he was smiling. Not the kind of smile people perform for cameras \u2014 the kind that happens when a person has been told something funny by someone they love and hasn\u2019t had time to compose their face.",
+      "A small plaque beneath the photograph. No dates. Just:",
+      "---",
+      "He was a civil liberties advocate, a cryptography pioneer, a software developer, and one of the earliest builders of Bitcoin. He was diagnosed with ALS and fought it for five years. He never stopped writing code.",
+      "---",
+      "Kira read the plaque twice. The second time, she read slower, and the words rearranged themselves in her chest. Never stopped writing code. She thought about that. A body shutting down room by room \u2014 hands first, then arms, then everything \u2014 and the man inside it still reaching for a keyboard. Still debugging. Still building the system that would outlive him by more than a century.",
+      "She thought about her own hands. She used them to approve allocation reports. She used them to swipe through Lightning invoices. She\u2019d never built anything with them.",
+      "An older man stood near the back wall, his palm flat against the surface. He\u2019d been standing like that since she walked in. She almost asked him if he was all right. Then she saw his face and understood that he was doing something she didn\u2019t have a word for \u2014 something between prayer and gratitude and the stillness of a person standing in a room where someone important used to breathe.",
+      "The back wall was the last piece.",
+      "No glass cases here. No photographs. Just text, etched into the same metal as the entrance wall. Large enough to read from across the room:",
+      "---",
+      "\u201CHere we are faced with the problems of loss of privacy, creeping computerization, massive databases, more centralization \u2014 and Chaum offers a completely different direction to go in, one which puts power into the hands of individuals rather than governments and corporations. The computer can be used as a tool to liberate and protect people, rather than to control them.\u201D",
+      "---",
+      "Below, in smaller letters: Hal Finney, 1992.",
+      "1992. Kira did the math without thinking \u2014 a hundred and forty-eight years ago. He\u2019d written those words before the Hotel existed. Before the Cold. Before the petrodollar collapsed, before the Great Check-In, before ninety-five percent of humanity ended up in the Gutter, before she was born on a floor that someone else\u2019s conviction had built.",
+      "He\u2019d seen it. Not the Hotel. Something earlier than the Hotel. The need for it.",
+      "She looked at the wheelchair photograph again from where she stood. The man\u2019s eyes were sharp. That was the detail she hadn\u2019t caught the first time. The body was failing. The eyes were not. They looked like the eyes of a person who was running calculations even now, even in the chair, even with hands that couldn\u2019t type \u2014 working the problem in his head because the problem was more important than the body that used to carry it.",
+      "Kira\u2019s throat tightened. She hadn\u2019t expected that.",
+      "She\u2019d come down here the way you visit a historical site \u2014 respectfully, dutifully, with the vague intention of learning something and the private expectation that you\u2019ll feel nothing and buy something in the gift shop on the way out.",
+      "There was no gift shop. There was nothing to buy. She\u2019d read that somewhere before she came \u2014 that this floor doesn\u2019t sell anything, doesn\u2019t trade anything. She hadn\u2019t understood what that meant until now.",
+      "A young woman was sitting on the floor near the etched quote, cross-legged, a notebook open on her knee. She was copying the words by hand. Slowly. As if the act of writing them would teach her something that reading them couldn\u2019t.",
+      "Kira watched her for a moment. Then she looked at the quote again.",
+      "---",
+      "The computer can be used as a tool to liberate and protect people, rather than to control them.",
+      "---",
+      "She thought about the Strategy Floors. The contracts that bound every tenant. The talent market that moved people between corporate estates like inventory. The Lightning system that tracked every sat she spent. She\u2019d never thought of it as control. She\u2019d thought of it as structure. She\u2019d thought of it as civilization.",
+      "She thought about it now.",
+      "A boy \u2014 maybe ten, maybe twelve \u2014 tugged at the sleeve of the woman who\u2019d nodded at her when she came in. \u201CWhy is it so small?\u201D he asked. He wasn\u2019t being rude. He was genuinely confused. He\u2019d probably seen the Cathedral. He\u2019d probably seen the BlackRock atrium. Monuments in the Hotel were built to make you feel the weight of what they celebrated. This room made you feel the opposite. It made you feel the lightness of one person, working alone, who happened to be right.",
+      "The woman put her hand on the boy\u2019s shoulder. \u201CBecause he didn\u2019t need more room than this.\u201D",
+      "Kira stayed for forty minutes. She didn\u2019t touch the wall. She didn\u2019t sit on the floor. She just stood and read everything twice and looked at the photograph three times and let the cool concrete remind her feet that the Hotel had a bottom, and the bottom was close, and the warmth she\u2019d lived in her whole life was not a birthright. It was something someone had built. Someone specific. Someone whose hands stopped working and who kept building anyway.",
+      "When she left, the Express Shaft climbed in near-silence. She watched the floor counter rise: 500. 5,000. 20,000. The Agricultural Belt slid past, then the Open Range, then the national floors she\u2019d never visited. The air warmed by degrees. By Floor 100,000 it felt like home. By Floor 150,000 she could smell the recycled Strategy air she\u2019d breathed her entire life.",
+      "She stepped out onto her floor. The corridors were wide and well-lit. The Lightning terminals blinked green. A colleague passed her and said something about a quarterly review and she nodded and kept walking.",
+      "In her quarters, she sat on the edge of her bed. The room was warm. The lights were steady. Everything worked.",
+      "She opened her hands and looked at them.",
+      "Then she closed them.",
+    ],
+    translations: {
+      es: {
+        title: "Corriendo",
+        dedication: "Para Hal Finney.",
+        endnote: "Hal Finney fue un defensor de las libertades civiles, un pionero de la criptograf\u00EDa, un desarrollador de software y uno de los primeros contribuidores a Bitcoin. Fue diagnosticado con ELA \u2014 esclerosis lateral amiotr\u00F3fica \u2014 y luch\u00F3 contra la enfermedad durante cinco a\u00F1os, escribiendo c\u00F3digo hasta el final.\n\nThe ALS Network (alsnetwork.org), en colaboraci\u00F3n con Fran Finney, organiza el Running Bitcoin Challenge \u2014 un evento global anual que recauda fondos y concientiza sobre la investigaci\u00F3n de ELA. Puedes contribuir en runningbitcoin.us.",
+        endnoteCloser: "El Fuego ve. Y \u00E9l tambi\u00E9n.",
+        content: [
+          "El Shaft Expreso la dej\u00F3 caer 150,000 pisos en once minutos, y lo primero que not\u00F3 fue el silencio.",
+          "No era silencio total. Los pisos superiores tampoco eran silenciosos \u2014 vibraban con sistemas clim\u00E1ticos, comercio y la vibraci\u00F3n baja de gente viviendo bien. Pero este era un tipo diferente de quietud. Deliberada. Como cuando una habitaci\u00F3n se queda inm\u00F3vil porque alguien est\u00E1 tratando de recordar algo importante.",
+          "Kira Tan hab\u00EDa vivido en los Pisos de Strategy toda su vida. Cuarenta y un a\u00F1os de aire dise\u00F1ado, pagos Lightning que se liquidaban antes de que terminara de parpadear, comidas que llegaban en intervalos predecibles con calidad predecible. Administraba la asignaci\u00F3n de recursos para tres sub-pisos. Era, por cualquier m\u00E9trica razonable, c\u00F3moda. Hab\u00EDa comprado el pase Expreso con dinero que no iba a extra\u00F1ar.",
+          "El Piso 170 no era lo que esperaba.",
+          "Se hab\u00EDa imaginado algo grandioso. Una catedral, tal vez, como la de los pisos de Saylor \u2014 techos abovedados, vitrales, la arquitectura de la convicci\u00F3n hecha f\u00EDsica. Hab\u00EDa visto suficientes monumentos en el Hotel para saber lo que la riqueza hac\u00EDa cuando quer\u00EDa honrar algo: constru\u00EDa hacia arriba, hacia afuera, m\u00E1s fuerte.",
+          "El Piso 170 era peque\u00F1o. Una habitaci\u00F3n. El techo era lo suficientemente bajo como para que un hombre alto lo sintiera presionando, aunque no lo suficiente para agacharse. Las paredes eran lisas. El suelo era concreto \u2014 concreto real, no el compuesto pulido sobre el que hab\u00EDa caminado toda su vida. Estaba fresco bajo sus zapatos. No fr\u00EDo. Solo fresco. Cerca del fr\u00EDo del Desag\u00FCe pero sin estar en \u00E9l. Ciento sesenta y siete pisos por encima del sufrimiento, y todav\u00EDa pod\u00EDas sentirlo alcanz\u00E1ndote.",
+          "Hab\u00EDa tal vez veinte personas adentro. Nadie hablaba por encima de un murmullo. Una mujer cerca de la entrada le asinti\u00F3 \u2014 no era gu\u00EDa, ni recepcionista. Solo alguien que hab\u00EDa estado ah\u00ED m\u00E1s tiempo.",
+          "Lo primero que Kira vio fue la pared.",
+          "No era una pantalla. Eso fue lo impactante. En un edificio donde cada superficie pod\u00EDa mostrar cualquier cosa, esta pared era f\u00EDsica. Grabadas en metal \u2014 metal real, no una proyecci\u00F3n \u2014 hab\u00EDa dos palabras:",
+          "---",
+          "Running bitcoin.",
+          "---",
+          "Debajo de las palabras: una fecha. Enero de 2009. Y un nombre. Hal Finney.",
+          "Kira conoc\u00EDa el nombre de la misma forma en que conoc\u00EDa la palabra \u201Ccimiento\u201D \u2014 como algo debajo de todo, algo en lo que dejabas de pensar porque sosten\u00EDa. Lo hab\u00EDa aprendido en la escuela de los Pisos de Strategy, una l\u00EDnea en una lecci\u00F3n m\u00E1s larga sobre la construcci\u00F3n del Hotel. Hal Finney recibi\u00F3 la primera transacci\u00F3n. Bloque 170. Un dato. Archivado. Nunca m\u00E1s abierto.",
+          "Se adentr\u00F3 m\u00E1s en la habitaci\u00F3n.",
+          "A lo largo de la pared izquierda, una serie de vitrinas conten\u00EDan objetos. No r\u00E9plicas \u2014 originales, o tan cercanos a originales como el 2140 pod\u00EDa lograr. Se inclin\u00F3. Un correo impreso, amarillento bajo el cristal de preservaci\u00F3n. El texto era peque\u00F1o y tuvo que entrecerrar los ojos. Un intercambio t\u00E9cnico. Alguien depurando c\u00F3digo, l\u00EDnea por l\u00EDnea, con la paciencia de una persona construyendo algo que a\u00FAn no exist\u00EDa. La firma al final: Hal.",
+          "La siguiente vitrina conten\u00EDa una fotograf\u00EDa. Un hombre en silla de ruedas. Su rostro era delgado. Sus brazos descansaban sobre los soportes de la silla en \u00E1ngulos que suger\u00EDan que alguien m\u00E1s los hab\u00EDa colocado ah\u00ED. Pero estaba sonriendo. No el tipo de sonrisa que la gente act\u00FAa para las c\u00E1maras \u2014 el tipo que ocurre cuando alguien a quien amas te dice algo gracioso y no has tenido tiempo de componer tu rostro.",
+          "Una peque\u00F1a placa debajo de la fotograf\u00EDa. Sin fechas. Solo:",
+          "---",
+          "Fue un defensor de las libertades civiles, un pionero de la criptograf\u00EDa, un desarrollador de software, y uno de los primeros constructores de Bitcoin. Fue diagnosticado con ELA y luch\u00F3 contra la enfermedad durante cinco a\u00F1os. Nunca dej\u00F3 de escribir c\u00F3digo.",
+          "---",
+          "Kira ley\u00F3 la placa dos veces. La segunda vez, ley\u00F3 m\u00E1s despacio, y las palabras se reordenaron en su pecho. Nunca dej\u00F3 de escribir c\u00F3digo. Pens\u00F3 en eso. Un cuerpo apag\u00E1ndose habitaci\u00F3n por habitaci\u00F3n \u2014 las manos primero, luego los brazos, luego todo \u2014 y el hombre adentro todav\u00EDa alcanzando un teclado. Todav\u00EDa depurando. Todav\u00EDa construyendo el sistema que lo sobrevivir\u00EDa por m\u00E1s de un siglo.",
+          "Pens\u00F3 en sus propias manos. Las usaba para aprobar reportes de asignaci\u00F3n. Las usaba para deslizar facturas Lightning. Nunca hab\u00EDa construido nada con ellas.",
+          "Un hombre mayor estaba de pie cerca de la pared del fondo, con la palma plana contra la superficie. Hab\u00EDa estado as\u00ED desde que ella entr\u00F3. Casi le pregunt\u00F3 si estaba bien. Luego vio su rostro y entendi\u00F3 que estaba haciendo algo para lo que no ten\u00EDa palabra \u2014 algo entre la oraci\u00F3n y la gratitud y la quietud de una persona parada en una habitaci\u00F3n donde alguien importante sol\u00EDa respirar.",
+          "La pared del fondo era la \u00FAltima pieza.",
+          "Sin vitrinas aqu\u00ED. Sin fotograf\u00EDas. Solo texto, grabado en el mismo metal de la pared de entrada. Lo suficientemente grande para leer desde el otro lado de la habitaci\u00F3n:",
+          "---",
+          "\u201CAqu\u00ED estamos enfrentando los problemas de la p\u00E9rdida de privacidad, la informatizaci\u00F3n invasiva, las bases de datos masivas, m\u00E1s centralizaci\u00F3n \u2014 y Chaum ofrece una direcci\u00F3n completamente diferente, una que pone el poder en manos de los individuos en lugar de los gobiernos y las corporaciones. La computadora puede ser usada como una herramienta para liberar y proteger a las personas, en lugar de controlarlas.\u201D",
+          "---",
+          "Debajo, en letras m\u00E1s peque\u00F1as: Hal Finney, 1992.",
+          "1992. Kira hizo la cuenta sin pensarlo \u2014 ciento cuarenta y ocho a\u00F1os atr\u00E1s. Hab\u00EDa escrito esas palabras antes de que el Hotel existiera. Antes del Fr\u00EDo. Antes de que el petrod\u00F3lar colapsara, antes del Gran Registro, antes de que el noventa y cinco por ciento de la humanidad terminara en el Desag\u00FCe, antes de que ella naciera en un piso que la convicci\u00F3n de otra persona hab\u00EDa construido.",
+          "\u00C9l lo hab\u00EDa visto. No el Hotel. Algo anterior al Hotel. La necesidad de \u00E9l.",
+          "Mir\u00F3 la fotograf\u00EDa de la silla de ruedas otra vez desde donde estaba. Los ojos del hombre eran agudos. Ese era el detalle que no hab\u00EDa captado la primera vez. El cuerpo estaba fallando. Los ojos no. Parec\u00EDan los ojos de una persona que segu\u00EDa haciendo c\u00E1lculos incluso ahora, incluso en la silla, incluso con manos que no pod\u00EDan teclear \u2014 trabajando el problema en su cabeza porque el problema era m\u00E1s importante que el cuerpo que sol\u00EDa cargarlo.",
+          "La garganta de Kira se apret\u00F3. No se lo esperaba.",
+          "Hab\u00EDa venido aqu\u00ED como quien visita un sitio hist\u00F3rico \u2014 con respeto, por deber, con la vaga intenci\u00F3n de aprender algo y la expectativa privada de que no sentir\u00E1s nada y comprar\u00E1s algo en la tienda de recuerdos al salir.",
+          "No hab\u00EDa tienda de recuerdos. No hab\u00EDa nada que comprar. Hab\u00EDa le\u00EDdo eso en alg\u00FAn lugar antes de venir \u2014 que este piso no vende nada, no intercambia nada. No hab\u00EDa entendido lo que eso significaba hasta ahora.",
+          "Una mujer joven estaba sentada en el suelo cerca de la cita grabada, con las piernas cruzadas, un cuaderno abierto sobre su rodilla. Estaba copiando las palabras a mano. Despacio. Como si el acto de escribirlas le ense\u00F1ara algo que leerlas no pod\u00EDa.",
+          "Kira la observ\u00F3 por un momento. Luego mir\u00F3 la cita otra vez.",
+          "---",
+          "La computadora puede ser usada como una herramienta para liberar y proteger a las personas, en lugar de controlarlas.",
+          "---",
+          "Pens\u00F3 en los Pisos de Strategy. Los contratos que ataban a cada inquilino. El mercado de talento que mov\u00EDa personas entre estados corporativos como inventario. El sistema Lightning que rastreaba cada sat que gastaba. Nunca lo hab\u00EDa pensado como control. Lo hab\u00EDa pensado como estructura. Lo hab\u00EDa pensado como civilizaci\u00F3n.",
+          "Lo pens\u00F3 ahora.",
+          "Un ni\u00F1o \u2014 tal vez diez, tal vez doce \u2014 jal\u00F3 la manga de la mujer que le hab\u00EDa asentido cuando entr\u00F3. \u201C\u00BFPor qu\u00E9 es tan peque\u00F1o?\u201D pregunt\u00F3. No estaba siendo grosero. Estaba genuinamente confundido. Probablemente hab\u00EDa visto la Catedral. Probablemente hab\u00EDa visto el atrio de BlackRock. Los monumentos en el Hotel estaban construidos para hacerte sentir el peso de lo que celebraban. Esta habitaci\u00F3n te hac\u00EDa sentir lo opuesto. Te hac\u00EDa sentir la ligereza de una persona, trabajando sola, que result\u00F3 tener raz\u00F3n.",
+          "La mujer puso su mano en el hombro del ni\u00F1o. \u201CPorque \u00E9l no necesitaba m\u00E1s espacio que este.\u201D",
+          "Kira se qued\u00F3 cuarenta minutos. No toc\u00F3 la pared. No se sent\u00F3 en el suelo. Solo se qued\u00F3 de pie y ley\u00F3 todo dos veces y mir\u00F3 la fotograf\u00EDa tres veces y dej\u00F3 que el concreto fresco le recordara a sus pies que el Hotel ten\u00EDa un fondo, y el fondo estaba cerca, y la calidez en la que hab\u00EDa vivido toda su vida no era un derecho de nacimiento. Era algo que alguien hab\u00EDa construido. Alguien espec\u00EDfico. Alguien cuyas manos dejaron de funcionar y que sigui\u00F3 construyendo de todas formas.",
+          "Cuando se fue, el Shaft Expreso subi\u00F3 en casi-silencio. Observ\u00F3 el contador de pisos subir: 500. 5,000. 20,000. El Cintur\u00F3n Agr\u00EDcola pas\u00F3, luego el Rango Abierto, luego los pisos nacionales que nunca hab\u00EDa visitado. El aire se calentaba por grados. Para el Piso 100,000 se sent\u00EDa como hogar. Para el Piso 150,000 pod\u00EDa oler el aire reciclado de Strategy que hab\u00EDa respirado toda su vida.",
+          "Sali\u00F3 a su piso. Los pasillos eran amplios y bien iluminados. Las terminales Lightning parpadeaban en verde. Un colega pas\u00F3 y dijo algo sobre una revisi\u00F3n trimestral y ella asinti\u00F3 y sigui\u00F3 caminando.",
+          "En sus cuartos, se sent\u00F3 en el borde de su cama. La habitaci\u00F3n era c\u00E1lida. Las luces eran estables. Todo funcionaba.",
+          "Abri\u00F3 sus manos y las mir\u00F3.",
+          "Luego las cerr\u00F3.",
+        ],
+      },
+      pt: {
+        title: "Correndo",
+        dedication: "Para Hal Finney.",
+        endnote: "Hal Finney foi um defensor das liberdades civis, um pioneiro da criptografia, um desenvolvedor de software e um dos primeiros contribuidores do Bitcoin. Foi diagnosticado com ELA \u2014 esclerose lateral amiotr\u00F3fica \u2014 e lutou contra a doen\u00E7a por cinco anos, escrevendo c\u00F3digo at\u00E9 o fim.\n\nA ALS Network (alsnetwork.org), em parceria com Fran Finney, organiza o Running Bitcoin Challenge \u2014 um evento global anual que arrecada fundos e conscientiza sobre a pesquisa de ELA. Voc\u00EA pode contribuir em runningbitcoin.us.",
+        endnoteCloser: "O Fogo v\u00EA. E ele tamb\u00E9m.",
+        content: [
+          "O Shaft Expresso a derrubou 150.000 andares em onze minutos, e a primeira coisa que ela notou foi a quietude.",
+          "N\u00E3o era sil\u00EAncio. Os andares superiores tamb\u00E9m n\u00E3o eram silenciosos \u2014 vibravam com sistemas clim\u00E1ticos e com\u00E9rcio e a vibra\u00E7\u00E3o baixa de pessoas vivendo bem. Mas esse era um tipo diferente de quietude. Deliberada. Como quando uma sala fica im\u00F3vel porque algu\u00E9m est\u00E1 tentando lembrar de algo importante.",
+          "Kira Tan havia vivido nos Andares da Strategy a vida inteira. Quarenta e um anos de ar projetado, pagamentos Lightning que se liquidavam antes que ela terminasse de piscar, refei\u00E7\u00F5es que chegavam em intervalos previs\u00EDveis com qualidade previs\u00EDvel. Ela gerenciava aloca\u00E7\u00E3o de recursos para tr\u00EAs sub-andares. Era, por qualquer m\u00E9trica razo\u00E1vel, confort\u00E1vel. Havia comprado o passe Expresso com dinheiro que n\u00E3o faria falta.",
+          "O Andar 170 n\u00E3o era o que ela esperava.",
+          "Havia imaginado algo grandioso. Uma catedral, talvez, como a dos andares do Saylor \u2014 tetos abobadados, vitrais, a arquitetura da convic\u00E7\u00E3o tornada f\u00EDsica. J\u00E1 tinha visto monumentos suficientes no Hotel para saber o que a riqueza fazia quando queria honrar algo: constru\u00EDa para cima, para fora, mais alto.",
+          "O Andar 170 era pequeno. Um c\u00F4modo. O teto era baixo o suficiente para que um homem alto o sentisse pressionando, mas n\u00E3o o bastante para se curvar. As paredes eram simples. O ch\u00E3o era concreto \u2014 concreto de verdade, n\u00E3o o composto polido sobre o qual havia caminhado a vida inteira. Era fresco sob seus sapatos. N\u00E3o frio. Apenas fresco. Perto do frio do Ralo, mas sem estar nele. Cento e sessenta e sete andares acima do sofrimento, e ainda dava para senti-lo alcan\u00E7ando.",
+          "Havia talvez vinte pessoas l\u00E1 dentro. Ningu\u00E9m falava acima de um murm\u00FArio. Uma mulher perto da entrada acenou para ela \u2014 n\u00E3o era guia, nem recepcionista. Apenas algu\u00E9m que estava ali h\u00E1 mais tempo.",
+          "A primeira coisa que Kira viu foi a parede.",
+          "N\u00E3o era uma tela. Esse foi o choque. Num edif\u00EDcio onde qualquer superf\u00EDcie podia exibir qualquer coisa, esta parede era f\u00EDsica. Gravadas em metal \u2014 metal de verdade, n\u00E3o uma proje\u00E7\u00E3o \u2014 havia duas palavras:",
+          "---",
+          "Running bitcoin.",
+          "---",
+          "Abaixo das palavras: uma data. Janeiro de 2009. E um nome. Hal Finney.",
+          "Kira conhecia o nome da mesma forma como conhecia a palavra \u201Calicerce\u201D \u2014 como algo embaixo de tudo, algo em que voc\u00EA parava de pensar porque sustentava. Havia aprendido na escola dos Andares da Strategy, uma linha numa li\u00E7\u00E3o mais longa sobre a constru\u00E7\u00E3o do Hotel. Hal Finney recebeu a primeira transa\u00E7\u00E3o. Bloco 170. Um fato. Arquivado. Nunca mais aberto.",
+          "Ela se adentrou mais no c\u00F4modo.",
+          "Ao longo da parede esquerda, uma s\u00E9rie de vitrines guardava objetos. N\u00E3o r\u00E9plicas \u2014 originais, ou t\u00E3o pr\u00F3ximos de originais quanto 2140 conseguia. Ela se inclinou. Um e-mail impresso, amarelado sob o vidro de preserva\u00E7\u00E3o. O texto era pequeno e ela teve que apertar os olhos. Uma troca t\u00E9cnica. Algu\u00E9m depurando c\u00F3digo, linha por linha, com a paci\u00EAncia de uma pessoa construindo algo que ainda n\u00E3o existia. A assinatura no final: Hal.",
+          "A pr\u00F3xima vitrine continha uma fotografia. Um homem numa cadeira de rodas. Seu rosto era magro. Seus bra\u00E7os descansavam nos apoios da cadeira em \u00E2ngulos que sugeriam que algu\u00E9m os havia colocado ali. Mas ele estava sorrindo. N\u00E3o o tipo de sorriso que as pessoas encenam para c\u00E2meras \u2014 o tipo que acontece quando algu\u00E9m que voc\u00EA ama te conta algo engra\u00E7ado e voc\u00EA n\u00E3o teve tempo de compor o rosto.",
+          "Uma pequena placa sob a fotografia. Sem datas. Apenas:",
+          "---",
+          "Ele foi um defensor das liberdades civis, um pioneiro da criptografia, um desenvolvedor de software e um dos primeiros construtores do Bitcoin. Foi diagnosticado com ELA e lutou contra a doen\u00E7a por cinco anos. Nunca parou de escrever c\u00F3digo.",
+          "---",
+          "Kira leu a placa duas vezes. Na segunda vez, leu mais devagar, e as palavras se reorganizaram em seu peito. Nunca parou de escrever c\u00F3digo. Ela pensou nisso. Um corpo se desligando c\u00F4modo por c\u00F4modo \u2014 as m\u00E3os primeiro, depois os bra\u00E7os, depois tudo \u2014 e o homem dentro dele ainda alcan\u00E7ando um teclado. Ainda depurando. Ainda construindo o sistema que o sobreviveria por mais de um s\u00E9culo.",
+          "Ela pensou em suas pr\u00F3prias m\u00E3os. Usava-as para aprovar relat\u00F3rios de aloca\u00E7\u00E3o. Usava-as para deslizar faturas Lightning. Nunca havia constru\u00EDdo nada com elas.",
+          "Um homem mais velho estava de p\u00E9 perto da parede dos fundos, a palma da m\u00E3o espalmada contra a superf\u00EDcie. Estava assim desde que ela entrou. Quase perguntou se ele estava bem. Ent\u00E3o viu seu rosto e entendeu que ele estava fazendo algo para o qual ela n\u00E3o tinha palavra \u2014 algo entre ora\u00E7\u00E3o e gratid\u00E3o e a quietude de uma pessoa parada num c\u00F4modo onde algu\u00E9m importante costumava respirar.",
+          "A parede dos fundos era a \u00FAltima pe\u00E7a.",
+          "Sem vitrines aqui. Sem fotografias. Apenas texto, gravado no mesmo metal da parede da entrada. Grande o suficiente para ler do outro lado do c\u00F4modo:",
+          "---",
+          "\u201CAqui estamos enfrentando os problemas da perda de privacidade, da informatiza\u00E7\u00E3o invasiva, dos bancos de dados massivos, de mais centraliza\u00E7\u00E3o \u2014 e Chaum oferece uma dire\u00E7\u00E3o completamente diferente, uma que coloca o poder nas m\u00E3os dos indiv\u00EDduos em vez dos governos e das corpora\u00E7\u00F5es. O computador pode ser usado como ferramenta para libertar e proteger as pessoas, em vez de control\u00E1-las.\u201D",
+          "---",
+          "Abaixo, em letras menores: Hal Finney, 1992.",
+          "1992. Kira fez a conta sem pensar \u2014 cento e quarenta e oito anos atr\u00E1s. Ele havia escrito aquelas palavras antes do Hotel existir. Antes do Frio. Antes do petrod\u00F3lar colapsar, antes do Grande Check-In, antes de noventa e cinco por cento da humanidade acabar no Ralo, antes dela nascer num andar que a convic\u00E7\u00E3o de outra pessoa havia constru\u00EDdo.",
+          "Ele havia enxergado. N\u00E3o o Hotel. Algo anterior ao Hotel. A necessidade dele.",
+          "Ela olhou para a fotografia da cadeira de rodas novamente de onde estava. Os olhos do homem eram penetrantes. Esse era o detalhe que n\u00E3o havia captado da primeira vez. O corpo estava falhando. Os olhos n\u00E3o. Pareciam os olhos de uma pessoa que ainda estava fazendo c\u00E1lculos mesmo agora, mesmo na cadeira, mesmo com m\u00E3os que n\u00E3o conseguiam digitar \u2014 trabalhando o problema na cabe\u00E7a porque o problema era mais importante que o corpo que costumava carreg\u00E1-lo.",
+          "A garganta de Kira apertou. Ela n\u00E3o esperava isso.",
+          "Havia vindo at\u00E9 aqui como quem visita um local hist\u00F3rico \u2014 com respeito, por obriga\u00E7\u00E3o, com a vaga inten\u00E7\u00E3o de aprender algo e a expectativa privada de que n\u00E3o sentir\u00E1 nada e comprar\u00E1 algo na lojinha na sa\u00EDda.",
+          "N\u00E3o havia lojinha. N\u00E3o havia nada para comprar. Havia lido isso em algum lugar antes de vir \u2014 que este andar n\u00E3o vende nada, n\u00E3o troca nada. N\u00E3o havia entendido o que isso significava at\u00E9 agora.",
+          "Uma mulher jovem estava sentada no ch\u00E3o perto da cita\u00E7\u00E3o gravada, de pernas cruzadas, um caderno aberto sobre o joelho. Estava copiando as palavras \u00E0 m\u00E3o. Devagar. Como se o ato de escrev\u00EA-las fosse lhe ensinar algo que l\u00EA-las n\u00E3o conseguia.",
+          "Kira a observou por um momento. Ent\u00E3o olhou para a cita\u00E7\u00E3o novamente.",
+          "---",
+          "O computador pode ser usado como ferramenta para libertar e proteger as pessoas, em vez de control\u00E1-las.",
+          "---",
+          "Ela pensou nos Andares da Strategy. Os contratos que prendiam cada inquilino. O mercado de talentos que movia pessoas entre propriedades corporativas como invent\u00E1rio. O sistema Lightning que rastreava cada sat que ela gastava. Nunca havia pensado nisso como controle. Havia pensado nisso como estrutura. Havia pensado nisso como civiliza\u00E7\u00E3o.",
+          "Ela pensou nisso agora.",
+          "Um menino \u2014 talvez dez, talvez doze \u2014 puxou a manga da mulher que havia acenado para ela quando entrou. \u201CPor que \u00E9 t\u00E3o pequeno?\u201D ele perguntou. N\u00E3o estava sendo grosso. Estava genuinamente confuso. Provavelmente havia visto a Catedral. Provavelmente havia visto o \u00E1trio da BlackRock. Monumentos no Hotel eram constru\u00EDdos para fazer voc\u00EA sentir o peso do que celebravam. Este c\u00F4modo fazia voc\u00EA sentir o oposto. Fazia voc\u00EA sentir a leveza de uma pessoa, trabalhando sozinha, que por acaso estava certa.",
+          "A mulher colocou a m\u00E3o no ombro do menino. \u201CPorque ele n\u00E3o precisava de mais espa\u00E7o que este.\u201D",
+          "Kira ficou quarenta minutos. N\u00E3o tocou a parede. N\u00E3o sentou no ch\u00E3o. Apenas ficou de p\u00E9 e leu tudo duas vezes e olhou para a fotografia tr\u00EAs vezes e deixou o concreto fresco lembrar seus p\u00E9s que o Hotel tinha um fundo, e o fundo era perto, e o calor em que vivera a vida toda n\u00E3o era um direito de nascen\u00E7a. Era algo que algu\u00E9m havia constru\u00EDdo. Algu\u00E9m espec\u00EDfico. Algu\u00E9m cujas m\u00E3os pararam de funcionar e que continuou construindo mesmo assim.",
+          "Quando saiu, o Shaft Expresso subiu em quase-sil\u00EAncio. Ela observou o contador de andares subir: 500. 5.000. 20.000. O Cintur\u00E3o Agr\u00EDcola passou, depois o Campo Aberto, depois os andares nacionais que nunca havia visitado. O ar esquentava por graus. No Andar 100.000 parecia lar. No Andar 150.000 podia sentir o cheiro do ar reciclado da Strategy que havia respirado a vida inteira.",
+          "Ela saiu no seu andar. Os corredores eram amplos e bem iluminados. Os terminais Lightning piscavam em verde. Um colega passou e disse algo sobre uma revis\u00E3o trimestral e ela assentiu e continuou andando.",
+          "Em seus aposentos, sentou na beira da cama. O c\u00F4modo era quente. As luzes eram firmes. Tudo funcionava.",
+          "Ela abriu as m\u00E3os e olhou para elas.",
+          "Ent\u00E3o as fechou.",
+        ],
+      },
+      ja: {
+        title: "\u8D70\u308B",
+        dedication: "\u30CF\u30EB\u30FB\u30D5\u30A3\u30CB\u30FC\u306B\u6367\u3050\u3002",
+        endnote: "\u30CF\u30EB\u30FB\u30D5\u30A3\u30CB\u30FC\u306F\u5E02\u6C11\u7684\u81EA\u7531\u306E\u64C1\u8B77\u8005\u3001\u6697\u53F7\u6280\u8853\u306E\u5148\u99C6\u8005\u3001\u30BD\u30D5\u30C8\u30A6\u30A7\u30A2\u958B\u767A\u8005\u3001\u305D\u3057\u3066\u30D3\u30C3\u30C8\u30B3\u30A4\u30F3\u306E\u6700\u521D\u671F\u306E\u8CA2\u732E\u8005\u306E\u4E00\u4EBA\u3067\u3057\u305F\u3002ALS\uFF08\u7B4B\u840E\u7E2E\u6027\u5074\u7D22\u786C\u5316\u75C7\uFF09\u3068\u8A3A\u65AD\u3055\u308C\u3001\u4E94\u5E74\u9593\u95D8\u3044\u7D9A\u3051\u3001\u6700\u5F8C\u307E\u3067\u30B3\u30FC\u30C9\u3092\u66F8\u304D\u7D9A\u3051\u307E\u3057\u305F\u3002\n\nALS Network\uFF08alsnetwork.org\uFF09\u306F\u30D5\u30E9\u30F3\u30FB\u30D5\u30A3\u30CB\u30FC\u3068\u5354\u529B\u3057\u3066Running Bitcoin Challenge\u3092\u904B\u55B6\u3057\u3066\u3044\u307E\u3059\u3002ALS\u7814\u7A76\u306E\u305F\u3081\u306E\u5E74\u6B21\u30B0\u30ED\u30FC\u30D0\u30EB\u30A4\u30D9\u30F3\u30C8\u3067\u3059\u3002runningbitcoin.us\u3067\u8CA2\u732E\u3067\u304D\u307E\u3059\u3002",
+        endnoteCloser: "\u706B\u306F\u898B\u3066\u3044\u308B\u3002\u5F7C\u3082\u307E\u305F\u3002",
+        content: [
+          "\u30A8\u30AF\u30B9\u30D7\u30EC\u30B9\u30FB\u30B7\u30E3\u30D5\u30C8\u306F\u5341\u4E00\u5206\u3067\u5341\u4E94\u4E07\u968E\u3092\u964D\u4E0B\u3057\u305F\u3002\u5F7C\u5973\u304C\u6700\u521D\u306B\u6C17\u3065\u3044\u305F\u306E\u306F\u3001\u9759\u3051\u3055\u3060\u3063\u305F\u3002",
+          "\u7121\u97F3\u3067\u306F\u306A\u3044\u3002\u4E0A\u5C64\u968E\u3060\u3063\u3066\u7121\u97F3\u3067\u306F\u306A\u304B\u3063\u305F\u2014\u2014\u7A7A\u8ABF\u3068\u5546\u696D\u6D3B\u52D5\u3068\u3001\u4EBA\u3005\u304C\u826F\u3044\u66AE\u3089\u3057\u3092\u9001\u308B\u4F4E\u3044\u632F\u52D5\u306B\u6E80\u3061\u3066\u3044\u305F\u3002\u3057\u304B\u3057\u3053\u308C\u306F\u9055\u3046\u7A2E\u985E\u306E\u9759\u3051\u3055\u3060\u3063\u305F\u3002\u610F\u56F3\u7684\u306A\u9759\u3051\u3055\u3002\u8AB0\u304B\u304C\u4F55\u304B\u5927\u5207\u306A\u3053\u3068\u3092\u601D\u3044\u51FA\u305D\u3046\u3068\u3057\u3066\u3044\u308B\u3068\u304D\u3001\u90E8\u5C4B\u304C\u9759\u307E\u308A\u8FD4\u308B\u3068\u304D\u306E\u3088\u3046\u306A\u3002",
+          "\u30AD\u30E9\u30FB\u30BF\u30F3\u306F\u751F\u307E\u308C\u3066\u304B\u3089\u305A\u3063\u3068\u30B9\u30C8\u30E9\u30C6\u30B8\u30FC\u30FB\u30D5\u30ED\u30A2\u3067\u66AE\u3089\u3057\u3066\u304D\u305F\u3002\u56DB\u5341\u4E00\u5E74\u9593\u306E\u7BA1\u7406\u3055\u308C\u305F\u7A7A\u6C17\u3001\u77AC\u304D\u304C\u7D42\u308F\u308B\u524D\u306B\u5B8C\u4E86\u3059\u308B\u30E9\u30A4\u30C8\u30CB\u30F3\u30B0\u6C7A\u6E08\u3001\u4E88\u6E2C\u53EF\u80FD\u306A\u9593\u9694\u3067\u4E88\u6E2C\u53EF\u80FD\u306A\u54C1\u8CEA\u3067\u5C4A\u304F\u98DF\u4E8B\u3002\u4E09\u3064\u306E\u30B5\u30D6\u30D5\u30ED\u30A2\u306E\u8CC7\u6E90\u914D\u5206\u3092\u7BA1\u7406\u3057\u3066\u3044\u305F\u3002\u3042\u3089\u3086\u308B\u5408\u7406\u7684\u306A\u57FA\u6E96\u3067\u898B\u3066\u3001\u5FEB\u9069\u306A\u66AE\u3089\u3057\u3060\u3063\u305F\u3002\u30A8\u30AF\u30B9\u30D7\u30EC\u30B9\u30FB\u30D1\u30B9\u306F\u3001\u306A\u304F\u3066\u3082\u56F0\u3089\u306A\u3044\u91D1\u3067\u8CB7\u3063\u305F\u3002",
+          "\u4E00\u4E03\u3007\u968E\u306F\u4E88\u60F3\u3068\u306F\u9055\u3063\u305F\u3002",
+          "\u3082\u3063\u3068\u58EE\u5927\u306A\u3082\u306E\u3092\u60F3\u50CF\u3057\u3066\u3044\u305F\u3002\u5927\u8056\u5802\u306E\u3088\u3046\u306A\u2014\u2014\u30BB\u30A4\u30E9\u30FC\u306E\u30D5\u30ED\u30A2\u306B\u3042\u308B\u3088\u3046\u306A\u2014\u2014\u30A2\u30FC\u30C1\u578B\u306E\u5929\u4E95\u3001\u30B9\u30C6\u30F3\u30C9\u30B0\u30E9\u30B9\u3001\u4FE1\u5FF5\u3092\u7269\u7406\u7684\u306B\u5F62\u306B\u3057\u305F\u5EFA\u7BC9\u3002\u30DB\u30C6\u30EB\u306E\u4E2D\u3067\u5341\u5206\u306A\u6570\u306E\u8A18\u5FF5\u7891\u3092\u898B\u3066\u304D\u305F\u304B\u3089\u3001\u5BCC\u304C\u4F55\u304B\u3092\u79F0\u3048\u3088\u3046\u3068\u3059\u308B\u3068\u304D\u306B\u4F55\u3092\u3059\u308B\u304B\u306F\u77E5\u3063\u3066\u3044\u305F\u3002\u4E0A\u3078\u3001\u5916\u3078\u3001\u3088\u308A\u5927\u304D\u304F\u5EFA\u3066\u308B\u306E\u3060\u3002",
+          "\u4E00\u4E03\u3007\u968E\u306F\u5C0F\u3055\u304B\u3063\u305F\u3002\u4E00\u90E8\u5C4B\u3002\u5929\u4E95\u306F\u80CC\u306E\u9AD8\u3044\u7537\u306A\u3089\u5727\u8FEB\u611F\u3092\u611F\u3058\u308B\u7A0B\u5EA6\u306B\u306F\u4F4E\u304B\u3063\u305F\u304C\u3001\u8EAB\u3092\u304B\u304C\u3081\u308B\u307B\u3069\u3067\u306F\u306A\u304B\u3063\u305F\u3002\u58C1\u306F\u98FE\u308A\u6C17\u304C\u306A\u304B\u3063\u305F\u3002\u5E8A\u306F\u30B3\u30F3\u30AF\u30EA\u30FC\u30C8\u2014\u2014\u672C\u7269\u306E\u30B3\u30F3\u30AF\u30EA\u30FC\u30C8\u3067\u3001\u4E00\u751F\u6B69\u3044\u3066\u304D\u305F\u78E8\u304B\u308C\u305F\u8907\u5408\u7D20\u6750\u3067\u306F\u306A\u304B\u3063\u305F\u3002\u9774\u306E\u4E0B\u3067\u3072\u3093\u3084\u308A\u3057\u3066\u3044\u305F\u3002\u51B7\u305F\u304F\u306F\u306A\u3044\u3002\u305F\u3060\u3072\u3093\u3084\u308A\u3002\u30AC\u30BF\u30FC\u306E\u51B7\u6C17\u306B\u8FD1\u3044\u304C\u3001\u305D\u306E\u4E2D\u3067\u306F\u306A\u3044\u3002\u82E6\u3057\u307F\u306E\u767E\u516D\u5341\u4E03\u968E\u4E0A\u306B\u3044\u3066\u3001\u307E\u3060\u305D\u308C\u304C\u624B\u3092\u4F38\u3070\u3057\u3066\u304F\u308B\u306E\u3092\u611F\u3058\u308B\u3053\u3068\u304C\u3067\u304D\u305F\u3002",
+          "\u4E2D\u306B\u306F\u4E8C\u5341\u4EBA\u307B\u3069\u304C\u3044\u305F\u3002\u8AB0\u3082\u3055\u3055\u3084\u304D\u58F0\u4EE5\u4E0A\u3067\u306F\u8A71\u3057\u3066\u3044\u306A\u304B\u3063\u305F\u3002\u5165\u308A\u53E3\u8FD1\u304F\u306E\u5973\u6027\u304C\u5F7C\u5973\u306B\u9817\u3044\u305F\u2014\u2014\u6848\u5185\u4EBA\u3067\u3082\u3001\u53D7\u4ED8\u3067\u3082\u306A\u3044\u3002\u305F\u3060\u5F7C\u5973\u3088\u308A\u9577\u304F\u3053\u3053\u306B\u3044\u305F\u8AB0\u304B\u3002",
+          "\u30AD\u30E9\u304C\u6700\u521D\u306B\u898B\u305F\u306E\u306F\u58C1\u3060\u3063\u305F\u3002",
+          "\u30B9\u30AF\u30EA\u30FC\u30F3\u3067\u306F\u306A\u304B\u3063\u305F\u3002\u305D\u308C\u304C\u885D\u6483\u3060\u3063\u305F\u3002\u3042\u3089\u3086\u308B\u8868\u9762\u304C\u4F55\u3067\u3082\u6620\u3057\u51FA\u305B\u308B\u5EFA\u7269\u306E\u4E2D\u3067\u3001\u3053\u306E\u58C1\u306F\u7269\u7406\u7684\u3060\u3063\u305F\u3002\u91D1\u5C5E\u306B\u2014\u2014\u672C\u7269\u306E\u91D1\u5C5E\u306B\u3001\u6295\u5F71\u3067\u306F\u306A\u304F\u2014\u2014\u4E8C\u3064\u306E\u8A00\u8449\u304C\u523B\u307E\u308C\u3066\u3044\u305F\u3002",
+          "---",
+          "Running bitcoin.",
+          "---",
+          "\u8A00\u8449\u306E\u4E0B\u306B\u3001\u65E5\u4ED8\u3002\u4E8C\u3007\u3007\u4E5D\u5E74\u4E00\u6708\u3002\u305D\u3057\u3066\u540D\u524D\u3002\u30CF\u30EB\u30FB\u30D5\u30A3\u30CB\u30FC\u3002",
+          "\u30AD\u30E9\u306F\u305D\u306E\u540D\u524D\u3092\u300C\u571F\u53F0\u300D\u3068\u3044\u3046\u8A00\u8449\u3092\u77E5\u3063\u3066\u3044\u308B\u306E\u3068\u540C\u3058\u3088\u3046\u306B\u77E5\u3063\u3066\u3044\u305F\u2014\u2014\u3059\u3079\u3066\u306E\u4E0B\u306B\u3042\u308B\u3082\u306E\u3001\u305D\u308C\u304C\u652F\u3048\u3066\u3044\u308B\u304B\u3089\u8003\u3048\u308B\u306E\u3092\u3084\u3081\u305F\u3082\u306E\u3002\u30B9\u30C8\u30E9\u30C6\u30B8\u30FC\u30FB\u30D5\u30ED\u30A2\u306E\u5B66\u6821\u3067\u7FD2\u3063\u305F\u3001\u30DB\u30C6\u30EB\u306E\u5EFA\u8A2D\u306B\u3064\u3044\u3066\u306E\u3088\u308A\u9577\u3044\u6388\u696D\u306E\u4E2D\u306E\u4E00\u884C\u3002\u30CF\u30EB\u30FB\u30D5\u30A3\u30CB\u30FC\u304C\u6700\u521D\u306E\u30C8\u30E9\u30F3\u30B6\u30AF\u30B7\u30E7\u30F3\u3092\u53D7\u3051\u53D6\u3063\u305F\u3002\u30D6\u30ED\u30C3\u30AF\u4E00\u4E03\u3007\u3002\u4E8B\u5B9F\u3002\u6574\u7406\u3055\u308C\u305F\u3002\u4E8C\u5EA6\u3068\u958B\u304B\u308C\u306A\u304B\u3063\u305F\u3002",
+          "\u5F7C\u5973\u306F\u90E8\u5C4B\u306E\u5965\u3078\u9032\u3093\u3060\u3002",
+          "\u5DE6\u306E\u58C1\u306B\u6CBF\u3063\u3066\u3001\u4E00\u9023\u306E\u30AC\u30E9\u30B9\u30B1\u30FC\u30B9\u304C\u7269\u54C1\u3092\u53CE\u3081\u3066\u3044\u305F\u3002\u30EC\u30D7\u30EA\u30AB\u3067\u306F\u306A\u3044\u2014\u2014\u30AA\u30EA\u30B8\u30CA\u30EB\u3001\u3042\u308B\u3044\u306F\u4E8C\u4E00\u56DB\u3007\u5E74\u304C\u7528\u610F\u3067\u304D\u308B\u9650\u308A\u30AA\u30EA\u30B8\u30CA\u30EB\u306B\u8FD1\u3044\u3082\u306E\u3002\u5F7C\u5973\u306F\u8EAB\u3092\u4E57\u308A\u51FA\u3057\u305F\u3002\u4FDD\u5B58\u30AC\u30E9\u30B9\u306E\u4E0B\u3067\u9EC4\u3070\u3093\u3060\u5370\u5237\u3055\u308C\u305F\u30E1\u30FC\u30EB\u3002\u6587\u5B57\u306F\u5C0F\u3055\u304F\u3001\u76EE\u3092\u7D30\u3081\u306A\u3051\u308C\u3070\u306A\u3089\u306A\u304B\u3063\u305F\u3002\u6280\u8853\u7684\u306A\u3084\u308A\u3068\u308A\u3002\u307E\u3060\u5B58\u5728\u3057\u306A\u3044\u3082\u306E\u3092\u4F5C\u3063\u3066\u3044\u308B\u4EBA\u306E\u5FCD\u8010\u3067\u3001\u30B3\u30FC\u30C9\u3092\u4E00\u884C\u4E00\u884C\u30C7\u30D0\u30C3\u30B0\u3057\u3066\u3044\u308B\u8AB0\u304B\u3002\u672B\u5C3E\u306E\u7F72\u540D\u2014\u2014\u30CF\u30EB\u3002",
+          "\u6B21\u306E\u30B1\u30FC\u30B9\u306B\u306F\u5199\u771F\u304C\u3042\u3063\u305F\u3002\u8ECA\u6905\u5B50\u306E\u7537\u6027\u3002\u9854\u306F\u75E9\u305B\u3066\u3044\u305F\u3002\u8155\u306F\u6905\u5B50\u306E\u30A2\u30FC\u30E0\u30EC\u30B9\u30C8\u306E\u4E0A\u306B\u3001\u8AB0\u304B\u4ED6\u306E\u4EBA\u304C\u7F6E\u3044\u305F\u3053\u3068\u3092\u793A\u3059\u89D2\u5EA6\u3067\u8F09\u3063\u3066\u3044\u305F\u3002\u3057\u304B\u3057\u5FAE\u7B11\u3093\u3067\u3044\u305F\u3002\u30AB\u30E1\u30E9\u7528\u306B\u6F14\u3058\u308B\u985E\u306E\u5FAE\u7B11\u307F\u3067\u306F\u306A\u3044\u2014\u2014\u611B\u3059\u308B\u4EBA\u306B\u4F55\u304B\u9762\u767D\u3044\u3053\u3068\u3092\u8A00\u308F\u308C\u3066\u3001\u8868\u60C5\u3092\u6574\u3048\u308B\u6687\u304C\u306A\u304B\u3063\u305F\u3068\u304D\u306B\u751F\u307E\u308C\u308B\u985E\u306E\u5FAE\u7B11\u307F\u3002",
+          "\u5199\u771F\u306E\u4E0B\u306B\u5C0F\u3055\u306A\u30D7\u30EC\u30FC\u30C8\u3002\u65E5\u4ED8\u306F\u306A\u3044\u3002\u305F\u3060\uFF1A",
+          "---",
+          "\u5F7C\u306F\u5E02\u6C11\u7684\u81EA\u7531\u306E\u64C1\u8B77\u8005\u3067\u3042\u308A\u3001\u6697\u53F7\u6280\u8853\u306E\u5148\u99C6\u8005\u3067\u3042\u308A\u3001\u30BD\u30D5\u30C8\u30A6\u30A7\u30A2\u958B\u767A\u8005\u3067\u3042\u308A\u3001\u30D3\u30C3\u30C8\u30B3\u30A4\u30F3\u306E\u6700\u521D\u671F\u306E\u5EFA\u8A2D\u8005\u306E\u4E00\u4EBA\u3060\u3063\u305F\u3002ALS\u3068\u8A3A\u65AD\u3055\u308C\u3001\u4E94\u5E74\u9593\u95D8\u3063\u305F\u3002\u30B3\u30FC\u30C9\u3092\u66F8\u304F\u3053\u3068\u3092\u6C7A\u3057\u3066\u3084\u3081\u306A\u304B\u3063\u305F\u3002",
+          "---",
+          "\u30AD\u30E9\u306F\u30D7\u30EC\u30FC\u30C8\u3092\u4E8C\u5EA6\u8AAD\u3093\u3060\u3002\u4E8C\u5EA6\u76EE\u306F\u3086\u3063\u304F\u308A\u8AAD\u307F\u3001\u8A00\u8449\u304C\u80F8\u306E\u4E2D\u3067\u4E26\u3073\u66FF\u308F\u3063\u305F\u3002\u30B3\u30FC\u30C9\u3092\u66F8\u304F\u3053\u3068\u3092\u6C7A\u3057\u3066\u3084\u3081\u306A\u304B\u3063\u305F\u3002\u5F7C\u5973\u306F\u305D\u306E\u3053\u3068\u3092\u8003\u3048\u305F\u3002\u90E8\u5C4B\u3054\u3068\u306B\u9589\u3058\u3066\u3044\u304F\u8EAB\u4F53\u2014\u2014\u307E\u305A\u624B\u3001\u6B21\u306B\u8155\u3001\u305D\u3057\u3066\u3059\u3079\u3066\u2014\u2014\u305D\u3057\u3066\u305D\u306E\u4E2D\u306E\u4EBA\u9593\u304C\u307E\u3060\u30AD\u30FC\u30DC\u30FC\u30C9\u306B\u624B\u3092\u4F38\u3070\u3057\u3066\u3044\u308B\u3002\u307E\u3060\u30C7\u30D0\u30C3\u30B0\u3057\u3066\u3044\u308B\u3002\u307E\u3060\u3001\u81EA\u5206\u3092\u4E00\u4E16\u7D00\u4EE5\u4E0A\u3082\u751F\u304D\u5EF6\u3073\u308B\u3053\u3068\u306B\u306A\u308B\u30B7\u30B9\u30C6\u30E0\u3092\u4F5C\u308A\u7D9A\u3051\u3066\u3044\u308B\u3002",
+          "\u81EA\u5206\u306E\u624B\u306E\u3053\u3068\u3092\u8003\u3048\u305F\u3002\u914D\u5206\u30EC\u30DD\u30FC\u30C8\u3092\u627F\u8A8D\u3059\u308B\u305F\u3081\u306B\u4F7F\u3063\u3066\u3044\u305F\u3002\u30E9\u30A4\u30C8\u30CB\u30F3\u30B0\u306E\u8ACB\u6C42\u66F8\u3092\u30B9\u30EF\u30A4\u30D7\u3059\u308B\u305F\u3081\u306B\u4F7F\u3063\u3066\u3044\u305F\u3002\u4F55\u304B\u3092\u4F5C\u308B\u305F\u3081\u306B\u4F7F\u3063\u305F\u3053\u3068\u306F\u306A\u304B\u3063\u305F\u3002",
+          "\u5E74\u914D\u306E\u7537\u6027\u304C\u5965\u306E\u58C1\u306E\u8FD1\u304F\u306B\u7ACB\u3063\u3066\u3044\u305F\u3002\u624B\u306E\u3072\u3089\u3092\u58C1\u306B\u5E73\u3089\u306B\u5F53\u3066\u3066\u3002\u5F7C\u5973\u304C\u5165\u3063\u3066\u304B\u3089\u305A\u3063\u3068\u305D\u3046\u3057\u3066\u3044\u305F\u3002\u5927\u4E08\u592B\u3067\u3059\u304B\u3068\u805E\u304D\u304B\u3051\u305F\u3002\u305D\u308C\u304B\u3089\u5F7C\u306E\u9854\u3092\u898B\u3066\u3001\u5F7C\u304C\u3057\u3066\u3044\u308B\u3053\u3068\u306B\u540D\u524D\u304C\u306A\u3044\u3053\u3068\u3092\u7406\u89E3\u3057\u305F\u2014\u2014\u7948\u308A\u3068\u611F\u8B1D\u306E\u9593\u306E\u4F55\u304B\u3001\u91CD\u8981\u306A\u4EBA\u304C\u304B\u3064\u3066\u547C\u5438\u3057\u3066\u3044\u305F\u90E8\u5C4B\u306B\u7ACB\u3064\u4EBA\u306E\u9759\u3051\u3055\u3002",
+          "\u5965\u306E\u58C1\u304C\u6700\u5F8C\u306E\u30D4\u30FC\u30B9\u3060\u3063\u305F\u3002",
+          "\u3053\u3053\u306B\u306F\u30AC\u30E9\u30B9\u30B1\u30FC\u30B9\u306F\u306A\u3044\u3002\u5199\u771F\u3082\u306A\u3044\u3002\u5165\u308A\u53E3\u306E\u58C1\u3068\u540C\u3058\u91D1\u5C5E\u306B\u523B\u307E\u308C\u305F\u6587\u5B57\u3060\u3051\u3002\u90E8\u5C4B\u306E\u53CD\u5BFE\u5074\u304B\u3089\u8AAD\u3081\u308B\u307B\u3069\u5927\u304D\u3044\u3002",
+          "---",
+          "\u300C\u6211\u3005\u306F\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u306E\u55AA\u5931\u3001\u5FCD\u3073\u5BC4\u308B\u30B3\u30F3\u30D4\u30E5\u30FC\u30BF\u5316\u3001\u5DE8\u5927\u306A\u30C7\u30FC\u30BF\u30D9\u30FC\u30B9\u3001\u3055\u3089\u306A\u308B\u4E2D\u592E\u96C6\u6A29\u5316\u3068\u3044\u3046\u554F\u984C\u306B\u76F4\u9762\u3057\u3066\u3044\u308B\u2014\u2014\u305D\u3057\u3066\u30C1\u30E3\u30A6\u30E0\u306F\u307E\u3063\u305F\u304F\u7570\u306A\u308B\u65B9\u5411\u3092\u63D0\u793A\u3057\u3066\u3044\u308B\u3002\u653F\u5E9C\u3084\u4F01\u696D\u3067\u306F\u306A\u304F\u3001\u500B\u4EBA\u306E\u624B\u306B\u529B\u3092\u7F6E\u304F\u65B9\u5411\u3092\u3002\u30B3\u30F3\u30D4\u30E5\u30FC\u30BF\u306F\u4EBA\u3005\u3092\u652F\u914D\u3059\u308B\u305F\u3081\u3067\u306F\u306A\u304F\u3001\u89E3\u653E\u3057\u4FDD\u8B77\u3059\u308B\u305F\u3081\u306E\u9053\u5177\u3068\u3057\u3066\u4F7F\u3046\u3053\u3068\u304C\u3067\u304D\u308B\u3002\u300D",
+          "---",
+          "\u305D\u306E\u4E0B\u306B\u3001\u3088\u308A\u5C0F\u3055\u306A\u6587\u5B57\u3067\u2014\u2014\u30CF\u30EB\u30FB\u30D5\u30A3\u30CB\u30FC\u3001\u4E00\u4E5D\u4E5D\u4E8C\u5E74\u3002",
+          "\u4E00\u4E5D\u4E5D\u4E8C\u5E74\u3002\u30AD\u30E9\u306F\u8003\u3048\u308B\u307E\u3067\u3082\u306A\u304F\u8A08\u7B97\u3057\u305F\u2014\u2014\u767E\u56DB\u5341\u516B\u5E74\u524D\u3002\u30DB\u30C6\u30EB\u304C\u5B58\u5728\u3059\u308B\u524D\u306B\u3053\u306E\u8A00\u8449\u3092\u66F8\u3044\u3066\u3044\u305F\u3002\u5BD2\u51B7\u5316\u306E\u524D\u306B\u3002\u30DA\u30C8\u30ED\u30C9\u30EB\u304C\u5D29\u58CA\u3059\u308B\u524D\u306B\u3001\u30B0\u30EC\u30FC\u30C8\u30FB\u30C1\u30A7\u30C3\u30AF\u30A4\u30F3\u306E\u524D\u306B\u3001\u4EBA\u985E\u306E\u4E5D\u5341\u4E94\u30D1\u30FC\u30BB\u30F3\u30C8\u304C\u30AC\u30BF\u30FC\u306B\u843D\u3061\u308B\u524D\u306B\u3001\u4ED6\u306E\u8AB0\u304B\u306E\u4FE1\u5FF5\u304C\u7BC9\u3044\u305F\u30D5\u30ED\u30A2\u3067\u5F7C\u5973\u304C\u751F\u307E\u308C\u308B\u524D\u306B\u3002",
+          "\u5F7C\u306B\u306F\u898B\u3048\u3066\u3044\u305F\u3002\u30DB\u30C6\u30EB\u3067\u306F\u306A\u3044\u3002\u30DB\u30C6\u30EB\u3088\u308A\u524D\u306E\u3082\u306E\u3002\u305D\u306E\u5FC5\u8981\u6027\u304C\u3002",
+          "\u7ACB\u3063\u3066\u3044\u308B\u5834\u6240\u304B\u3089\u8ECA\u6905\u5B50\u306E\u5199\u771F\u3092\u3082\u3046\u4E00\u5EA6\u898B\u305F\u3002\u7537\u306E\u76EE\u306F\u92ED\u304B\u3063\u305F\u3002\u4E00\u5EA6\u76EE\u306B\u898B\u843D\u3068\u3057\u3066\u3044\u305F\u30C7\u30A3\u30C6\u30FC\u30EB\u3002\u8EAB\u4F53\u306F\u8870\u3048\u3066\u3044\u305F\u3002\u76EE\u306F\u305D\u3046\u3067\u306F\u306A\u304B\u3063\u305F\u3002\u4ECA\u3082\u306A\u304A\u8A08\u7B97\u3092\u7D9A\u3051\u3066\u3044\u308B\u4EBA\u306E\u76EE\u306B\u898B\u3048\u305F\u3002\u6905\u5B50\u306E\u4E2D\u3067\u3055\u3048\u3001\u30BF\u30A4\u30D7\u3067\u304D\u306A\u3044\u624B\u3067\u3055\u3048\u2014\u2014\u982D\u306E\u4E2D\u3067\u554F\u984C\u306B\u53D6\u308A\u7D44\u3093\u3067\u3044\u308B\u3002\u554F\u984C\u306E\u307B\u3046\u304C\u3001\u304B\u3064\u3066\u305D\u308C\u3092\u904B\u3093\u3067\u3044\u305F\u8EAB\u4F53\u3088\u308A\u91CD\u8981\u3060\u3063\u305F\u304B\u3089\u3002",
+          "\u30AD\u30E9\u306E\u558D\u304C\u7DE0\u307E\u3063\u305F\u3002\u4E88\u60F3\u3057\u3066\u3044\u306A\u304B\u3063\u305F\u3002",
+          "\u6B74\u53F2\u7684\u306A\u5834\u6240\u3092\u8A2A\u308C\u308B\u3088\u3046\u306B\u6765\u3066\u3044\u305F\u2014\u2014\u656C\u610F\u3092\u6301\u3063\u3066\u3001\u7FA9\u52D9\u611F\u304B\u3089\u3001\u4F55\u304B\u3092\u5B66\u3076\u3068\u3044\u3046\u6F20\u7136\u3068\u3057\u305F\u610F\u56F3\u3068\u3001\u4F55\u3082\u611F\u3058\u306A\u3044\u3060\u308D\u3046\u3068\u3044\u3046\u5185\u5FC3\u306E\u4E88\u60F3\u3068\u3001\u5E30\u308A\u306B\u304A\u571F\u7523\u5C4B\u3067\u4F55\u304B\u8CB7\u3046\u3060\u308D\u3046\u3068\u3044\u3046\u60F3\u5B9A\u3067\u3002",
+          "\u304A\u571F\u7523\u5C4B\u306F\u306A\u304B\u3063\u305F\u3002\u8CB7\u3046\u3082\u306E\u306F\u4F55\u3082\u306A\u304B\u3063\u305F\u3002\u6765\u308B\u524D\u306B\u3069\u3053\u304B\u3067\u8AAD\u3093\u3060\u3053\u3068\u304C\u3042\u3063\u305F\u2014\u2014\u3053\u306E\u30D5\u30ED\u30A2\u306F\u4F55\u3082\u58F2\u3089\u306A\u3044\u3001\u4F55\u3082\u53D6\u5F15\u3057\u306A\u3044\u3068\u3002\u305D\u306E\u610F\u5473\u3092\u4ECA\u307E\u3067\u7406\u89E3\u3057\u3066\u3044\u306A\u304B\u3063\u305F\u3002",
+          "\u82E5\u3044\u5973\u6027\u304C\u523B\u307E\u308C\u305F\u5F15\u7528\u6587\u306E\u8FD1\u304F\u306E\u5E8A\u306B\u5EA7\u3063\u3066\u3044\u305F\u3002\u3042\u3050\u3089\u3092\u304B\u3044\u3066\u3001\u819D\u306E\u4E0A\u306B\u30CE\u30FC\u30C8\u3092\u958B\u3044\u3066\u3002\u624B\u3067\u8A00\u8449\u3092\u66F8\u304D\u5199\u3057\u3066\u3044\u305F\u3002\u3086\u3063\u304F\u308A\u3068\u3002\u66F8\u304F\u3068\u3044\u3046\u884C\u70BA\u304C\u3001\u8AAD\u3080\u3060\u3051\u3067\u306F\u5B66\u3079\u306A\u3044\u4F55\u304B\u3092\u6559\u3048\u3066\u304F\u308C\u308B\u304B\u306E\u3088\u3046\u306B\u3002",
+          "\u30AD\u30E9\u306F\u3057\u3070\u3089\u304F\u5F7C\u5973\u3092\u898B\u3066\u3044\u305F\u3002\u305D\u308C\u304B\u3089\u5F15\u7528\u6587\u3092\u3082\u3046\u4E00\u5EA6\u898B\u305F\u3002",
+          "---",
+          "\u30B3\u30F3\u30D4\u30E5\u30FC\u30BF\u306F\u4EBA\u3005\u3092\u652F\u914D\u3059\u308B\u305F\u3081\u3067\u306F\u306A\u304F\u3001\u89E3\u653E\u3057\u4FDD\u8B77\u3059\u308B\u305F\u3081\u306E\u9053\u5177\u3068\u3057\u3066\u4F7F\u3046\u3053\u3068\u304C\u3067\u304D\u308B\u3002",
+          "---",
+          "\u30B9\u30C8\u30E9\u30C6\u30B8\u30FC\u30FB\u30D5\u30ED\u30A2\u306E\u3053\u3068\u3092\u8003\u3048\u305F\u3002\u3059\u3079\u3066\u306E\u30C6\u30CA\u30F3\u30C8\u3092\u7E1B\u308B\u5951\u7D04\u3002\u5728\u5EAB\u306E\u3088\u3046\u306B\u4F01\u696D\u9818\u5730\u9593\u3067\u4EBA\u3092\u52D5\u304B\u3059\u30BF\u30EC\u30F3\u30C8\u5E02\u5834\u3002\u5F7C\u5973\u304C\u4F7F\u3046\u3059\u3079\u3066\u306E\u30B5\u30C3\u30C8\u3092\u8FFD\u8DE1\u3059\u308B\u30E9\u30A4\u30C8\u30CB\u30F3\u30B0\u30FB\u30B7\u30B9\u30C6\u30E0\u3002\u305D\u308C\u3092\u30B3\u30F3\u30C8\u30ED\u30FC\u30EB\u3060\u3068\u8003\u3048\u305F\u3053\u3068\u306F\u306A\u304B\u3063\u305F\u3002\u69CB\u9020\u3060\u3068\u601D\u3063\u3066\u3044\u305F\u3002\u6587\u660E\u3060\u3068\u601D\u3063\u3066\u3044\u305F\u3002",
+          "\u4ECA\u3001\u8003\u3048\u305F\u3002",
+          "\u5C11\u5E74\u304C\u2014\u2014\u5341\u6B73\u304B\u5341\u4E8C\u6B73\u304F\u3089\u3044\u306E\u2014\u2014\u5F7C\u5973\u304C\u5165\u3063\u3066\u304D\u305F\u3068\u304D\u306B\u9817\u3044\u305F\u5973\u6027\u306E\u8896\u3092\u5F15\u3063\u5F35\u3063\u305F\u3002\u300C\u306A\u3093\u3067\u3053\u3093\u306A\u306B\u5C0F\u3055\u3044\u306E\uFF1F\u300D\u3068\u805E\u3044\u305F\u3002\u5931\u793C\u306A\u3064\u3082\u308A\u3067\u306F\u306A\u304B\u3063\u305F\u3002\u672C\u5F53\u306B\u4E0D\u601D\u8B70\u3060\u3063\u305F\u306E\u3060\u3002\u304A\u305D\u3089\u304F\u5927\u8056\u5802\u3092\u898B\u305F\u3053\u3068\u304C\u3042\u308B\u3002\u304A\u305D\u3089\u304F\u30D6\u30E9\u30C3\u30AF\u30ED\u30C3\u30AF\u306E\u30A2\u30C8\u30EA\u30A6\u30E0\u3092\u898B\u305F\u3053\u3068\u304C\u3042\u308B\u3002\u30DB\u30C6\u30EB\u306E\u8A18\u5FF5\u7891\u306F\u3001\u795D\u3046\u3082\u306E\u306E\u91CD\u307F\u3092\u611F\u3058\u3055\u305B\u308B\u305F\u3081\u306B\u4F5C\u3089\u308C\u3066\u3044\u305F\u3002\u3053\u306E\u90E8\u5C4B\u306F\u305D\u306E\u53CD\u5BFE\u3092\u611F\u3058\u3055\u305B\u305F\u3002\u305F\u3063\u305F\u4E00\u4EBA\u3067\u50CD\u304D\u3001\u305F\u307E\u305F\u307E\u6B63\u3057\u304B\u3063\u305F\u4EBA\u9593\u306E\u8EFD\u3084\u304B\u3055\u3092\u611F\u3058\u3055\u305B\u305F\u3002",
+          "\u5973\u6027\u306F\u5C11\u5E74\u306E\u80A9\u306B\u624B\u3092\u7F6E\u3044\u305F\u3002\u300C\u3053\u308C\u4EE5\u4E0A\u306E\u5834\u6240\u306F\u5FC5\u8981\u306A\u304B\u3063\u305F\u304B\u3089\u3088\u3002\u300D",
+          "\u30AD\u30E9\u306F\u56DB\u5341\u5206\u9593\u3044\u305F\u3002\u58C1\u306B\u306F\u89E6\u308C\u306A\u304B\u3063\u305F\u3002\u5E8A\u306B\u3082\u5EA7\u3089\u306A\u304B\u3063\u305F\u3002\u305F\u3060\u7ACB\u3063\u3066\u3001\u3059\u3079\u3066\u3092\u4E8C\u5EA6\u8AAD\u307F\u3001\u5199\u771F\u3092\u4E09\u5EA6\u898B\u3066\u3001\u3072\u3093\u3084\u308A\u3057\u305F\u30B3\u30F3\u30AF\u30EA\u30FC\u30C8\u306B\u8DB3\u304C\u601D\u3044\u51FA\u3055\u305B\u308B\u307E\u307E\u306B\u3057\u305F\u2014\u2014\u30DB\u30C6\u30EB\u306B\u306F\u5E95\u304C\u3042\u308B\u3053\u3068\u3001\u5E95\u306F\u8FD1\u3044\u3053\u3068\u3001\u4E00\u751F\u66AE\u3089\u3057\u3066\u304D\u305F\u6E29\u304B\u3055\u306F\u751F\u307E\u308C\u306A\u304C\u3089\u306E\u6A29\u5229\u3067\u306F\u306A\u3044\u3053\u3068\u3002\u8AB0\u304B\u304C\u4F5C\u3063\u305F\u3082\u306E\u3060\u3068\u3044\u3046\u3053\u3068\u3002\u7279\u5B9A\u306E\u8AB0\u304B\u3002\u624B\u304C\u52D5\u304B\u306A\u304F\u306A\u3063\u3066\u3082\u4F5C\u308A\u7D9A\u3051\u305F\u8AB0\u304B\u3002",
+          "\u5E30\u308B\u3068\u304D\u3001\u30A8\u30AF\u30B9\u30D7\u30EC\u30B9\u30FB\u30B7\u30E3\u30D5\u30C8\u306F\u307B\u307C\u7121\u97F3\u3067\u4E0A\u6607\u3057\u305F\u3002\u30D5\u30ED\u30A2\u30AB\u30A6\u30F3\u30BF\u30FC\u304C\u4E0A\u304C\u308B\u306E\u3092\u898B\u305F\u3002\u4E94\u3007\u3007\u3002\u4E94\u3007\u3007\u3007\u3002\u4E8C\u3007\u3007\u3007\u3007\u3002\u8FB2\u696D\u30D9\u30EB\u30C8\u304C\u904E\u304E\u3001\u30AA\u30FC\u30D7\u30F3\u30FB\u30EC\u30F3\u30B8\u304C\u904E\u304E\u3001\u4E00\u5EA6\u3082\u8A2A\u308C\u305F\u3053\u3068\u306E\u306A\u3044\u30CA\u30B7\u30E7\u30CA\u30EB\u30FB\u30D5\u30ED\u30A2\u304C\u904E\u304E\u305F\u3002\u7A7A\u6C17\u306F\u5EA6\u3054\u3068\u306B\u6E29\u307E\u3063\u305F\u3002\u5341\u4E07\u968E\u3067\u6545\u90F7\u306E\u3088\u3046\u306B\u611F\u3058\u305F\u3002\u5341\u4E94\u4E07\u968E\u3067\u3001\u4E00\u751F\u5438\u3063\u3066\u304D\u305F\u30B9\u30C8\u30E9\u30C6\u30B8\u30FC\u306E\u30EA\u30B5\u30A4\u30AF\u30EB\u7A7A\u6C17\u306E\u5302\u3044\u304C\u3057\u305F\u3002",
+          "\u81EA\u5206\u306E\u30D5\u30ED\u30A2\u306B\u964D\u308A\u305F\u3002\u5ECA\u4E0B\u306F\u5E83\u304F\u3001\u660E\u308B\u304B\u3063\u305F\u3002\u30E9\u30A4\u30C8\u30CB\u30F3\u30B0\u7AEF\u672B\u304C\u7DD1\u306B\u70B9\u6EC5\u3057\u3066\u3044\u305F\u3002\u540C\u50DA\u304C\u901A\u308A\u304B\u304B\u3063\u3066\u56DB\u534A\u671F\u30EC\u30D3\u30E5\u30FC\u306B\u3064\u3044\u3066\u4F55\u304B\u8A00\u3044\u3001\u5F7C\u5973\u306F\u9817\u3044\u3066\u6B69\u304D\u7D9A\u3051\u305F\u3002",
+          "\u90E8\u5C4B\u3067\u30D9\u30C3\u30C9\u306E\u7AEF\u306B\u5EA7\u3063\u305F\u3002\u90E8\u5C4B\u306F\u6E29\u304B\u304B\u3063\u305F\u3002\u7167\u660E\u306F\u5B89\u5B9A\u3057\u3066\u3044\u305F\u3002\u3059\u3079\u3066\u304C\u6A5F\u80FD\u3057\u3066\u3044\u305F\u3002",
+          "\u4E21\u624B\u3092\u958B\u3044\u3066\u3001\u898B\u3064\u3081\u305F\u3002",
+          "\u305D\u3057\u3066\u3001\u9589\u3058\u305F\u3002",
+        ],
+      },
+    },
+  },
 ];
 
 const MEDIA = [
@@ -955,7 +1199,17 @@ function TalesScreen({ onBack, onPick }) {
 
 function TaleDetail({ tale, onBack }) {
   const [v, setV] = useState(false);
+  const [lang, setLang] = useState("en");
   useEffect(() => { setTimeout(() => setV(true), 50); window.scrollTo(0, 0); }, []);
+  const hasTranslations = tale.translations && Object.keys(tale.translations).length > 0;
+  const langs = hasTranslations ? ["en", ...Object.keys(tale.translations)] : ["en"];
+  const langLabels = { en: "EN", es: "ES", pt: "PT", ja: "JA", fr: "FR", de: "DE", zh: "ZH", ko: "KO", ar: "AR" };
+  const t = lang === "en" ? tale : tale.translations[lang];
+  const content = lang === "en" ? tale.content : t.content;
+  const title = lang === "en" ? tale.title : (t.title || tale.title);
+  const dedication = lang === "en" ? tale.dedication : (t.dedication || tale.dedication);
+  const endnote = lang === "en" ? tale.endnote : (t.endnote || tale.endnote);
+  const endnoteCloser = lang === "en" ? tale.endnoteCloser : (t.endnoteCloser || tale.endnoteCloser);
   return (
     <div style={{ minHeight: "100vh", background: DARK, position: "relative", overflow: "hidden" }}>
       <Noise />
@@ -967,29 +1221,63 @@ function TaleDetail({ tale, onBack }) {
       <div style={{ maxWidth: 600, margin: "-40px auto 0", padding: "0 24px 60px", position: "relative", zIndex: 2, opacity: v ? 1 : 0, transform: v ? "translateY(0)" : "translateY(20px)", transition: "all .6s cubic-bezier(.22,1,.36,1)" }}>
         <div style={{ textAlign: "center", marginBottom: 40 }}>
           <div style={{ fontSize: 11, color: ORANGE, fontFamily: "monospace", letterSpacing: ".15em", marginBottom: 8, opacity: .7 }}>TALES FROM THE 21M HOTEL</div>
-          <h1 style={{ fontSize: "clamp(28px,5vw,40px)", fontWeight: 800, color: "#fff", fontFamily: "'Georgia',serif", margin: "0 0 6px", lineHeight: 1.1 }}>{tale.title}</h1>
-          <p style={{ fontSize: 14, color: "rgba(255,255,255,.4)", fontFamily: "'Georgia',serif", fontStyle: "italic", margin: "0 0 16px" }}>{tale.subtitle}</p>
+          <h1 style={{ fontSize: "clamp(28px,5vw,40px)", fontWeight: 800, color: "#fff", fontFamily: "'Georgia',serif", margin: "0 0 6px", lineHeight: 1.1 }}>{title}</h1>
+          {dedication && (
+            <p style={{ fontSize: 14, color: "rgba(255,255,255,.5)", fontFamily: "'Georgia',serif", fontStyle: "italic", margin: "8px 0 0" }}>{dedication}</p>
+          )}
+          <p style={{ fontSize: 14, color: "rgba(255,255,255,.4)", fontFamily: "'Georgia',serif", fontStyle: "italic", margin: "8px 0 16px" }}>{tale.subtitle}</p>
+          {hasTranslations && (
+            <div style={{ display: "flex", justifyContent: "center", gap: 6, marginBottom: 12 }}>
+              {langs.map(l => (
+                <button key={l} onClick={() => { setLang(l); window.scrollTo(0, 0); }} style={{
+                  background: lang === l ? ORANGE : "rgba(255,255,255,.06)",
+                  border: lang === l ? "1px solid " + ORANGE : "1px solid rgba(255,255,255,.1)",
+                  borderRadius: 4, color: lang === l ? DARK : "rgba(255,255,255,.4)",
+                  padding: "5px 12px", cursor: "pointer", fontSize: 11, fontWeight: 700,
+                  fontFamily: "monospace", letterSpacing: ".08em", transition: "all .2s ease",
+                }}>{langLabels[l] || l.toUpperCase()}</button>
+              ))}
+            </div>
+          )}
           <div style={{ fontSize: 16, color: ORANGE, opacity: 0.4 }}>─── ₿ ───</div>
         </div>
         <div>
-          {tale.content.map((para, i) => {
+          {content.map((para, i) => {
             if (para === "---") return (
               <div key={i} style={{ textAlign: "center", margin: "32px 0", fontSize: 16, color: ORANGE, opacity: 0.3 }}>─── ₿ ───</div>
             );
-            const isShortDialogue = para.startsWith("\u201C") && para.length < 80;
+            const isShortDialogue = para.startsWith("\u201C") || para.startsWith("\u300C") || (para.startsWith('"') && para.length < 80);
+            const isShort = isShortDialogue && para.length < 80;
             return (
               <p key={i} style={{
                 fontSize: 16, color: "rgba(255,255,255,.75)", fontFamily: "'Georgia',serif",
-                lineHeight: 1.85, margin: isShortDialogue ? "0 0 8px" : "0 0 20px",
-                textIndent: isShortDialogue ? 0 : 24,
+                lineHeight: 1.85, margin: isShort ? "0 0 8px" : "0 0 20px",
+                textIndent: isShort ? 0 : 24,
               }}>{para}</p>
             );
           })}
         </div>
-        <div style={{ textAlign: "center", marginTop: 48, marginBottom: 32 }}>
-          <div style={{ fontSize: 16, color: ORANGE, opacity: 0.3 }}>─── ₿ ───</div>
-        </div>
-        <div style={{ textAlign: "center" }}>
+        {endnote && (
+          <>
+            <div style={{ textAlign: "center", marginTop: 48, marginBottom: 24 }}>
+              <div style={{ fontSize: 16, color: ORANGE, opacity: 0.3 }}>─── ₿ ───</div>
+            </div>
+            <div style={{ maxWidth: 480, margin: "0 auto", padding: "0 12px" }}>
+              {endnote.split("\n\n").map((block, i) => (
+                <p key={i} style={{ fontSize: 13, color: "rgba(255,255,255,.45)", fontFamily: "'Georgia',serif", fontStyle: "italic", lineHeight: 1.7, margin: "0 0 12px", textAlign: "center" }}>{block}</p>
+              ))}
+              {endnoteCloser && (
+                <p style={{ fontSize: 13, color: ORANGE, fontFamily: "'Georgia',serif", fontStyle: "italic", lineHeight: 1.7, margin: "16px 0 0", textAlign: "center", opacity: .7 }}>{endnoteCloser}</p>
+              )}
+            </div>
+          </>
+        )}
+        {!endnote && (
+          <div style={{ textAlign: "center", marginTop: 48, marginBottom: 32 }}>
+            <div style={{ fontSize: 16, color: ORANGE, opacity: 0.3 }}>─── ₿ ───</div>
+          </div>
+        )}
+        <div style={{ textAlign: "center", marginTop: endnote ? 32 : 0 }}>
           <div style={{ fontSize: 10, color: "rgba(255,255,255,.15)", fontFamily: "monospace", letterSpacing: ".12em", marginBottom: 12 }}>FLOOR</div>
           <div style={{ fontSize: 12, color: "rgba(255,255,255,.35)", fontFamily: "monospace" }}>{tale.floor}</div>
         </div>
